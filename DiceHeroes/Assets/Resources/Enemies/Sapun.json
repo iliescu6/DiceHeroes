@@ -1,0 +1,11 @@
+{
+    "name": "Sapun",
+    "description": "",
+    "health": 5,
+    "mana": 0,
+    "armour": 2,
+    "damage": 2,
+    "dices": 2,
+	"dicePool" :[0,0],
+	"owner" : "Enemy"
+}
