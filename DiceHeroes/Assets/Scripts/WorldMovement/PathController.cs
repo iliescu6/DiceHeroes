@@ -29,19 +29,10 @@ public class PathController : MonoBehaviour
 
     void CreatePathTree()
     {
-        int index = 0;
         pathNodes.Add(new Node(paths[0]));
         for (int i = 1; i < paths.Count; i++)
         {
-            if (pathNodes[index].HasUnassignedPath())
-            {
-                pathNodes[index].Insert(paths[i]);
-                pathNodes.Add(new Node(paths[i]));
-                if (!pathNodes[index].HasUnassignedPath())
-                {
-                    index++;
-                }
-            }
+            pathNodes[0].Insert(pathNodes[0], paths[i]);
         }
     }
 
@@ -59,39 +50,62 @@ public class Node
         directions.Add("left", null);
     }
 
-    public void Insert(PathPiece path)
+    public void Insert(Node temp, PathPiece path)
     {
-        if (piece.PathPieceType == PathPieceType.Bisection)
+        Queue<Node> q = new Queue<Node>();
+        q.Enqueue(temp);
+        while (q.Count != 0)
         {
-            if (this.left == null)
+            temp = q.Peek();
+            q.Dequeue();
+            if (temp.piece.PathPieceType == PathPieceType.Bisection)
             {
-                this.left = new Node(path);
+                if (temp.left == null)
+                {
+                    temp.left = new Node(path);
+                    break;
+                }
+                else
+                {
+                    q.Enqueue(temp.left);
+                }
+                if (temp.right == null)
+                {
+                    temp.right = new Node(path);
+                    break;
+                }
+                else
+                {
+                    q.Enqueue(temp.right);
+                }
             }
-            else if (this.right == null)
+            else if (temp.piece.PathPieceType == PathPieceType.Straight)
             {
-                this.right = new Node(path);
-                completed = true;
+                if (temp.forward == null)
+                {
+                    temp.forward = new Node(path);
+                    break;
+                }
+                else
+                {
+                    q.Enqueue(temp.forward);
+                }
             }
-        }
-        else if (this.forward == null && piece.PathPieceType == PathPieceType.Straight)
-        {
-            this.forward = new Node(path);
-            this.completed = true;
-        }
-        else if (piece.PathPieceType == PathPieceType.Intersection)
-        {
-            if (this.left == null)
+            else if (temp.piece.PathPieceType == PathPieceType.Intersection)
             {
-                this.left = new Node(path);
-            }
-            else if (this.right == null)
-            {
-                this.right = new Node(path);
-            }
-            else if (this.forward == null)
-            {
-                this.forward = new Node(path);
-                this.completed = true;
+                if (temp.left == null)
+                {
+                    temp.left = new Node(path);
+                }
+                else if (temp.right == null)
+                {
+                    temp.right = new Node(path);
+                }
+                else if (temp.forward == null)
+                {
+                    temp.forward = new Node(path);
+                    temp.completed = true;
+                }
             }
         }
     }

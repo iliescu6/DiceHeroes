@@ -48,7 +48,8 @@ public class PlayerWorldMovement : MonoBehaviour
         }
         else
         {
-            leftButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.left.piece.Waypoint); });
+            leftButton.gameObject.SetActive(true);
+            leftButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.left.piece.transform); });
             targetPathPiece = currentPathPiece.left;
         }
 
@@ -58,6 +59,7 @@ public class PlayerWorldMovement : MonoBehaviour
         }
         else
         {
+            forwardButton.gameObject.SetActive(true);
             forwardButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.forward.piece.transform); });
             targetPathPiece = currentPathPiece.forward;
         }
@@ -68,6 +70,7 @@ public class PlayerWorldMovement : MonoBehaviour
         }
         else
         {
+            rightButton.gameObject.SetActive(true);
             rightButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.right.piece.transform); });
             targetPathPiece = currentPathPiece.right;
         }
