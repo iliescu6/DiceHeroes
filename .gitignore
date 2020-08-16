@@ -3,9 +3,9 @@ Builds/
 # =============== #
 # Unity generated #
 # =============== #
-DiceHeroesGit/Temp/
-DiceHeroesGit/Library/
-DiceHeroesGit/Logs/
+DiceHeroes/Temp/
+DiceHeroes/Library/
+DiceHeroes/Logs/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -14,7 +14,7 @@ ExportedObj/
 obj/
 *.svd
 *.userprefs
-DiceHeroesGit/*.csproj
+DiceHeroes/*.csproj
 *.pidb
 *.suo
 *.sln
