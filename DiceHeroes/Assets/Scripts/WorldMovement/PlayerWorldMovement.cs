@@ -8,6 +8,7 @@ public class PlayerWorldMovement : MonoBehaviour
 {
     Node currentPathPiece;
     Node targetPathPiece;
+    PlayerProfile playerProfile;
 
     [SerializeField]
     Transform player;
@@ -19,8 +20,16 @@ public class PlayerWorldMovement : MonoBehaviour
     Button rightButton;
     private void Start()
     {
-        PathController.Instance.Initialize();
-        currentPathPiece = PathController.Instance.pathNodes[0];
+        playerProfile = PlayerProfile.Instance;
+        if (playerProfile.CurrentMap != null)
+        {
+            currentPathPiece = playerProfile.CurrentMap;
+        }
+        else
+        {
+            PathController.Instance.Initialize();
+            currentPathPiece = PathController.Instance.pathNodes[0];
+        }
         SetDirectionButtons();
     }
 
@@ -28,6 +37,9 @@ public class PlayerWorldMovement : MonoBehaviour
     {
         StartCoroutine(MoveToPathCoroutine(target));
         currentPathPiece = targetPathPiece;
+        playerProfile.CurrentMap = currentPathPiece;
+        if(currentPathPiece.piece.PathEventType!=PathEventType.None)
+        WorldPanelsController.Instance.ShowPathEventPanel(currentPathPiece.piece);
         SetDirectionButtons();
     }
 

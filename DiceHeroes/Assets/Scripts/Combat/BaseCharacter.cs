@@ -11,12 +11,30 @@ public class BaseCharacter : MonoBehaviour
     public string owner;
     [SerializeField]
     private TMP_Text button;
+    private List<Ability> startingAbilities = new List<Ability>();
+    private List<Ability> equipedAbilities = new List<Ability>();
+
+    public List<Ability> EquipedAbilities//TODO maybe make it array, have a limit
+    {
+        get { return equipedAbilities; }
+        set { equipedAbilities = value; }
+    }
+
+    public List<Ability> StartingAbilities
+    {
+        get { return startingAbilities; }
+        set { startingAbilities = value; }
+    }
+
     // Start is called before the first frame update
     virtual public void Start()
     {
-        SetCharacterStats();
-        button.text = "Name: " + characterStats.name +
-            "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.damage;
+        if (gameObject.tag != "Player")
+        {
+            SetCharacterStats();
+            button.text = "Name: " + characterStats.name +
+                "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
+        }
     }
 
     // Update is called once per frame
@@ -33,12 +51,12 @@ public class BaseCharacter : MonoBehaviour
     public virtual void UpdateStats()
     {
         button.text = "Name: " + characterStats.name +
-            "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.damage;
+            "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
     }
 
     virtual public void SetCharacterStats()
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Enemies", "*.json");
+        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Characters/Enemies", "*.json");
         for (int i = 0; i < files.Length; i++)
         {
             string text = File.ReadAllText(files[i]);

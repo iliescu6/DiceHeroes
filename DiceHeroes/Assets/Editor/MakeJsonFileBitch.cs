@@ -2,15 +2,18 @@
 using UnityEditor;
 using System.Collections;
 using System.IO;
+using System.Collections.Generic;
 
 public class MakeJsonFileBitch : EditorWindow
 {
-    public Ability ability=new Ability();
-    public CharacterStats enemy=new CharacterStats();
+    public Ability ability = new Ability();
+    public CharacterStats enemy = new CharacterStats();
     Vector2 scrollPos;
     int selectedIndex = -1;
     bool drawList = true;
     int tab = 0;
+    string oldFileName;
+    string newFileName;
 
     [MenuItem("Tools/JSon Editor")]
     public static void SuckIt()
@@ -26,7 +29,7 @@ public class MakeJsonFileBitch : EditorWindow
 
     void OnGUI()
     {
-         tab = GUILayout.Toolbar(tab, new string[] { "Abilities", "Enemies","Characters"});
+        tab = GUILayout.Toolbar(tab, new string[] { "Abilities", "Enemies", "Characters" });
         switch (tab)
         {
             case 0:
@@ -34,12 +37,14 @@ public class MakeJsonFileBitch : EditorWindow
                 break;
 
             case 1:
-                DrawEnemiesTab();
+                DrawEnemiesTab("Enemies");
                 break;
-
-             default:
+            case 2:
+                DrawEnemiesTab("Classes");
                 break;
-        }  
+            default:
+                break;
+        }
     }
 
 
@@ -96,11 +101,11 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
-    void DrawEnemiesTab()
+    void DrawEnemiesTab(string characters)
     {
         GUIStyle itemStyle = new GUIStyle(GUI.skin.button);
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Enemies/", "*.json");
-        if (files.Length != 0)
+        List<string> files = new List<string>(Directory.GetFiles(Application.dataPath + "/Resources/Characters/"+ characters +"/ ", "*.json"));
+        if (files.Count != 0)
         {
             EditorGUILayout.BeginHorizontal();
             scrollPos =
@@ -112,7 +117,7 @@ public class MakeJsonFileBitch : EditorWindow
 
 
 
-            for (int i = 0; i < files.Length; i++)
+            for (int i = 0; i < files.Count; i++)
             {
                 string text = File.ReadAllText(files[i]);
                 GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
@@ -121,6 +126,7 @@ public class MakeJsonFileBitch : EditorWindow
                 {
                     selectedIndex = i;
                     enemy = a;
+                    oldFileName = enemy.name;
                 }
             }
             EditorGUILayout.EndScrollView();
@@ -132,16 +138,46 @@ public class MakeJsonFileBitch : EditorWindow
         enemy.name = EditorGUILayout.TextField("Name", enemy.name);
         enemy.health = EditorGUILayout.IntField("Health", enemy.health);
         enemy.armour = EditorGUILayout.IntField("Armour", enemy.armour);
-        enemy.damage = EditorGUILayout.IntField("Damage", enemy.damage);
-        enemy.dices = EditorGUILayout.IntField("Dices", enemy.damage);
+        enemy.attrition = EditorGUILayout.IntField("Damage", enemy.attrition);
+        enemy.dices = EditorGUILayout.IntField("Dices", enemy.attrition);
 
 
-        if (GUILayout.Button("Create"))
+        if (GUILayout.Button("Save"))
         {
             string path = enemy.name + ".json";
             string jsonData = JsonUtility.ToJson(enemy, true);
-            File.WriteAllText(Application.dataPath + "/Resources/Enemies/" + enemy.name + ".json", jsonData);
+            if (oldFileName != enemy.name)
+            {
+                if (oldFileName == "")
+                {
+                    oldFileName = "new";
+                }
+                string newPath = Application.dataPath + "/Resources/Characters/"+ characters +"/ " + enemy.name + ".json";
+                string oldPath = Application.dataPath + "/Resources/Characters/" + characters + "/" + oldFileName + ".json";
+                AssetDatabase.RenameAsset(oldPath, newPath);
+                AssetDatabase.SaveAssets();
+                oldFileName = enemy.name;
+            }
+            else
+            {
+                File.WriteAllText(Application.dataPath + "/Resources/Characters/" + characters + "/" + enemy.name + ".json", jsonData);
+            }
             drawList = true;
+        }
+        if (GUILayout.Button("New File"))
+        {
+            enemy = new CharacterStats();
+            oldFileName = "new";
+            string jsonData = JsonUtility.ToJson(enemy, true);
+            System.IO.File.WriteAllText(Application.dataPath + "/Resources/Characters/" + characters + "/new.json", jsonData);
+        }
+        if (GUILayout.Button("Delete File"))
+        {
+            if (enemy.name == "")
+            {
+                enemy.name = "new";
+            }
+            File.Delete(Application.dataPath + "/Resources/Characters/" + characters + "/" + enemy.name + ".json");
         }
     }
 }

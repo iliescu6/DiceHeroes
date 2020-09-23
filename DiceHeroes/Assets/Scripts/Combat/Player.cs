@@ -5,7 +5,20 @@ using UnityEngine.UI;
 
 public class Player : BaseCharacter
 {
+    private List<Ability> spellbookAbilities = new List<Ability>();
+
+    public List<Ability> SpellbokAbilities
+    {
+        get { return spellbookAbilities; }
+        set { spellbookAbilities = value; }
+    }
+
     public static Player Instance { get; set; }
+
+    public override void Start()
+    {
+        
+    }
 
     private void Awake()
     {
@@ -39,18 +52,6 @@ public class Player : BaseCharacter
     private int mana;
 
     public int Mana { get { return mana; } set { mana = value; } }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-  
 
     public void UpdateStats()
     {

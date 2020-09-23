@@ -48,7 +48,8 @@ public class Dice : MonoBehaviour
     public void RollDice()
     {
         rigidBody.isKinematic = false;
-        rigidBody.AddRelativeForce(Vector3.left*400);
+        rigidBody.AddRelativeForce(Random.Range(0, 400), Random.Range(0, 500), Random.Range(0, 500));
+        rigidBody.AddTorque(Random.Range(0,100), Random.Range(0, 500), Random.Range(0, 500));
     }
 
     public void ResetDice()

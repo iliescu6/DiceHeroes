@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { Standyby, Roll, WaitEndOfRoll, PostRoll, EndRoll }
 
@@ -17,8 +18,9 @@ public class CombatBehaviour : MonoBehaviour
     string winner = "None";
     [SerializeField]
     private Transform playerSpawner;
+
     [SerializeField]
-    //private Transform AISpawner;
+    GameObject combatScene;
 
     private List<Transform> playerSpawningPoints = new List<Transform>();
     //private List<Transform> aiSpawningPoints = new List<Transform>();
@@ -29,6 +31,7 @@ public class CombatBehaviour : MonoBehaviour
     bool finishedRoll = false;
     bool didDamage = false;
     public int turnIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -188,6 +191,8 @@ public class CombatBehaviour : MonoBehaviour
         if (winner != "None")
         {
             Debug.Log("Winner is :" + winner);
+            SceneManagerTransition.Instance.sceneLoaded = false;
+            SceneManagerTransition.Instance.LoadLevelScene(combatScene);
         }
     }
 

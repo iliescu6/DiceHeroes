@@ -11,7 +11,7 @@ public class CharacterStats
     public int health;
     public int mana;
     public int armour;
-    public int damage;
+    public int attrition;
     public int initiative;
     public int dices;
     public List<int> dicePool;

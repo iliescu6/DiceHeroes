@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PathEventPanel : MonoBehaviour
 {
-    public static PathEventPanel instance;
+    public static PathEventPanel Instance;
 
     [SerializeField]
     GameObject panel;
@@ -22,18 +22,14 @@ public class PathEventPanel : MonoBehaviour
     UnityAction accept;
     UnityAction decline;
 
-    [SerializeField] PathPiece path;//TODO delete this
+    [SerializeField] PathPiece path;//TODO delete this   
 
-    private void Start()
+    public void Show(PathPiece path)
     {
-        Initialize(path);
-    }
-
-    public void Initialize(PathPiece path)
-    {
+        gameObject.SetActive(true);
         if (path.PathEventType == PathEventType.Combat)
         {
-            accept = LoadCombatScene;
+            accept = SceneManagerTransition.Instance.LoadCombatScene;
             decline = TogglePanel;
         }
         else if (path.PathEventType == PathEventType.FreeChest)
@@ -42,9 +38,13 @@ public class PathEventPanel : MonoBehaviour
         }
 
         acceptButton.onClick.AddListener(accept);
+        acceptButton.onClick.AddListener(TogglePanel);
+        acceptButton.onClick.AddListener(acceptButton.onClick.RemoveAllListeners);
         if (decline != null)
         {
             declineButton.onClick.AddListener(decline);
+            declineButton.onClick.AddListener(TogglePanel);
+            declineButton.onClick.AddListener(declineButton.onClick.RemoveAllListeners);
         }
         else
         {
@@ -56,12 +56,7 @@ public class PathEventPanel : MonoBehaviour
     {
         Debug.Log("U've got gold");
         TogglePanel();
-    }
-
-    public void LoadCombatScene()
-    {
-        SceneManager.LoadScene("CombatScene");
-    }
+    }      
 
     public void TogglePanel()
     {
