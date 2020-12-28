@@ -1,0 +1,11 @@
+{
+    "name": "Thug",
+    "description": "",
+    "health": 7,
+    "mana": 0,
+    "armour": 3,
+    "attrition": 0,
+    "initiative": 0,
+    "dices": 0,
+    "dicePool": []
+}

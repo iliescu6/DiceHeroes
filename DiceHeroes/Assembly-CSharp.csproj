@@ -63,17 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Fantasy UI\Samples\IconPreview.cs" />
+    <Compile Include="Assets\SceneManagerTransition.cs" />
     <Compile Include="Assets\Scripts\Combat\BaseCharacter.cs" />
-    <Compile Include="Assets\Scripts\Combat\Character.cs" />
+    <Compile Include="Assets\Scripts\Combat\CharacterObject.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatAbilityButton.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatAbilityPanel.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatBehaviour.cs" />
     <Compile Include="Assets\Scripts\Combat\Dice.cs" />
     <Compile Include="Assets\Scripts\Combat\DiceSide.cs" />
-    <Compile Include="Assets\Scripts\Combat\EnemyPlayer.cs" />
-    <Compile Include="Assets\Scripts\Combat\Player.cs" />
     <Compile Include="Assets\Scripts\Definitions\Ability.cs" />
     <Compile Include="Assets\Scripts\Definitions\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\PlayerProfile.cs" />
+    <Compile Include="Assets\Scripts\SingletonTemplate.cs" />
+    <Compile Include="Assets\Scripts\UI\AbilityButton.cs" />
+    <Compile Include="Assets\Scripts\UI\CharacterSelectPanel.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterStatsPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PathEventPanel.cs" />
@@ -81,6 +84,45 @@
     <Compile Include="Assets\Scripts\WorldMovement\PathEvent.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathPiece.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PlayerWorldMovement.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\CreateAndModifyJSON.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerItemObject.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\ExampleSerializeObjects\ExamplePlayerObject.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\ParseAndHandleJSON.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\SaveAndLoadFile.cs" />
+    <Compile Include="Assets\TotalJSON\Examples\SerializeAndDeserialize.cs" />
+    <Compile Include="Assets\TotalJSON\Internal\CreateStringRunner.cs" />
+    <Compile Include="Assets\TotalJSON\Internal\InternalTools.cs" />
+    <Compile Include="Assets\TotalJSON\Internal\JSONRuntimeDebugContainer.cs" />
+    <Compile Include="Assets\TotalJSON\Internal\ParseStringRunner.cs" />
+    <Compile Include="Assets\TotalJSON\Internal\StringPointer.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Attributes\ExcludeFromJSONSerializeAttribute.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Attributes\IncludeToJSONSerializeAttribute.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\DeserializeException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JArgumentException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JArgumentNullException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JArrayIndexOutOfRangeException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JNumberFormatException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JNumberOverflowException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JSONKeyAlreadyExistsException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JSONKeyNotFoundException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JValueNullException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\JValueTypeException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\ParseException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\ProtectedException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\SerializeException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Exceptions\UnknownObjectTypeException.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JArray.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JBoolean.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JNull.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JNumber.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JSON.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JString.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\JValue.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Settings\CreateStringSettings.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Settings\DeserializeSettings.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Settings\ParseStringSettings.cs" />
+    <Compile Include="Assets\TotalJSON\Scripts\Settings\SerializeSettings.cs" />
+    <Compile Include="Assets\WorldPanelsController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -90,6 +132,7 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TotalJSON\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
@@ -103,37 +146,37 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unitys/2019.3.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -313,7 +356,7 @@
       <HintPath>D:/Unitys/2019.3.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>E:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/Unitys/2019.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

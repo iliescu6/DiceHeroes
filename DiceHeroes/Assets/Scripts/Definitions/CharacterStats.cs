@@ -14,6 +14,6 @@ public class CharacterStats
     public int attrition;
     public int initiative;
     public int dices;
-    public List<int> dicePool;
-        
+    public Dictionary<string,int> dicePool=new Dictionary<string,int>();
+    public Ability[] startingAbilities = new Ability[3];
 }

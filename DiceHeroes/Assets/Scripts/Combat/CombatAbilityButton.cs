@@ -3,45 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CombatAbilityButton : MonoBehaviour
+public class CombatAbilityButton : AbilityButton
 {
-    private Ability ability;
-    private Button button;
+
     [SerializeField]
-    private Player player;
-    private bool selected;
+    private PlayerProfile player;
+    CombatBehaviour cb;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Initialize(Ability a)
     {
+        base.Initialize(a);
         GameObject g = GameObject.Find("PlayerStats");
-        player = g.GetComponent<Player>();
-    }
-
-    public bool Selected { get { return selected; } set { selected = value; } }
-
-    public void Initialize(Ability a)
-    {
-        button = this.GetComponent<Button>();
-        ability = a;
+        player = GameObject.FindObjectOfType<PlayerProfile>();
+        cb = GameObject.FindObjectOfType<CombatBehaviour>();
         button.onClick.AddListener(SelectAbility);
-        selected = false;
     }
 
     void SelectAbility()
     {
-        if (ability._manaCost <= player.Mana && selected == false)
+        if (ability._manaCost <= player.selectedClass.characterStats.mana && Selected == false)
         {
-            player.AddDice(ability._numberOfDices, player.combatBehaviour);
-            selected = true;
+            player.selectedClass.AddDice(ability.dices, cb);
+            Selected = true;
         }
-        else if (selected == true)
+        else if (Selected == true)
         {
-            player.Mana += ability._manaCost;
-            player.RemoveDice(ability._numberOfDices, player.combatBehaviour);
-            player.characterStats.dicePool.Remove(player.characterStats.dicePool.Count);
+            player.selectedClass.characterStats.mana += ability._manaCost;
+            player.selectedClass.RemoveDice(ability.dices, cb);
+            // player.characterStats.dicePool.Remove(player.characterStats.dicePool.Count);
 
-            selected = false;
+            Selected = false;
         }
     }
 }

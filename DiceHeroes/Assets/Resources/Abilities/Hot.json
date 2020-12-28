@@ -1,7 +1,1 @@
-{
-    "_name": "Hot",
-    "_level": 1,
-    "_description": "Yep",
-    "_numberOfDices": 2,
-    "_diceType": 6
-}
+{"_name":"Hot","_level":1,"_description":"Yep","_manaCost":0,"dices":{"FourSided":0,"SixSided":2,"EightSided":0,"TenSided":0},"imageGUID":"Assets/Resources/Icons/Update_icons/skill_b_Standart/01_fire_arrow.png"}

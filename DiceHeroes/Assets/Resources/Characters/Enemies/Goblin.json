@@ -1,0 +1,11 @@
+{
+    "name": "Goblin",
+    "description": "",
+    "health": 2,
+    "mana": 0,
+    "armour": 1,
+    "attrition": 0,
+    "initiative": 0,
+    "dices": 0,
+    "dicePool": []
+}

@@ -54,12 +54,12 @@ public class CombatAbilityPanel : MonoBehaviour
 
     void GetAbilities()
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
-        for (int i = 0; i < files.Length; i++)
+        //string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
+        for (int i = 0; i < PlayerProfile.Instance.selectedClass.characterStats.startingAbilities.Length; i++)
         {
-            string text = File.ReadAllText(files[i]);
-            Ability a = JsonUtility.FromJson<Ability>(text);
-            abilities.Add(a);
+            //string text = File.ReadAllText(files[i]);
+            //Ability a = JsonUtility.FromJson<Ability>(text);
+            abilities.Add(PlayerProfile.Instance.selectedClass.characterStats.startingAbilities[i]);
         }
     }
     // Update is called once per frame

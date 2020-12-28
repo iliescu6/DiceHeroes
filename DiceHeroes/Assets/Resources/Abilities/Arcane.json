@@ -1,7 +1,1 @@
-{
-    "_name": "Arcane",
-    "_level": 1,
-    "_description": "Yep",
-    "_numberOfDices": 1,
-    "_diceType": 6
-}
+{"_name":"Arcane","_level":1,"_description":"Yep","_manaCost":1,"dices":{"FourSided":0,"SixSided":1,"EightSided":1,"TenSided":0},"imageGUID":"Assets/Resources/Icons/Update_icons/skill_b_Standart/22_Big_Light_arrow.png"}

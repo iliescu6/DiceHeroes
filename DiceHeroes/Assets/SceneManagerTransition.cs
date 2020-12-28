@@ -26,8 +26,8 @@ public class SceneManagerTransition : SingletonTemplate<SceneManagerTransition>
         {
             combatScene.gameObject.SetActive(true);
         }
-        yield return new WaitUntil(() => Player.Instance != null);
-        if (Player.Instance != null)
+        yield return new WaitUntil(() => PlayerProfile.Instance != null);
+        if (PlayerProfile.Instance != null)
         {
             levelScene.SetActive(false);
         }

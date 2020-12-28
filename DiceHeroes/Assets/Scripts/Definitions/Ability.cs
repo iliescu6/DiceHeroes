@@ -10,7 +10,15 @@ public class Ability
     public int _level;
     public string _description;
     public int _manaCost;
-    public int _numberOfDices;
-    public int _diceType;
+    public Dictionary<string, int> dices=new Dictionary<string, int>();
+    public string imageGUID;
+}
 
+public enum DiceType { FourSided,SixSided,EightSided,TenSided}
+
+[System.Serializable]
+public class DiceTypeClass
+{
+    List<DiceType> diceType = new List<DiceType>();
+    List<int> numberOfDices = new List<int>();
 }

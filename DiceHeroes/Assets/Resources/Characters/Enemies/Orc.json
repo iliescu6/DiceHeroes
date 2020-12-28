@@ -1,0 +1,11 @@
+{
+    "name": "Orc",
+    "description": "",
+    "health": 5,
+    "mana": 0,
+    "armour": 2,
+    "attrition": 0,
+    "initiative": 0,
+    "dices": 0,
+    "dicePool": []
+}

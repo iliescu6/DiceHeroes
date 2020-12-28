@@ -14,7 +14,12 @@ public class MainMenu : MonoBehaviour
     private Button spellBookButton;
     [SerializeField]
     private Button shopButton;
-    
+
+
+   
+    private GameObject characterPanelPrefab;
+    [SerializeField]
+    private GameObject characterPanel;
 
     [SerializeField]
     private GameObject inventoryPanelPrefab;
@@ -30,13 +35,19 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fightButton.onClick.AddListener(LoadScene);
+        fightButton.onClick.AddListener(ShowCharacterSelection);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ShowCharacterSelection()
+    {
+        characterPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void LoadScene()

@@ -903,10 +903,29 @@ MonoBehaviour:
     health: 0
     mana: 0
     armour: 0
-    damage: 0
+    attrition: 0
     initiative: 0
     dices: 0
     dicePool: 0000000000000000
+    startingAbilities:
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
   owner: 
   button: {fileID: 934277180}
 --- !u!1 &688355075
@@ -2719,15 +2738,34 @@ MonoBehaviour:
   characterStats:
     name: 
     description: 
-    health: 50
+    health: 0
     mana: 0
     armour: 0
-    damage: 0
-    initiative: 5
+    attrition: 0
+    initiative: 0
     dices: 0
     dicePool: 
-  owner: Player
-  button: {fileID: 1192844863}
+    startingAbilities:
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
+    - _name: 
+      _level: 0
+      _description: 
+      _manaCost: 0
+      _numberOfDices: 0
+      _diceType: 0
+  owner: 
+  button: {fileID: 0}
   combatBehaviour: {fileID: 519420030}
   armour: 0
   health: 0

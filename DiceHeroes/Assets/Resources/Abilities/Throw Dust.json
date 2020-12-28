@@ -1,0 +1,8 @@
+{
+    "_name": "Throw Dust",
+    "_level": 1,
+    "_description": "Roll a dice. If 4 or more, enemy can't hit you next turn.",
+    "_manaCost": 0,
+    "_numberOfDices": 1,
+    "_diceType": 6
+}
