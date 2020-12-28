@@ -239,7 +239,7 @@ public class MakeJsonFileBitch : EditorWindow
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (characterStats.startingAbilities[i]!=null && characterStats.startingAbilities[i]._name == s )
+                        if (characterStats.startingAbilities[i] != null && characterStats.startingAbilities[i]._name == s)
                         {
                             startingAbilityIndex[i] = EditorGUILayout.Popup(abilitiesNames.IndexOf(s), abilitiesNames.ToArray(), EditorStyles.toolbarPopup);
                         }
@@ -263,7 +263,8 @@ public class MakeJsonFileBitch : EditorWindow
                 {
                     playerClass.characterStats.startingAbilities[i] = abilities[startingAbilityIndex[i]];
                 }
-                jsonData = JsonUtility.ToJson(playerClass.characterStats, true);
+
+                jsonData = JSON.Serialize(playerClass.characterStats).CreateString(); ;// JsonUtility.ToJson(playerClass.characterStats, true);
             }
             else
             {
