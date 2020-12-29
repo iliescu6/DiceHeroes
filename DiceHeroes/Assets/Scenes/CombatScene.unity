@@ -777,8 +777,8 @@ GameObject:
   - component: {fileID: 688137084}
   - component: {fileID: 688137087}
   - component: {fileID: 688137086}
-  - component: {fileID: 688137088}
   - component: {fileID: 688137085}
+  - component: {fileID: 688137088}
   m_Layer: 5
   m_Name: EnemyStatsPanel
   m_TagString: Enemy
@@ -894,40 +894,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 688137083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83099b3a88fcb94381bb881751e778f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f1c8d6299e07ce43918a5928d99edb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStats:
-    name: 
-    description: 
-    health: 0
-    mana: 0
-    armour: 0
-    attrition: 0
-    initiative: 0
-    dices: 0
-    dicePool: 0000000000000000
-    startingAbilities:
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      _numberOfDices: 0
-      _diceType: 0
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      _numberOfDices: 0
-      _diceType: 0
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      _numberOfDices: 0
-      _diceType: 0
-  owner: 
-  button: {fileID: 934277180}
+  testEnemy: Goblin
 --- !u!1 &688355075
 GameObject:
   m_ObjectHideFlags: 0

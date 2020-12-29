@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseCharacter 
+public class BaseCharacter
 {
     public CharacterStats characterStats;
     public string owner;
@@ -40,7 +40,7 @@ public class BaseCharacter
     // Update is called once per frame
     virtual public void Update()
     {
-        
+
     }
 
     virtual public void Initialize(string owner)
@@ -50,24 +50,24 @@ public class BaseCharacter
 
     public virtual void UpdateStats()
     {
-        button.text = "Name: " + characterStats.name +
-            "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
+        //button.text = "Name: " + characterStats.name +
+        //    "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
     }
 
-    virtual public void SetCharacterStats()
+    virtual public void SetCharacterStats(string character = null)
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Characters/Enemies", "*.json");
-        for (int i = 0; i < files.Length; i++)
+        if (character != null)
         {
-            string text = File.ReadAllText(files[i]);
-            CharacterStats a = JsonUtility.FromJson<CharacterStats>(text);
+            string file = File.ReadAllText(Application.dataPath+ "/Resources/Characters/Enemies/" + character + ".json"); //Directory.GetFile(Application.dataPath + "/Resources/Characters/Enemies/" + character + ".json");
+            CharacterStats a = JsonUtility.FromJson<CharacterStats>(file);
             characterStats = a;
+
         }
     }
 
     public void AddDice(Dictionary<string, int> dices, CombatBehaviour combatBehaviour)
     {
-        foreach (KeyValuePair<string, int>dice in dices)
+        foreach (KeyValuePair<string, int> dice in dices)
         {
             for (int i = 0; i < dice.Value; i++)
             {
@@ -77,7 +77,7 @@ public class BaseCharacter
                 }
                 else
                 {
-                    characterStats.dicePool[dice.Key]= dice.Value;
+                    characterStats.dicePool[dice.Key] = dice.Value;
                 }
             }
         }
@@ -86,11 +86,11 @@ public class BaseCharacter
 
     public void RemoveDice(Dictionary<string, int> dices, CombatBehaviour combatBehaviour)
     {
-        
+
         foreach (KeyValuePair<string, int> dice in dices)
         {
             combatBehaviour.DeactivateDices(dice.Value);//TODO update for future types of dice prefabs
-            characterStats.dicePool[dice.Key]-=dice.Value;
+            characterStats.dicePool[dice.Key] -= dice.Value;
 
         }
     }

@@ -214,7 +214,7 @@ public class CombatBehaviour : MonoBehaviour
         {
             rollButton.onClick.RemoveAllListeners();
             rollButton.onClick.AddListener(delegate { DealDamage(characters[1]); });
-            //battleState = BattleState.PostRoll;
+            battleState = BattleState.PostRoll;
         }
         else if (finishedRoll == false && battleState == BattleState.WaitEndOfRoll)
         {
