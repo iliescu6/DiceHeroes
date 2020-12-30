@@ -62,9 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\MakeJsonFileBitch.cs" />
-    <Compile Include="Assets\TotalJSON\Internal\Editor\JSONRuntimeDebug.cs" />
-    <Compile Include="Assets\TotalJSON\Internal\Editor\JSONValidator.cs" />
+    <Compile Include="Assets\Scripts\Editor\MakeJsonFileBitch.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
@@ -299,11 +297,11 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/Plugins/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/Plugins/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -670,9 +668,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{B9C9BE74-61F1-1A75-F59B-7AEB31BE644E}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{32C478EB-965F-5C15-F867-A95CF83976EA}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{7703FD65-441A-B672-A637-AB7B48E1E74F}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{16DAA4C9-0126-510C-2784-8B22A0A4CAD2}</Project>

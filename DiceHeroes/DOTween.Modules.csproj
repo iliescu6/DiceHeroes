@@ -62,13 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -270,11 +270,11 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/Plugins/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Assets/Plugins/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/Unitys/2019.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
