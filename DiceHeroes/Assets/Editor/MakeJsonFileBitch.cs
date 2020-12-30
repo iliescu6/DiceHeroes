@@ -257,7 +257,7 @@ public class MakeJsonFileBitch : EditorWindow
             string jsonData = "";
             if (characters == "Classes")
             {
-                BaseCharacter playerClass = new BaseCharacter();
+                CharacterObject playerClass = new CharacterObject();
                 playerClass.characterStats = characterStats;
                 for (int i = 0; i < 3; i++)
                 {

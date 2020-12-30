@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerProfile : SingletonTemplate<PlayerProfile>
 {
-    public BaseCharacter selectedClass;
+   // public BaseCharacter selectedClass;
     public CharacterObject characterObject;
     private List<Ability> spellbookAbilities = new List<Ability>();
 

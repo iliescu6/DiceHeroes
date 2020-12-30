@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Assets\Fantasy UI\Samples\IconPreview.cs" />
     <Compile Include="Assets\SceneManagerTransition.cs" />
-    <Compile Include="Assets\Scripts\Combat\BaseCharacter.cs" />
     <Compile Include="Assets\Scripts\Combat\CharacterObject.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatAbilityButton.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatAbilityPanel.cs" />

@@ -21,15 +21,15 @@ public class CombatAbilityButton : AbilityButton
 
     void SelectAbility()
     {
-        if (ability._manaCost <= player.selectedClass.characterStats.mana && Selected == false)
+        if (ability._manaCost <= player.characterObject.characterStats.mana && Selected == false)
         {
-            player.selectedClass.AddDice(ability.dices, cb);
+            player.characterObject.AddDice(ability.dices, cb);
             Selected = true;
         }
         else if (Selected == true)
         {
-            player.selectedClass.characterStats.mana += ability._manaCost;
-            player.selectedClass.RemoveDice(ability.dices, cb);
+            player.characterObject.characterStats.mana += ability._manaCost;
+            player.characterObject.RemoveDice(ability.dices, cb);
             // player.characterStats.dicePool.Remove(player.characterStats.dicePool.Count);
 
             Selected = false;

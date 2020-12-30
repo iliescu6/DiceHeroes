@@ -23,7 +23,6 @@ public class AbilityButton : MonoBehaviour
         Selected = false;
         a.imageGUID = a.imageGUID.Replace("Assets/Resources/", "");
         a.imageGUID = a.imageGUID.Replace(".png", "");
-        Debug.Log(a.imageGUID);
         Sprite s = Resources.Load<Sprite>(a.imageGUID);
         abilityImage.sprite = s;
     }

@@ -7,5 +7,27 @@
     "attrition": 0,
     "initiative": 0,
     "dices": 0,
-    "dicePool": []
+    "startingAbilities": [
+        {
+            "_name": "",
+            "_level": 0,
+            "_description": "",
+            "_manaCost": 0,
+            "imageGUID": ""
+        },
+        {
+            "_name": "",
+            "_level": 0,
+            "_description": "",
+            "_manaCost": 0,
+            "imageGUID": ""
+        },
+        {
+            "_name": "",
+            "_level": 0,
+            "_description": "",
+            "_manaCost": 0,
+            "imageGUID": ""
+        }
+    ]
 }

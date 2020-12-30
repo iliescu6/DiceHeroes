@@ -21,9 +21,9 @@ public class CharacterSelectPanel : MonoBehaviour
     Button SelectButton;
     [SerializeField]
     AbilityButton abilityButtonPrefab;
-    BaseCharacter selectedClass;
+    CharacterObject selectedClass;
 
-    private List<BaseCharacter> playerClasses=new List<BaseCharacter>();
+    private List<CharacterObject> playerClasses=new List<CharacterObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +39,7 @@ public class CharacterSelectPanel : MonoBehaviour
         //}
     }
 
-    void MakeClassProfile(BaseCharacter playerClass)
+    void MakeClassProfile(CharacterObject playerClass)
     {
         //TODO instantiate prefab
         ClassText.text = playerClass.characterStats.name;
@@ -62,7 +62,7 @@ public class CharacterSelectPanel : MonoBehaviour
             CharacterStats a = new CharacterStats();
             JSON j = JSON.ParseString(text);
             a =j.Deserialize<CharacterStats>();
-            BaseCharacter playerClass = new BaseCharacter();
+            CharacterObject playerClass = new CharacterObject();
             playerClass.characterStats = a;
             playerClasses.Add(playerClass);
             selectedClass = playerClass;
@@ -71,10 +71,7 @@ public class CharacterSelectPanel : MonoBehaviour
 
     public void LoadGame()
     {
-        PlayerProfile.Instance.selectedClass = new BaseCharacter();
-        PlayerProfile.Instance.selectedClass.characterStats = playerClasses[0].characterStats;
-        PlayerProfile.Instance.characterObject.baseCharacter = new BaseCharacter();
-        PlayerProfile.Instance.characterObject.baseCharacter.characterStats = playerClasses[0].characterStats;
+        PlayerProfile.Instance.characterObject.characterStats = playerClasses[0].characterStats;
         SceneManager.LoadScene("Level");
     }
 }
