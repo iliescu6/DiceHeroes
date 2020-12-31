@@ -76,8 +76,11 @@
     <Compile Include="Assets\Scripts\UI\AbilityButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterSelectPanel.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterStatsPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\GameScreen.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PathEventPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\PostBattleScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\UIScreens.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathController.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathEvent.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathPiece.cs" />

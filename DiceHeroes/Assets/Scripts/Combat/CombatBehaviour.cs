@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Standyby, Roll, WaitEndOfRoll, PostRoll, EndRoll }
+public enum BattleState { Standyby, Roll, WaitEndOfRoll, PostRoll, EndRoll,CombatOutcome }
 
 public class CombatBehaviour : MonoBehaviour
 {
     public BattleState battleState = BattleState.Standyby;
 
-    List<CharacterObject> characterObject=new List<CharacterObject>();
+    List<CharacterObject> characterObject = new List<CharacterObject>();
     PlayerProfile player;
     string currentTurn;//TODO Remove,only debug
     Button rollButton;
@@ -153,7 +153,7 @@ public class CombatBehaviour : MonoBehaviour
         {
             if (target.characterStats.armour < diceValues[i])
             {
-                Debug.Log(currentTurn + diceValues[i] + " and inflicted " + (diceValues[i] - target.characterStats.armour) + " points of damage.");               
+                Debug.Log(currentTurn + diceValues[i] + " and inflicted " + (diceValues[i] - target.characterStats.armour) + " points of damage.");
                 target.characterStats.health -= (diceValues[i] - target.characterStats.armour);
                 if (target.characterStats.health < 0)
                 {
@@ -189,18 +189,25 @@ public class CombatBehaviour : MonoBehaviour
                 break;
             }
         }
-        if (winner != "None")
+        if (winner != "None" && battleState!= BattleState.CombatOutcome)
         {
             Debug.Log("Winner is :" + winner);
-            SceneManagerTransition.Instance.sceneLoaded = false;
-            SceneManagerTransition.Instance.LoadLevelScene(combatScene);
+            battleState = BattleState.CombatOutcome;
+            PostBattleScreen screen = UIScreens.PushScreen<PostBattleScreen>();
+            screen.Initialize(winner, "5", "10", "Biggus Swordus", () =>
+                {
+                    SceneManagerTransition.Instance.sceneLoaded = false;
+                    SceneManagerTransition.Instance.LoadLevelScene(combatScene);
+                    UIScreens.Instance.PopScreen();
+                }
+            );
         }
     }
 
     //TODO make it a coroutine to check when dices stopped
     void CheckIfDicesStopped()
     {
-        if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObject[turnIndex].gameObject.tag=="Enemy")
+        if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObject[turnIndex].gameObject.tag == "Enemy")
         {
             DealDamage(player.characterObject);
         }
@@ -262,8 +269,8 @@ public class CombatBehaviour : MonoBehaviour
     }
 
     public void DeactivateDices(int dice1)
-    {       
-        for (int i = dicePool.Count-1; i >=0; i--)
+    {
+        for (int i = dicePool.Count - 1; i >= 0; i--)
         {
             if (dicePool[i].gameObject.activeInHierarchy)
             {
