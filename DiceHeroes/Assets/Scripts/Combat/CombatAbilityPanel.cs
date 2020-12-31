@@ -38,7 +38,7 @@ public class CombatAbilityPanel : MonoBehaviour
         {
             CombatAbilityButton g=Instantiate(ButtonPrefab);
             g.Initialize(abilities[i]);
-            g.transform.GetChild(0).GetComponent<Text>().text = abilities[i]._name;
+           // g.transform.GetChild(0).GetComponent<Text>().text = abilities[i]._name;
             g.transform.parent = this.transform;
             abilityButtons.Add(g);
         }

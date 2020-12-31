@@ -134,6 +134,7 @@ public class MakeJsonFileBitch : EditorWindow
 
         ability._name = EditorGUILayout.TextField("Name", ability._name);
         ability._level = EditorGUILayout.IntField("Level", ability._level);
+        ability._manaCost = EditorGUILayout.IntField("Mana Cost", ability._manaCost);
         ability._description = EditorGUILayout.TextField("Description", ability._description);
 
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);

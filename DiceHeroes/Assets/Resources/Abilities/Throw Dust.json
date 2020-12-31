@@ -1,8 +1,1 @@
-{
-    "_name": "Throw Dust",
-    "_level": 1,
-    "_description": "Roll a dice. If 4 or more, enemy can't hit you next turn.",
-    "_manaCost": 0,
-    "_numberOfDices": 1,
-    "_diceType": 6
-}
+{"_name":"Throw Dust","_level":1,"_description":"Roll a dice. If 4 or more, enemy can't hit you next turn.","_manaCost":1,"dices":{"FourSided":0,"SixSided":0,"EightSided":0,"TenSided":0},"imageGUID":""}
