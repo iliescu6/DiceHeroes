@@ -77,7 +77,12 @@
     <Compile Include="Assets\Scripts\UI\CharacterSelectPanel.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterStatsPanel.cs" />
     <Compile Include="Assets\Scripts\UI\GameScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\HighlightCombatCard.cs" />
+    <Compile Include="Assets\Scripts\UI\IPlatformInput.cs" />
+    <Compile Include="Assets\Scripts\UI\InputController.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MobileInput.cs" />
+    <Compile Include="Assets\Scripts\UI\PCInput.cs" />
     <Compile Include="Assets\Scripts\UI\PathEventPanel.cs" />
     <Compile Include="Assets\Scripts\UI\PostBattleScreen.cs" />
     <Compile Include="Assets\Scripts\UI\UIScreens.cs" />

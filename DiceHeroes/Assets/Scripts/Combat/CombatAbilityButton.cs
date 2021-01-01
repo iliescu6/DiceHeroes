@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CombatAbilityButton : AbilityButton
 {
@@ -9,17 +10,17 @@ public class CombatAbilityButton : AbilityButton
     [SerializeField]
     private PlayerProfile player;
     CombatBehaviour cb;
-
+    float pressed = 0;
     public override void Initialize(Ability a)
     {
         base.Initialize(a);
         GameObject g = GameObject.Find("PlayerStats");
         player = GameObject.FindObjectOfType<PlayerProfile>();
         cb = GameObject.FindObjectOfType<CombatBehaviour>();
-        button.onClick.AddListener(SelectAbility);
+        //button.onClick.AddListener(SelectAbility);
     }
 
-    void SelectAbility()
+    public void SelectAbility()
     {
         if (ability._manaCost <= player.characterObject.characterStats.mana && Selected == false)
         {
