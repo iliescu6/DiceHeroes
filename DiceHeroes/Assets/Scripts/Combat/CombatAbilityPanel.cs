@@ -54,9 +54,9 @@ public class CombatAbilityPanel : MonoBehaviour
 
     void GetAbilities()
     {
-        for (int i = 0; i < PlayerProfile.Instance.characterObject.characterStats.startingAbilities.Length; i++)
+        for (int i = 0; i < PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities.Length; i++)
         {
-            abilities.Add(PlayerProfile.Instance.characterObject.characterStats.startingAbilities[i]);
+            abilities.Add(PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities[i]);
         }
     }
     // Update is called once per frame

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Standyby, Roll, WaitEndOfRoll, PostRoll, EndRoll,CombatOutcome }
+public enum BattleState { Standyby, Roll, WaitEndOfRoll, PostRoll, EndRoll, CombatOutcome }
 
 public class CombatBehaviour : MonoBehaviour
 {
+    public CombatUIScreen playerUI;
     public BattleState battleState = BattleState.Standyby;
 
     List<CharacterObject> characterObject = new List<CharacterObject>();
@@ -41,7 +42,7 @@ public class CombatBehaviour : MonoBehaviour
         }
 
         characterObject = FindObjectsOfType<CharacterObject>().ToList();
-        characterObject.OrderByDescending(e => e.characterStats.initiative).ToList();
+        characterObject.OrderByDescending(e => e.baseCharacterStats.initiative).ToList();
         player = FindObjectOfType<PlayerProfile>();
         currentTurn = "Player";
 
@@ -54,7 +55,7 @@ public class CombatBehaviour : MonoBehaviour
         }
         GameObject g = GameObject.Find("PlayerButton");
         rollButton = g.GetComponent<Button>();
-        rollButton.onClick.AddListener(delegate { SetPlayerDicePool(player.characterObject.characterStats.dices); });
+        rollButton.onClick.AddListener(delegate { SetPlayerDicePool(player.characterObject.baseCharacterStats.dicePool); });
         rollButton.onClick.AddListener(RollDicePool);
     }
 
@@ -72,9 +73,10 @@ public class CombatBehaviour : MonoBehaviour
     {
         Debug.Log("Yes,I iz enemy");
         //TODO aici vine logica inamicului
-        ActivateDices(characterObject[turnIndex].characterStats.dices);
+        ActivateDices(characterObject[turnIndex].baseCharacterStats.dicePool);
         RollDicePool();
-        //UpdateTurn();
+        yield return new WaitUntil(() => didDamage == true);
+        UpdateTurn();
         yield return null;
     }
 
@@ -102,18 +104,24 @@ public class CombatBehaviour : MonoBehaviour
         }
         finishedRoll = false;
         didDamage = false;
-        //currentTurn = "Enemy";        
-        SetPlayerDicePool(characterObject[turnIndex].characterStats.dices);
-        DeactivateDices(dicePool.Count);
+        currentTurn = "Enemy";
+        SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);
+        DeactivateAllDices();
         StartCoroutine(Wait());
         if (characterObject[turnIndex].owner == "Player")
         {
             //player.RemoveDice(player.characterStats.dicePool.Count, player.combatBehaviour);
-            player.characterObject.characterStats.dicePool = new Dictionary<string, int>();
+            player.characterObject.ResetDicePool();
             rollButton.onClick.AddListener(RollDicePool);
             CombatAbilityPanel.Instance.ResetAbilityButtons();
         }
-        // RollDicePool();
+        else
+        {
+            //RollDicePool();
+            //TODO decide whether they use dices (add to editor) or deal flat dmg
+            characterObject[turnIndex].baseCharacterStats.dicePool["SixSided"] = characterObject[turnIndex].baseCharacterStats.dices;
+            battleState = BattleState.Standyby;
+        }
     }
 
     IEnumerator Wait()
@@ -126,13 +134,13 @@ public class CombatBehaviour : MonoBehaviour
         rollButton.onClick.RemoveListener(RollDicePool);
         if (battleState == BattleState.Standyby)
         {
-            SetPlayerDicePool(characterObject[turnIndex].characterStats.dicePool.Count);//TODO make it to take into account types of dices
+            SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);//TODO make it to take into account types of dices
             for (int i = 0; i < dicePool.Count; i++)
             {
                 dicePool[i].RollDice();
             }
             battleState = BattleState.WaitEndOfRoll;
-            SetPlayerDicePool(characterObject[turnIndex].characterStats.dicePool.Count);
+            SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);
         }
         else if (battleState == BattleState.Standyby) //enemy
         {
@@ -151,21 +159,25 @@ public class CombatBehaviour : MonoBehaviour
     {
         for (int i = 0; i < diceValues.Count; i++)
         {
-            if (target.characterStats.armour < diceValues[i])
+            if (target.baseCharacterStats.armour < diceValues[i])
             {
-                Debug.Log(currentTurn + diceValues[i] + " and inflicted " + (diceValues[i] - target.characterStats.armour) + " points of damage.");
-                target.characterStats.health -= (diceValues[i] - target.characterStats.armour);
-                if (target.characterStats.health < 0)
+                Debug.Log(currentTurn + diceValues[i] + " and inflicted " + (diceValues[i] - target.baseCharacterStats.armour) + " points of damage.");
+                target.currentHP -= (diceValues[i] - target.baseCharacterStats.armour);
+                if (target.currentHP < 0)
                 {
-                    target.characterStats.health = 0;
+                    target.currentHP = 0;
                 }
                 target.UpdateStats(); //TODO make proper function
-                if (target.characterStats.health <= 0)
+                if (target.currentHP <= 0)
                 {
                     characterObject.Remove(target);
                     CheckWinner(winner);
                 }
             }
+        }
+        if (target.gameObject.tag == "Player")
+        {
+            playerUI.UpdatePlayerUI(player.characterObject.currentMana, player.characterObject.currentHP, player.characterObject.baseCharacterStats);
         }
         didDamage = true;
         rollButton.onClick.RemoveAllListeners();
@@ -189,7 +201,7 @@ public class CombatBehaviour : MonoBehaviour
                 break;
             }
         }
-        if (winner != "None" && battleState!= BattleState.CombatOutcome)
+        if (winner != "None" && battleState != BattleState.CombatOutcome)
         {
             Debug.Log("Winner is :" + winner);
             battleState = BattleState.CombatOutcome;
@@ -218,8 +230,8 @@ public class CombatBehaviour : MonoBehaviour
             battleState = BattleState.PostRoll;
         }
         else if (finishedRoll == false && battleState == BattleState.WaitEndOfRoll)
-        {
-            for (int i = 0; i < characterObject[turnIndex].characterStats.dicePool.Count; i++)
+        {//TODO something is off but it's late for past me to think
+            for (int i = 0; i < diceValues.Count;i++) // characterObject[turnIndex].baseCharacterStats.dicePool.Count; i++)
             {
                 if (dicePool[i].stopped)
                 {
@@ -249,37 +261,58 @@ public class CombatBehaviour : MonoBehaviour
         }
     }
 
-    void SetPlayerDicePool(int list)
+    void SetPlayerDicePool(Dictionary<string,int> dict)
     {
-
         diceValues = new List<int>();
-        for (int i = 0; i < list; i++)
-        {
-            diceValues.Add(0);
+        foreach (KeyValuePair<string, int> dicetype in dict)
+        {           
+            for (int i = 0; i < dicetype.Value; i++)
+            {
+                diceValues.Add(0);
+            }
         }
     }
 
-    public void ActivateDices(int dices)
+    public void ActivateDices(Dictionary<string, int> dict)
     {
-        for (int i = 0; i < dices; i++)
+        int diceIndex = 0;
+        foreach (KeyValuePair<string, int> pair in dict)
         {
-            dicePool[i].gameObject.SetActive(true);
-            dicePool[i].transform.position = playerSpawningPoints[i].transform.position;
+            //TODO make this work for multiple dices and change list of dices to dictionary + fix issues that will appear for sure
+            for (int i = 0; i < pair.Value; i++)
+            {
+                dicePool[diceIndex].gameObject.SetActive(true);
+                dicePool[diceIndex].transform.position = playerSpawningPoints[diceIndex].transform.position;
+                diceIndex++;
+            }
         }
     }
 
-    public void DeactivateDices(int dice1)
+    public void DeactivateDices(KeyValuePair<string, int> pair)
+    {
+        int disabled = pair.Value;
+        for (int i = dicePool.Count - 1; i >= 0; i--)
+        {
+            //TODO make it check for matching dice side type and disable
+            if (dicePool[i].gameObject.activeInHierarchy)
+            {
+                dicePool[i].gameObject.SetActive(false);
+                disabled--;
+            }
+            if (disabled <= 0)
+            {
+                break;
+            }
+        }
+    }
+
+    public void DeactivateAllDices()
     {
         for (int i = dicePool.Count - 1; i >= 0; i--)
         {
             if (dicePool[i].gameObject.activeInHierarchy)
             {
                 dicePool[i].gameObject.SetActive(false);
-                dice1--;
-            }
-            if (dice1 <= 0)
-            {
-                break;
             }
         }
     }

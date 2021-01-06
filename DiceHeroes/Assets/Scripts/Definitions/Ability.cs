@@ -15,10 +15,3 @@ public class Ability
 }
 
 public enum DiceType { FourSided,SixSided,EightSided,TenSided}
-
-[System.Serializable]
-public class DiceTypeClass
-{
-    List<DiceType> diceType = new List<DiceType>();
-    List<int> numberOfDices = new List<int>();
-}

@@ -75,7 +75,7 @@
     <Compile Include="Assets\Scripts\SingletonTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterSelectPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\CharacterStatsPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\CombatUIScreen.cs" />
     <Compile Include="Assets\Scripts\UI\GameScreen.cs" />
     <Compile Include="Assets\Scripts\UI\HighlightCombatCard.cs" />
     <Compile Include="Assets\Scripts\UI\IPlatformInput.cs" />

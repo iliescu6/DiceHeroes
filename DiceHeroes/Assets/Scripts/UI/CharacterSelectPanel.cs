@@ -42,10 +42,10 @@ public class CharacterSelectPanel : MonoBehaviour
     void MakeClassProfile(CharacterObject playerClass)
     {
         //TODO instantiate prefab
-        ClassText.text = playerClass.characterStats.name;
-        CharacterStats stats = playerClass.characterStats;
+        ClassText.text = playerClass.baseCharacterStats.name;
+        CharacterStats stats = playerClass.baseCharacterStats;
         StatsText.text = "Health: " + stats.health + "\n Mana: " + stats.mana + "\n Armour: " + stats.armour + "\n Attrition:" + stats.attrition;
-        foreach (Ability a in playerClass.characterStats.startingAbilities)
+        foreach (Ability a in playerClass.baseCharacterStats.startingAbilities)
         {
             AbilityButton g = Instantiate(abilityButtonPrefab, new Vector3(0,0,0),Quaternion.identity);
             g.transform.parent = AbilityPanel.transform;
@@ -63,15 +63,20 @@ public class CharacterSelectPanel : MonoBehaviour
             JSON j = JSON.ParseString(text);
             a =j.Deserialize<CharacterStats>();
             CharacterObject playerClass = new CharacterObject();
-            playerClass.characterStats = a;
+            playerClass.baseCharacterStats = a;
             playerClasses.Add(playerClass);
             selectedClass = playerClass;
+            //TODO add to constructor and unify enemy and classes
+            selectedClass.ResetDicePool();
         }
     }
 
     public void LoadGame()
     {
-        PlayerProfile.Instance.characterObject.characterStats = playerClasses[0].characterStats;
+        //TODO something's off here(mana and hp are not set up in get classes properly)
+        PlayerProfile.Instance.characterObject.baseCharacterStats = playerClasses[0].baseCharacterStats;
+        PlayerProfile.Instance.characterObject.currentHP = playerClasses[0].baseCharacterStats.health;
+        PlayerProfile.Instance.characterObject.currentMana = playerClasses[0].baseCharacterStats.mana;
         SceneManager.LoadScene("Level");
     }
 }

@@ -6,14 +6,30 @@ using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
 {
+    //TODO will need to rethink current and max values
+    public CharacterStats baseCharacterStats;
+    public int currentHP;
+    public int currentMana;
+    public string owner;
+    [SerializeField]
+    private TMP_Text button;
+    private Ability[] startingAbilities = new Ability[3];
+    private List<Ability> equipedAbilities = new List<Ability>();
+
+    public CharacterObject()
+    {
+
+    }
     public CharacterObject(string chosenClass)
     {
         SetClassStats(chosenClass);
     }
 
-    public CharacterObject()
+    public CharacterObject(CharacterStats newStats)
     {
-
+        baseCharacterStats = newStats;
+        currentHP = newStats.health;
+        currentMana = newStats.mana;
     }
 
     public string testEnemy;
@@ -22,16 +38,12 @@ public class CharacterObject : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(testEnemy))
         {
-            SetCharacterStats(testEnemy);
+            //TODO there must be a better way to improve seting character object and stats but am rushing to make a demo/prototype
+            SetEnemyStats(testEnemy);
+            currentHP = baseCharacterStats.health;
+            currentMana = baseCharacterStats.mana;
         }
     }
-
-    public CharacterStats characterStats;
-    public string owner;
-    [SerializeField]
-    private TMP_Text button;
-    private Ability[] startingAbilities = new Ability[3];
-    private List<Ability> equipedAbilities = new List<Ability>();
 
     public List<Ability> EquipedAbilities//TODO maybe make it array, have a limit
     {
@@ -73,14 +85,15 @@ public class CharacterObject : MonoBehaviour
         //    "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
     }
 
-    virtual public void SetCharacterStats(string character = null)
+    virtual public void SetEnemyStats(string character = null)
     {
         if (character != null)
         {
             string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Enemies/" + character + ".json");
             CharacterStats a = JsonUtility.FromJson<CharacterStats>(file);
-            characterStats = a;
-
+            baseCharacterStats = a;
+            ResetDicePool();
+            this.owner = "Enemy";
         }
     }
 
@@ -90,8 +103,10 @@ public class CharacterObject : MonoBehaviour
         {
             string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Classes/" + character + ".json");
             CharacterStats a = JsonUtility.FromJson<CharacterStats>(file);
-            characterStats = a;
-
+            baseCharacterStats = a;
+            ResetDicePool();
+            currentHP = baseCharacterStats.health;
+            currentMana = baseCharacterStats.mana;
         }
     }
 
@@ -101,27 +116,36 @@ public class CharacterObject : MonoBehaviour
         {
             for (int i = 0; i < dice.Value; i++)
             {
-                if (characterStats.dicePool.ContainsKey(dice.Key))
+                if (baseCharacterStats.dicePool.ContainsKey(dice.Key))
                 {
-                    characterStats.dicePool[dice.Key] += dice.Value;
+                    baseCharacterStats.dicePool[dice.Key] += dice.Value;
                 }
                 else
                 {
-                    characterStats.dicePool[dice.Key] = dice.Value;
+                    baseCharacterStats.dicePool[dice.Key] = dice.Value;
                 }
             }
         }
-        combatBehaviour.ActivateDices(characterStats.dicePool.Count);
+        combatBehaviour.ActivateDices(baseCharacterStats.dicePool);
     }
 
     public void RemoveDice(Dictionary<string, int> dices, CombatBehaviour combatBehaviour)
     {
 
-        foreach (KeyValuePair<string, int> dice in dices)
+        foreach (KeyValuePair<string, int> diceType in dices)
         {
-            combatBehaviour.DeactivateDices(dice.Value);//TODO update for future types of dice prefabs
-            characterStats.dicePool[dice.Key] -= dice.Value;
+
+            combatBehaviour.DeactivateDices(diceType);//TODO update for future types of dice prefabs
+            baseCharacterStats.dicePool[diceType.Key] -= diceType.Value;
 
         }
+    }
+
+    public void ResetDicePool()
+    {
+        baseCharacterStats.dicePool["FourSided"] = 0;
+        baseCharacterStats.dicePool["SixSided"] = 0;
+        baseCharacterStats.dicePool["EightSided"] = 0;
+        baseCharacterStats.dicePool["TenSided"] = 0;
     }
 }

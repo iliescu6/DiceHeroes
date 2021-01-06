@@ -22,12 +22,55 @@ public class HighlightCombatCard : MonoBehaviour
     {
         manaCostText.text = ability._manaCost.ToString();
         abilityNameText.text = ability._name;
-        descriptionText.text = ability._description;
+        descriptionText.text = GetDescription(ability);
         ability.imageGUID = ability.imageGUID.Replace("Assets/Resources/", "");
         ability.imageGUID = ability.imageGUID.Replace(".png", "");
         Sprite s = Resources.Load<Sprite>(ability.imageGUID);
         abilitySprite.sprite = s;
         container.SetActive(true);
+    }
+
+    string GetDescription(Ability ability)
+    {
+        string description="Add: ";
+        bool hasDices = false;
+        foreach (KeyValuePair<string, int> pair in ability.dices)
+        {
+            if (pair.Value != 0)
+            {
+                switch (pair.Key)
+                {
+                    case "FourSided":
+                        description += pair.Value + " d4 ";
+                        break;
+                    case "SixSided":
+                        description += pair.Value + " d6 ";
+                        break;
+                    case "EightSided":
+                        description += pair.Value + " d8 ";
+                        break;
+                    case "TenSided":
+                        description += pair.Value + " d10 ";
+                        break;
+                    case "TwentySided":
+                        description += pair.Value + " d20 ";
+                        break;
+                }
+                hasDices = true;
+            }
+        }
+
+        if (!hasDices)
+        {
+            description = "";
+        }
+        else
+        {
+            description += "to your dice pool.";
+        }
+
+
+        return description;
     }
 
     private void Update()

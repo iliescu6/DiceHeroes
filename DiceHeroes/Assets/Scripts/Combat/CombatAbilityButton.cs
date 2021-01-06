@@ -22,18 +22,20 @@ public class CombatAbilityButton : AbilityButton
 
     public void SelectAbility()
     {
-        if (ability._manaCost <= player.characterObject.characterStats.mana && Selected == false)
+        if (ability._manaCost <= player.characterObject.baseCharacterStats.mana && Selected == false)
         {
+            player.characterObject.currentMana -= ability._manaCost;
             player.characterObject.AddDice(ability.dices, cb);
             Selected = true;
         }
         else if (Selected == true)
         {
-            player.characterObject.characterStats.mana += ability._manaCost;
+            player.characterObject.currentMana += ability._manaCost;
             player.characterObject.RemoveDice(ability.dices, cb);
             // player.characterStats.dicePool.Remove(player.characterStats.dicePool.Count);
 
             Selected = false;
         }
+        cb.playerUI.UpdatePlayerUI(player.characterObject.currentMana, player.characterObject.currentHP, player.characterObject.baseCharacterStats);
     }
 }
