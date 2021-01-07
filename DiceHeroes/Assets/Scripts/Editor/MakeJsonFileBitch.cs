@@ -110,20 +110,7 @@ public class MakeJsonFileBitch : EditorWindow
                     {
                         obj = null;
                     }
-                    if (ability.dices.Count > 0)
-                    {
-                        diceType.Add("FourSided", ability.dices["FourSided"]);
-                        diceType.Add("SixSided", ability.dices["SixSided"]);
-                        diceType.Add("EightSided", ability.dices["EightSided"]);
-                        diceType.Add("TenSided", ability.dices["TenSided"]);
-                    }
-                    else
-                    {
-                        diceType.Add("FourSided", 0);
-                        diceType.Add("SixSided", 0);
-                        diceType.Add("EightSided", 0);
-                        diceType.Add("TenSided", 0);
-                    }
+                    SetUpDiceTpes(ability.dices);
                 }
             }
             EditorGUILayout.EndScrollView();
@@ -138,21 +125,7 @@ public class MakeJsonFileBitch : EditorWindow
         ability._description = EditorGUILayout.TextField("Description", ability._description);
 
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
-        if (diceType.Count > 0)
-        {
-            diceType["FourSided"] = EditorGUILayout.IntField("Four Sided", diceType["FourSided"]); ;
-            diceType["SixSided"] = EditorGUILayout.IntField("Six Sided", diceType["SixSided"]); ;
-            diceType["EightSided"] = EditorGUILayout.IntField("Eight Sided", diceType["EightSided"]); ;
-            diceType["TenSided"] = EditorGUILayout.IntField("Ten Sided", diceType["TenSided"]); ;
-        }
-        else
-        {
-            diceType = new Dictionary<string, int>();
-            diceType.Add("FourSided", 0);
-            diceType.Add("SixSided", 0);
-            diceType.Add("EightSided", 0);
-            diceType.Add("TenSided", 0);
-        }
+        DrawDiceTypesInputFields();
 
 
         if (GUILayout.Button("Create"))
@@ -160,30 +133,8 @@ public class MakeJsonFileBitch : EditorWindow
             string path = ability._name + ".json";
             ability.dices = diceType;
             ability.imageGUID = AssetDatabase.GetAssetPath(obj);
-            //AssetDatabase.AssetPathToGUID();
             string jsonData = JSON.Serialize(ability).CreateString();
-            //string jsonData = JsonUtility.ToJson(ability, true);
             File.WriteAllText(Application.dataPath + "/Resources/Abilities/" + ability._name + ".json", jsonData);
-
-            //Make this for enemies as well
-            //List<string> classes = new List<string>(Directory.GetFiles(Application.dataPath + "/Resources/Characters/Classes/", "*.json"));
-            //foreach (string s in classes)
-            //{
-            //    string classInfo = File.ReadAllText(s);
-            //    if (classInfo.Contains(ability._name))
-            //    {
-            //        CharacterStats character = JsonUtility.FromJson<CharacterStats>(classInfo);
-            //        for (int a=0;a<3; a++)
-            //        {
-            //            if (character.startingAbilities[a]._name == ability._name)
-            //            {
-            //                character.startingAbilities[a] = ability;
-            //            }
-            //        }
-            //        string jsonCharacter = JsonUtility.ToJson(character, true);
-            //        File.WriteAllText(Application.dataPath + "/Resources/Characters/Classes/" + characterStats.name + ".json", jsonData);
-            //    }             
-            //}
         }
     }
 
@@ -217,20 +168,7 @@ public class MakeJsonFileBitch : EditorWindow
                     diceType = new Dictionary<string, int>();
                     if (characterStats != null)
                     {
-                        if (diceType.Count > 0)
-                        {
-                            diceType.Add("FourSided", ability.dices["FourSided"]);
-                            diceType.Add("SixSided", ability.dices["SixSided"]);
-                            diceType.Add("EightSided", ability.dices["EightSided"]);
-                            diceType.Add("TenSided", ability.dices["TenSided"]);
-                        }
-                        else
-                        {
-                            diceType.Add("FourSided", 0);
-                            diceType.Add("SixSided", 0);
-                            diceType.Add("EightSided", 0);
-                            diceType.Add("TenSided", 0);
-                        }
+                        SetUpDiceTpes(characterStats.dicePool);
                     }
                 }
             }
@@ -273,22 +211,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
         else
         {
-            if (diceType.Count > 0)
-            {
-                diceType["FourSided"] = EditorGUILayout.IntField("Four Sided", diceType["FourSided"]); ;
-                diceType["SixSided"] = EditorGUILayout.IntField("Six Sided", diceType["SixSided"]); ;
-                diceType["EightSided"] = EditorGUILayout.IntField("Eight Sided", diceType["EightSided"]); ;
-                diceType["TenSided"] = EditorGUILayout.IntField("Ten Sided", diceType["TenSided"]); ;
-            }
-            else
-            {
-                diceType = new Dictionary<string, int>();
-                diceType.Add("FourSided", 0);
-                diceType.Add("SixSided", 0);
-                diceType.Add("EightSided", 0);
-                diceType.Add("TenSided", 0);
-            }
-            
+            DrawDiceTypesInputFields();
         }
         if (GUILayout.Button("Save"))
         {
@@ -307,7 +230,7 @@ public class MakeJsonFileBitch : EditorWindow
             else
             {
                 characterStats.dicePool = diceType;
-                jsonData = JsonUtility.ToJson(characterStats, true);
+                jsonData = JSON.Serialize(characterStats).CreateString();
             }
             if (oldFileName != characterStats.name)
             {
@@ -342,6 +265,44 @@ public class MakeJsonFileBitch : EditorWindow
             File.Delete(Application.dataPath + "/Resources/Characters/" + characters + "/" + characterStats.name + ".json");
         }
     }
+
+    public void SetUpDiceTpes(Dictionary<string, int> dict)
+    {
+        if (dict.Count > 0)
+        {
+            diceType.Add("FourSided", dict["FourSided"]);
+            diceType.Add("SixSided", dict["SixSided"]);
+            diceType.Add("EightSided", dict["EightSided"]);
+            diceType.Add("TenSided", dict["TenSided"]);
+        }
+        else
+        {
+            diceType.Add("FourSided", 0);
+            diceType.Add("SixSided", 0);
+            diceType.Add("EightSided", 0);
+            diceType.Add("TenSided", 0);
+        }
+    }
+
+    public void DrawDiceTypesInputFields()
+    {
+        if (diceType.Count > 0)
+        {
+            diceType["FourSided"] = EditorGUILayout.IntField("Four Sided", diceType["FourSided"]); ;
+            diceType["SixSided"] = EditorGUILayout.IntField("Six Sided", diceType["SixSided"]); ;
+            diceType["EightSided"] = EditorGUILayout.IntField("Eight Sided", diceType["EightSided"]); ;
+            diceType["TenSided"] = EditorGUILayout.IntField("Ten Sided", diceType["TenSided"]); ;
+        }
+        else
+        {
+            diceType = new Dictionary<string, int>();
+            diceType.Add("FourSided", 0);
+            diceType.Add("SixSided", 0);
+            diceType.Add("EightSided", 0);
+            diceType.Add("TenSided", 0);
+        }
+    }
+
 }
 
 

@@ -8,17 +8,6 @@ public class DiceSide : MonoBehaviour
     bool stoppedRolling;
     [SerializeField]
     public int value;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {

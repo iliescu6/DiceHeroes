@@ -30,6 +30,7 @@ public class CharacterObject : MonoBehaviour
         baseCharacterStats = newStats;
         currentHP = newStats.health;
         currentMana = newStats.mana;
+        owner = "Player";
     }
 
     public string testEnemy;
@@ -107,6 +108,7 @@ public class CharacterObject : MonoBehaviour
             ResetDicePool();
             currentHP = baseCharacterStats.health;
             currentMana = baseCharacterStats.mana;
+            this.owner = "Player";
         }
     }
 

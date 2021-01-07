@@ -77,6 +77,7 @@ public class CharacterSelectPanel : MonoBehaviour
         PlayerProfile.Instance.characterObject.baseCharacterStats = playerClasses[0].baseCharacterStats;
         PlayerProfile.Instance.characterObject.currentHP = playerClasses[0].baseCharacterStats.health;
         PlayerProfile.Instance.characterObject.currentMana = playerClasses[0].baseCharacterStats.mana;
+        PlayerProfile.Instance.characterObject.owner = "Player";
         SceneManager.LoadScene("Level");
     }
 }

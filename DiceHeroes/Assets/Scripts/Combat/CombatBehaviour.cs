@@ -114,6 +114,7 @@ public class CombatBehaviour : MonoBehaviour
             player.characterObject.ResetDicePool();
             rollButton.onClick.AddListener(RollDicePool);
             CombatAbilityPanel.Instance.ResetAbilityButtons();
+            battleState = BattleState.Standyby;
         }
         else
         {
