@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerProfile : SingletonTemplate<PlayerProfile>
 {
     public CharacterObject characterObject;
+    public string selectedClassName;
     private List<Ability> spellbookAbilities = new List<Ability>();
 
     public List<Ability> SpellbokAbilities

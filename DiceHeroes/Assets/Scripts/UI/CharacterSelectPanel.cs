@@ -74,10 +74,7 @@ public class CharacterSelectPanel : MonoBehaviour
     public void LoadGame()
     {
         //TODO something's off here(mana and hp are not set up in get classes properly)
-        PlayerProfile.Instance.characterObject.baseCharacterStats = playerClasses[0].baseCharacterStats;
-        PlayerProfile.Instance.characterObject.currentHP = playerClasses[0].baseCharacterStats.health;
-        PlayerProfile.Instance.characterObject.currentMana = playerClasses[0].baseCharacterStats.mana;
-        PlayerProfile.Instance.characterObject.owner = "Player";
+        PlayerProfile.Instance.characterObject.SetClassStats(selectedClass.baseCharacterStats.name);
         SceneManager.LoadScene("Level");
     }
 }

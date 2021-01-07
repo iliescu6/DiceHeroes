@@ -168,7 +168,14 @@ public class CombatBehaviour : MonoBehaviour
                 {
                     target.currentHP = 0;
                 }
-                target.UpdateStats(); //TODO make proper function
+                if (target.gameObject.tag == "Player")
+                {
+                    playerUI.UpdatePlayerUI(player.characterObject.currentMana, player.characterObject.currentHP, player.characterObject.baseCharacterStats);
+                }
+                else
+                {
+                    target.combatStatsUI.UpdatePlayerUI(target.currentMana, target.currentHP, target.baseCharacterStats); //TODO make proper function
+                }
                 if (target.currentHP <= 0)
                 {
                     characterObject.Remove(target);
@@ -176,10 +183,7 @@ public class CombatBehaviour : MonoBehaviour
                 }
             }
         }
-        if (target.gameObject.tag == "Player")
-        {
-            playerUI.UpdatePlayerUI(player.characterObject.currentMana, player.characterObject.currentHP, player.characterObject.baseCharacterStats);
-        }
+        
         didDamage = true;
         rollButton.onClick.RemoveAllListeners();
     }

@@ -13,9 +13,14 @@ public class CombatUIScreen : MonoBehaviour
 
     public void UpdatePlayerUI(int currentMana,int currentHp,CharacterStats characterStats)
     {
-        manaImage.fillAmount = (float)currentMana / (float)characterStats.mana;
+        //player has mana, enemies don't show it, might change idk
+        if (manaImage != null)
+        {
+            manaImage.fillAmount = (float)currentMana / (float)characterStats.mana;
+            manaText.text = currentMana + "/" + characterStats.mana;
+        }
         hpImage.fillAmount = (float)currentHp / (float)characterStats.health;
         hpText.text = currentHp + "/" + characterStats.health;
-        manaText.text = currentMana + "/" + characterStats.mana;
+        
     }
 }

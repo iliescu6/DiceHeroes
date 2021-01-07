@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Leguar.TotalJSON;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class CharacterObject : MonoBehaviour
 {
     //TODO will need to rethink current and max values
+    [SerializeField] public CombatUIScreen combatStatsUI;
     public CharacterStats baseCharacterStats;
     public int currentHP;
     public int currentMana;
@@ -14,7 +16,7 @@ public class CharacterObject : MonoBehaviour
     [SerializeField]
     private TMP_Text button;
     private Ability[] startingAbilities = new Ability[3];
-    private List<Ability> equipedAbilities = new List<Ability>();
+    private List<Ability> equipedAbilities = new List<Ability>();   
 
     public CharacterObject()
     {
@@ -58,32 +60,9 @@ public class CharacterObject : MonoBehaviour
         set { startingAbilities = value; }
     }
 
-    // Start is called before the first frame update
-    //virtual public void Start()
-    //{
-    //    if (gameObject.tag != "Player")
-    //    {
-    //        SetCharacterStats();
-    //        button.text = "Name: " + characterStats.name +
-    //            "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
-    //    }
-    //}
-
-    // Update is called once per frame
-    virtual public void Update()
-    {
-
-    }
-
     virtual public void Initialize(string owner)
     {
         this.owner = owner;
-    }
-
-    public virtual void UpdateStats()
-    {
-        //button.text = "Name: " + characterStats.name +
-        //    "\n Health: " + characterStats.health + "\n Armour: " + characterStats.armour + "\n Damage: " + characterStats.attrition;
     }
 
     virtual public void SetEnemyStats(string character = null)
@@ -91,7 +70,8 @@ public class CharacterObject : MonoBehaviour
         if (character != null)
         {
             string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Enemies/" + character + ".json");
-            CharacterStats a = JsonUtility.FromJson<CharacterStats>(file);
+            JSON j = JSON.ParseString(file);
+            CharacterStats a = j.Deserialize<CharacterStats>();
             baseCharacterStats = a;
             ResetDicePool();
             this.owner = "Enemy";
@@ -103,7 +83,9 @@ public class CharacterObject : MonoBehaviour
         if (character != null)
         {
             string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Classes/" + character + ".json");
-            CharacterStats a = JsonUtility.FromJson<CharacterStats>(file);
+            //TODO hunt down every last on Jsonutily and use json plug in for dictionaries
+            JSON j = JSON.ParseString(file);
+            CharacterStats a = j.Deserialize<CharacterStats>();
             baseCharacterStats = a;
             ResetDicePool();
             currentHP = baseCharacterStats.health;
