@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Combat\DiceSide.cs" />
     <Compile Include="Assets\Scripts\Definitions\Ability.cs" />
     <Compile Include="Assets\Scripts\Definitions\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\Definitions\Equipment.cs" />
     <Compile Include="Assets\Scripts\PlayerProfile.cs" />
     <Compile Include="Assets\Scripts\SingletonTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityButton.cs" />

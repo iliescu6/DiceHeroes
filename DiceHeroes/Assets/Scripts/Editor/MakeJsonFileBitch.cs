@@ -5,14 +5,19 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Leguar.TotalJSON;
+using System.Reflection;
+
 
 public class MakeJsonFileBitch : EditorWindow
 {
+    public const string ignoreString = "imageGUID";
     public Ability ability = new Ability();
+    public Equipment equipment = new Equipment();
     public List<Ability> abilities = new List<Ability>();
     public Ability[] selectedAbilities = new Ability[3];
     public List<string> abilitiesNames = new List<string>();
     public CharacterStats characterStats = new CharacterStats();
+    List<FieldInfo> listOfFields = new List<FieldInfo>();
     Vector2 scrollPos;
     int selectedIndex = -1;
     int tab = 0;
@@ -39,17 +44,19 @@ public class MakeJsonFileBitch : EditorWindow
     void OnGUI()
     {
 
-        tab = GUILayout.Toolbar(tab, new string[] { "Abilities", "Enemies", "Characters" });
+        tab = GUILayout.Toolbar(tab, new string[] { "Abilities","Equipment" ,"Enemies", "Characters" });
         switch (tab)
         {
             case 0:
                 DrawAbilitiesTab();
                 break;
-
             case 1:
-                DrawEnemiesTab("Enemies");
+                DrawEquipmentTab();
                 break;
             case 2:
+                DrawEnemiesTab("Enemies");
+                break;
+            case 3:
                 DrawEnemiesTab("Classes");
                 break;
             default:
@@ -72,22 +79,70 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
-    //TODO Generalize it, sleepy atm
-    void DrawAbilitiesTab()
+    void DrawEquipmentTab()
     {
-
-        GUIStyle itemStyle = new GUIStyle(GUI.skin.button);
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
+        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Equipment/", "*.json");
         if (files.Length != 0)
         {
             EditorGUILayout.BeginHorizontal();
             scrollPos =
                 EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
 
-            itemStyle.alignment = TextAnchor.MiddleLeft;
-            itemStyle.active.background = itemStyle.normal.background;
-            itemStyle.margin = new RectOffset(0, 0, 0, 0);
 
+            for (int i = 0; i < files.Length; i++)
+            {
+                string text = File.ReadAllText(files[i]);
+                GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
+                //Ability a = JsonUtility.FromJson<Ability>(text);
+                JSON j = JSON.ParseString(text);
+                Equipment a = j.Deserialize<Equipment>();
+                if (GUILayout.Button(a._name))
+                {
+                    selectedIndex = i;
+                    equipment = a;
+                    diceType = new Dictionary<string, int>();
+                    if (!string.IsNullOrEmpty(equipment.imageGUID))
+                    {
+                        obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
+                    }
+                    else
+                    {
+                        obj = null;
+                    }
+                    SetUpDiceTpes(equipment.dices);
+                }
+            }
+            EditorGUILayout.EndScrollView();
+            EditorGUILayout.EndHorizontal();
+
+        }
+        GUILayout.Label("Ability", EditorStyles.boldLabel);
+
+        DrawFields<Equipment>(equipment);
+
+        obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
+        DrawDiceTypesInputFields();
+
+
+        if (GUILayout.Button("Create"))
+        {
+            string path = equipment._name + ".json";
+            equipment.dices = diceType;
+            equipment.imageGUID = AssetDatabase.GetAssetPath(obj);
+            string jsonData = JSON.Serialize(equipment).CreateString();
+            File.WriteAllText(Application.dataPath + "/Resources/Equipment/" + equipment._name + ".json", jsonData);
+        }
+    }
+
+        //TODO Generalize it, sleepy atm
+        void DrawAbilitiesTab()
+    {
+        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
+        if (files.Length != 0)
+        {
+            EditorGUILayout.BeginHorizontal();
+            scrollPos =
+                EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
 
 
             for (int i = 0; i < files.Length; i++)
@@ -119,10 +174,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
         GUILayout.Label("Ability", EditorStyles.boldLabel);
 
-        ability._name = EditorGUILayout.TextField("Name", ability._name);
-        ability._level = EditorGUILayout.IntField("Level", ability._level);
-        ability._manaCost = EditorGUILayout.IntField("Mana Cost", ability._manaCost);
-        ability._description = EditorGUILayout.TextField("Description", ability._description);
+        DrawFields<Ability>(ability);
 
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
         DrawDiceTypesInputFields();
@@ -140,19 +192,12 @@ public class MakeJsonFileBitch : EditorWindow
 
     void DrawEnemiesTab(string characters)
     {
-        GUIStyle itemStyle = new GUIStyle(GUI.skin.button);
+       
         List<string> files = new List<string>(Directory.GetFiles(Application.dataPath + "/Resources/Characters/" + characters + "/ ", "*.json"));
         if (files.Count != 0)
         {
             EditorGUILayout.BeginHorizontal();
-            scrollPos =
-                EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
-
-            itemStyle.alignment = TextAnchor.MiddleLeft;
-            itemStyle.active.background = itemStyle.normal.background;
-            itemStyle.margin = new RectOffset(0, 0, 0, 0);
-
-
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
 
             for (int i = 0; i < files.Count; i++)
             {
@@ -178,12 +223,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
         GUILayout.Label("Enemies", EditorStyles.boldLabel);
 
-        characterStats.name = EditorGUILayout.TextField("Name", characterStats.name);
-        characterStats.health = EditorGUILayout.IntField("Health", characterStats.health);
-        characterStats.mana = EditorGUILayout.IntField("Mana", characterStats.mana);
-        characterStats.armour = EditorGUILayout.IntField("Armour", characterStats.armour);
-        characterStats.attrition = EditorGUILayout.IntField("Damage", characterStats.attrition);
-        characterStats.dices = EditorGUILayout.IntField("Dices", characterStats.dices);
+        DrawFields<CharacterStats>(characterStats);
 
         //Make only for classes and save values
         if (characters == "Classes")
@@ -303,8 +343,30 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
+    public void DrawFields<T>(T obj)
+    {
+        listOfFields = typeof(T).GetFields().ToList();
+
+        for (int i = 0; i < listOfFields.Count; i++)
+        {
+            if (listOfFields[i].FieldType == typeof(string))
+            {
+                if (listOfFields[i].Name != ignoreString)
+                {
+                    string s = (string)(obj.GetType().GetField(listOfFields[i].Name).GetValue(obj));
+                    s = EditorGUILayout.TextField(listOfFields[i].Name, s);
+                    obj.GetType().GetField(listOfFields[i].Name).SetValue(obj, s);
+                }
+            }
+            else if (listOfFields[i].FieldType == typeof(int))
+            {
+                int s = (int)(obj.GetType().GetField(listOfFields[i].Name).GetValue(obj));
+                s = EditorGUILayout.IntField(listOfFields[i].Name, s);
+                obj.GetType().GetField(listOfFields[i].Name).SetValue(obj, s);
+            }
+        }
+    }
+
 }
-
-
 
 

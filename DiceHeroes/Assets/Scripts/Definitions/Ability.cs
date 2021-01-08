@@ -14,4 +14,5 @@ public class Ability
     public string imageGUID;
 }
 
+[System.Flags]
 public enum DiceType { FourSided,SixSided,EightSided,TenSided}
