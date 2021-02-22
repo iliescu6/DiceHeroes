@@ -210,7 +210,7 @@ public class CombatBehaviour : MonoBehaviour
         {
             Debug.Log("Winner is :" + winner);
             battleState = BattleState.CombatOutcome;
-            PostBattleScreen screen = UIScreens.PushScreen<PostBattleScreen>();
+            GameScreenPostBattle screen = UIScreens.PushScreen<GameScreenPostBattle>();
             screen.Initialize(winner, "5", "10", "Biggus Swordus", () =>
                 {
                     SceneManagerTransition.Instance.sceneLoaded = false;

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PostBattleScreen : GameScreen
+public class GameScreenPostBattle : GameScreen
 {
     [SerializeField] TMP_Text outcomeText;
     [SerializeField] TMP_Text goldText;

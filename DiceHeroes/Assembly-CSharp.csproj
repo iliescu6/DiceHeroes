@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>D:\Unitys\2019.3.10f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -49,10 +47,14 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.3.10f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>D:\Unitys\2019.3.10f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -62,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameScreenInventory.cs" />
     <Compile Include="Assets\SceneManagerTransition.cs" />
     <Compile Include="Assets\Scripts\Combat\CharacterObject.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatAbilityButton.cs" />
@@ -72,12 +75,14 @@
     <Compile Include="Assets\Scripts\Definitions\Ability.cs" />
     <Compile Include="Assets\Scripts\Definitions\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Definitions\Equipment.cs" />
+    <Compile Include="Assets\Scripts\Definitions\LootTable.cs" />
     <Compile Include="Assets\Scripts\PlayerProfile.cs" />
     <Compile Include="Assets\Scripts\SingletonTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterSelectPanel.cs" />
     <Compile Include="Assets\Scripts\UI\CombatUIScreen.cs" />
     <Compile Include="Assets\Scripts\UI\GameScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\GameScreenPostBattle.cs" />
     <Compile Include="Assets\Scripts\UI\HighlightCombatCard.cs" />
     <Compile Include="Assets\Scripts\UI\IPlatformInput.cs" />
     <Compile Include="Assets\Scripts\UI\InputController.cs" />
@@ -85,7 +90,6 @@
     <Compile Include="Assets\Scripts\UI\MobileInput.cs" />
     <Compile Include="Assets\Scripts\UI\PCInput.cs" />
     <Compile Include="Assets\Scripts\UI\PathEventPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\PostBattleScreen.cs" />
     <Compile Include="Assets\Scripts\UI\UIScreens.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathController.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathEvent.cs" />

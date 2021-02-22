@@ -16,4 +16,12 @@ public class CharacterStats
     public int dices;
     public Dictionary<string,int> dicePool=new Dictionary<string,int>();
     public Ability[] startingAbilities = new Ability[3];
+    public List<LootDrops> lootDrops = new List<LootDrops>();
+}
+
+[System.Serializable]
+public class LootDrops
+{
+    public float chanceToDrop;
+    public string equipmentName;
 }
