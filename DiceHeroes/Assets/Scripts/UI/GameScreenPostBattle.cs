@@ -15,8 +15,8 @@ public class GameScreenPostBattle : GameScreen
     public void Initialize(string outcome,string gold,string xp,string item,UnityAction action)
     {
         outcomeText.text = outcome;
-        goldText.text = gold;
-        xpText.text = xp;
+        goldText.text = "Gold:"+gold;
+        xpText.text = "XP:"+xp;
         itemText.text = item;
         okButton.onClick.AddListener(action);
     }

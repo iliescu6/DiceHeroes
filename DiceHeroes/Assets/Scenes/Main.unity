@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screens:
   - {fileID: 5366667621000994305, guid: 7254c0f15bc1ce942800785dee5e2246, type: 3}
+  - {fileID: 2986819971971169355, guid: 73d75fbc29696de49aa1e6b0b878e3e9, type: 3}
 --- !u!4 &221778786
 Transform:
   m_ObjectHideFlags: 0
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterObject: {fileID: 391450378}
+  selectedClassName: 
   combatBehaviour: {fileID: 0}
 --- !u!4 &391450377
 Transform:
@@ -374,8 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1c8d6299e07ce43918a5928d99edb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testEnemy: 
-  characterStats:
+  combatStatsUI: {fileID: 0}
+  baseCharacterStats:
     name: 
     description: 
     health: 0
@@ -400,8 +402,12 @@ MonoBehaviour:
       _description: 
       _manaCost: 0
       imageGUID: 
+    lootDrops: []
+  currentHP: 0
+  currentMana: 0
   owner: 
   button: {fileID: 0}
+  testEnemy: 
 --- !u!114 &391450379
 MonoBehaviour:
   m_ObjectHideFlags: 0

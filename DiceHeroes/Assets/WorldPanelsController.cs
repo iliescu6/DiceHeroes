@@ -28,4 +28,10 @@ public class WorldPanelsController : MonoBehaviour
     {
         pathEventPanel.Show(p);
     }
+
+    public void ToggleInventoryScreen()
+    {
+        GameScreenInventory screen = UIScreens.PushScreen<GameScreenInventory>();
+        screen.Initialize();
+    }
 }

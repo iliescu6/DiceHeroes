@@ -21,8 +21,9 @@ public class GameScreenInventory : GameScreen
     [SerializeField] TMP_Text tenSidedText;
     [SerializeField] TMP_Text twentySidedText;
 
-    public void Initialize(CharacterObject player)
+    public void Initialize()
     {
+        CharacterObject player = PlayerProfile.Instance.characterObject;
         healthText.text = "Health:" + player.currentHP + "/" + player.baseCharacterStats.health;
     }
 }
