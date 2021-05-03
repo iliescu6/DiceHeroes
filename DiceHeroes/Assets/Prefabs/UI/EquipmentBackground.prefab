@@ -131,10 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635249c92f16ae04ea7a6a6541b150ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment:
+  _equipment:
     imageGUID: 
     _name: 
     _level: 0
+    _slot: 0
     _description: 
     bonusHealth: 0
     bonusMana: 0
@@ -142,6 +143,7 @@ MonoBehaviour:
     bonusArmour: 0
     bonusInitiative: 0
   iconImage: {fileID: 9011208371534983269}
+  button: {fileID: 9011208370558575876}
 --- !u!1 &9011208371534983267
 GameObject:
   m_ObjectHideFlags: 0

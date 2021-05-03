@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class GameScreenInventory : GameScreen
 {
     //todo change Gameobject with whatever class I make
     [SerializeField] UIInventoryItem inventoryPrefab;
     [SerializeField] GameObject inventoryContainer;
-    GameObject[] inventoryItems = new GameObject[20];
-    GameObject[] equipedItems = new GameObject[4];
+    [SerializeField] List<EquipmentGameObject> equipmentGameObject = new List<EquipmentGameObject>();
+    GameObject[] inventoryItems = new GameObject[20];   
     [SerializeField] TMP_Text goldText;
     [SerializeField] TMP_Text expText;
     [SerializeField] Image xpBarImage;
@@ -31,7 +32,7 @@ public class GameScreenInventory : GameScreen
         for (int i = 0; i < 20; i++)
         {
             UIInventoryItem g = Instantiate(inventoryPrefab, inventoryContainer.transform);
-            g.Initialize(PlayerProfile.Instance.inventory[i]);
+            g.Initialize(PlayerProfile.Instance.inventory[i], equipmentGameObject);
             inventoryItems[i] = g.gameObject;
         }
         CharacterObject player = PlayerProfile.Instance.characterObject;
@@ -40,4 +41,12 @@ public class GameScreenInventory : GameScreen
         expText.text = player.currentXP + "/" + (float)player.baseCharacterStats.requiredXP[player.currentLevel - 1].requiredXP;
         xpBarImage.fillAmount = (float)player.currentXP / (float)player.baseCharacterStats.requiredXP[player.currentLevel - 1].requiredXP;
     }
+}
+
+[Serializable]
+public class EquipmentGameObject
+{
+    public EquipmentSlot slot;
+    public Image slotGameobject;
+    
 }

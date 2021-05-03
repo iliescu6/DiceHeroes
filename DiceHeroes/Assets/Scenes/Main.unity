@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterObject: {fileID: 391450378}
   selectedClassName: 
+  equipmentSlots: []
   inventory: []
   currentLootTable:
     _name: 
@@ -1391,6 +1392,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2986819971971169354, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986819971971169354, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986819971971169354, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2986819972237288635, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1660,6 +1676,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518093266503135945, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518093266503135945, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518093266503135945, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518093266503135945, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518093266503135945, guid: 73d75fbc29696de49aa1e6b0b878e3e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73d75fbc29696de49aa1e6b0b878e3e9, type: 3}

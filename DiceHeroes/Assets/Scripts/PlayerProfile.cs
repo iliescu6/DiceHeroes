@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,18 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
 {
     public CharacterObject characterObject;
     public string selectedClassName;
-    private List<Ability> spellbookAbilities = new List<Ability>();
+    private List<Ability> spellbookAbilities = new List<Ability>();    
+    public List<EquipmentSlot> equipmentSlots;
     public Equipment[] inventory;
     public LootTable currentLootTable;
     public override void Awake()
     {
         base.Awake();
+        equipmentSlots = new List<EquipmentSlot>(3);
+        for (int i = 0; i < Enum.GetNames(typeof(EquipmentType)).Length; i++)
+        {
+            equipmentSlots.Add(new EquipmentSlot(i));
+        }
         inventory = new Equipment[20];
     }
     public List<Ability> SpellbokAbilities
@@ -19,9 +26,6 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
         get { return spellbookAbilities; }
         set { spellbookAbilities = value; }
     }
-
-    //[SerializeField]
-    //public List<int> dicePool=new List<int>();
 
     [SerializeField]
     public CombatBehaviour combatBehaviour;
@@ -54,5 +58,15 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
             return false;
         }
         
+    }
+}
+[Serializable]
+public class EquipmentSlot
+{
+    public EquipmentType type;
+    public Equipment equipedItem;
+    public EquipmentSlot(int i)
+    {
+        type = (EquipmentType)i;
     }
 }
