@@ -12,6 +12,9 @@ public class CharacterObject : MonoBehaviour
     public CharacterStats baseCharacterStats;
     public int currentHP;
     public int currentMana;
+    public int currentLevel;
+    public int currentXP;
+    public int currentGold;
     public string owner;
     [SerializeField]
     private TMP_Text button;
@@ -131,5 +134,5 @@ public class CharacterObject : MonoBehaviour
         baseCharacterStats.dicePool["SixSided"] = 0;
         baseCharacterStats.dicePool["EightSided"] = 0;
         baseCharacterStats.dicePool["TenSided"] = 0;
-    }
+    }   
 }

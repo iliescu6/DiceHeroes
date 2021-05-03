@@ -211,7 +211,8 @@ public class CombatBehaviour : MonoBehaviour
             Debug.Log("Winner is :" + winner);
             battleState = BattleState.CombatOutcome;
             GameScreenPostBattle screen = UIScreens.PushScreen<GameScreenPostBattle>();
-            screen.Initialize(winner, "5", "10", "Biggus Swordus", () =>
+            Equipment drop = PlayerProfile.Instance.currentLootTable.equipment[1]; //PlayerProfile.Instance.currentLootTable.equipment[Random.Range(0,4)];
+            screen.Initialize(winner, 5, 10, drop, () =>
                 {
                     SceneManagerTransition.Instance.sceneLoaded = false;
                     SceneManagerTransition.Instance.LoadLevelScene(combatScene);

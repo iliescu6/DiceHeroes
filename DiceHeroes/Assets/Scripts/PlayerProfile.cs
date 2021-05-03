@@ -7,7 +7,13 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
     public CharacterObject characterObject;
     public string selectedClassName;
     private List<Ability> spellbookAbilities = new List<Ability>();
-
+    public Equipment[] inventory;
+    public LootTable currentLootTable;
+    public override void Awake()
+    {
+        base.Awake();
+        inventory = new Equipment[20];
+    }
     public List<Ability> SpellbokAbilities
     {
         get { return spellbookAbilities; }
@@ -33,5 +39,20 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
     {
         get { return currentMap; }
         set { currentMap = value; }
+    }
+
+    public bool GainXP(int xp)
+    {
+        characterObject.currentXP += xp;
+        if (characterObject.baseCharacterStats.requiredXP!=null && characterObject.currentXP >= characterObject.baseCharacterStats.requiredXP[characterObject.currentLevel].requiredXP)
+        {
+            characterObject.currentLevel++;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 }

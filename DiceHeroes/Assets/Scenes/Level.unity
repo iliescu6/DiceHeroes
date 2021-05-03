@@ -3143,7 +3143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaLootTable:
-    _name: 
+    _name: Area_1
     equipment: []
   paths:
   - {fileID: 606996841}

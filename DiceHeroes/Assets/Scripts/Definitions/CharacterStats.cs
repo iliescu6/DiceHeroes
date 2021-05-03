@@ -13,7 +13,8 @@ public class CharacterStats
     public int armour;
     public int attrition;
     public int initiative;
-    public int dices;
+    public int dices;    
+    public List<XPPerLevelMap> requiredXP;
     public Dictionary<string,int> dicePool=new Dictionary<string,int>();
     public Ability[] startingAbilities = new Ability[3];
     public List<LootDrops> lootDrops = new List<LootDrops>();
@@ -24,4 +25,10 @@ public class LootDrops
 {
     public float chanceToDrop;
     public string equipmentName;
+}
+
+public class XPPerLevelMap
+{
+    public int level;
+    public int requiredXP;
 }

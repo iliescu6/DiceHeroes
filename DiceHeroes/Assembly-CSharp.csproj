@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\UI\MobileInput.cs" />
     <Compile Include="Assets\Scripts\UI\PCInput.cs" />
     <Compile Include="Assets\Scripts\UI\PathEventPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\UIInventoryItem.cs" />
     <Compile Include="Assets\Scripts\UI\UIScreens.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathController.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PathEvent.cs" />

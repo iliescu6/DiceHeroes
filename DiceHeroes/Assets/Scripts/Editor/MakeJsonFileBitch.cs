@@ -168,6 +168,14 @@ public class MakeJsonFileBitch : EditorWindow
         if (GUILayout.Button("Save"))
         {
             string path = lootTable._name + ".json";
+
+            for (int i = 0; i < equipmentList.Count; i++) //TODO name used to be path, will reset all equipments in editor to dagger_of_pop due to name not containing path anymore,fix
+            {
+                string text = File.ReadAllText(equipmentList[i]._name);
+                JSON j = JSON.ParseString(text);
+                Equipment a = j.Deserialize<Equipment>();
+                equipmentList[i] = a;
+            }
             lootTable.equipment = equipmentList;
             string jsonData = JSON.Serialize(lootTable).CreateString();
             File.WriteAllText(Application.dataPath + "/Resources/LootTables/" + lootTable._name + ".json", jsonData);
@@ -197,7 +205,6 @@ public class MakeJsonFileBitch : EditorWindow
             {
                 string text = File.ReadAllText(files[i]);
                 GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
-                //Ability a = JsonUtility.FromJson<Ability>(text);
                 JSON j = JSON.ParseString(text);
                 Equipment a = j.Deserialize<Equipment>();
                 if (GUILayout.Button(a._name))
@@ -230,7 +237,6 @@ public class MakeJsonFileBitch : EditorWindow
 
         if (GUILayout.Button("Save"))
         {
-            string path = equipment._name + ".json";
             equipment.dices = diceType;
             equipment.imageGUID = AssetDatabase.GetAssetPath(obj);
             string jsonData = JSON.Serialize(equipment).CreateString();
@@ -262,7 +268,6 @@ public class MakeJsonFileBitch : EditorWindow
             {
                 string text = File.ReadAllText(files[i]);
                 GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
-                //Ability a = JsonUtility.FromJson<Ability>(text);
                 JSON j = JSON.ParseString(text);
                 Ability a = j.Deserialize<Ability>();
                 if (GUILayout.Button(a._name))

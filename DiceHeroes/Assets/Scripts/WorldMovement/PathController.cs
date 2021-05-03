@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using Leguar.TotalJSON;
 public class PathController : MonoBehaviour
 {
     public static PathController Instance;
@@ -20,10 +20,10 @@ public class PathController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        TextAsset file = Resources.Load<TextAsset>("LootTables/Area_1.json");
-        string text = File.ReadAllText(file.text);
-        JSON j = JSON.ParseString(text);
-        LootTable areaLootTable = j.Deserialize<LootTable>();
+        TextAsset file = Resources.Load("LootTables/Area1") as TextAsset;
+        JSON j = JSON.ParseString(file.text);
+        areaLootTable = j.Deserialize<LootTable>();
+        PlayerProfile.Instance.currentLootTable = areaLootTable;
     }
     [SerializeField]
     List<PathPiece> paths = new List<PathPiece>();
