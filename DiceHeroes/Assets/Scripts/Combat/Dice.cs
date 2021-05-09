@@ -15,7 +15,7 @@ public class Dice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,9 +32,13 @@ public class Dice : MonoBehaviour
                     rigidBody.isKinematic = true;
                 }
             }
+            if (!stopped)
+            {
+                RollDice();//Is it's sleeping in a bad position, move it again
+            }
         }
-        else if(rigidBody.IsSleeping() && rigidBody.isKinematic == true )//&&
-            //Vector3.Distance(transform.position, spawningPoint)<.1f)
+        else if (rigidBody.IsSleeping() && rigidBody.isKinematic == true)//&&
+                                                                         //Vector3.Distance(transform.position, spawningPoint)<.1f)
         {
             MoveDiceToScreen();
         }
@@ -42,14 +46,14 @@ public class Dice : MonoBehaviour
 
     public void MoveDiceToScreen()
     {
-        transform.position = Vector3.MoveTowards(transform.position, spawningPoint,Time.deltaTime*10);
+        transform.position = Vector3.MoveTowards(transform.position, spawningPoint, Time.deltaTime * 10);
     }
 
     public void RollDice()
     {
         rigidBody.isKinematic = false;
         rigidBody.AddRelativeForce(Random.Range(0, 400), Random.Range(0, 500), Random.Range(0, 500));
-        rigidBody.AddTorque(Random.Range(0,100), Random.Range(0, 500), Random.Range(0, 500));
+        rigidBody.AddTorque(Random.Range(0, 100), Random.Range(0, 500), Random.Range(0, 500));
     }
 
     public void ResetDice()

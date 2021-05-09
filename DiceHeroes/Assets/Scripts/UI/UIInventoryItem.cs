@@ -40,6 +40,7 @@ public class UIInventoryItem : MonoBehaviour
             {
                 if ((int)go.slot.type == _equipment._slot)
                 {
+                    PlayerProfile.Instance.UpdateEquipment(go.slot);//TODO remove this struct because we'll use the type from equipment
                     go.slotGameobject.sprite = iconImage.sprite;
                     iconImage.sprite = null;
                     iconImage.color = new Color(1, 1, 1, 0);

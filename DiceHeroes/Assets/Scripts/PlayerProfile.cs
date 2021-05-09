@@ -59,6 +59,17 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
         }
         
     }
+
+    public void UpdateEquipment(EquipmentSlot slot)
+    {
+        for (int i = 0; i < equipmentSlots.Count; i++)
+        {
+            if (equipmentSlots[i].type == slot.type)
+            {
+                equipmentSlots[i] = slot;
+            }
+        }
+    }
 }
 [Serializable]
 public class EquipmentSlot
