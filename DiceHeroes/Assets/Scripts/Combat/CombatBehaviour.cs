@@ -15,7 +15,10 @@ public class CombatBehaviour : MonoBehaviour
     List<CharacterObject> characterObject = new List<CharacterObject>();
     PlayerProfile player;
     string currentTurn;//TODO Remove,only debug
+    [SerializeField]
     Button rollButton;
+    [SerializeField]
+    Button switchAbilities;
     string winner = "None";
     [SerializeField]
     private Transform playerSpawner;
@@ -53,8 +56,6 @@ public class CombatBehaviour : MonoBehaviour
             dicePool[i].spawningPoint = playerSpawningPoints[i].position;
             d.SetActive(false);
         }
-        GameObject g = GameObject.Find("PlayerButton");
-        rollButton = g.GetComponent<Button>();
         rollButton.onClick.AddListener(delegate { SetPlayerDicePool(player.characterObject.baseCharacterStats.dicePool); });
         rollButton.onClick.AddListener(RollDicePool);
     }
@@ -216,7 +217,7 @@ public class CombatBehaviour : MonoBehaviour
                 {
                     SceneManagerTransition.Instance.sceneLoaded = false;
                     SceneManagerTransition.Instance.LoadLevelScene(combatScene);
-                    UIScreens.Instance.PopScreen();
+                    UIScreens.PopScreen();
                 }
             );
         }

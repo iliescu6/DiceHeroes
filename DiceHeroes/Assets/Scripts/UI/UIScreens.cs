@@ -36,7 +36,7 @@ public class UIScreens : SingletonTemplate<UIScreens>
     }
 
     //POps the last one
-    public void PopScreen()
+    public static void PopScreen()
     {
         if (Instance.screenStack.Count > 0)
         {

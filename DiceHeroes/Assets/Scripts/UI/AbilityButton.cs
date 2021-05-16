@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AbilityButton : MonoBehaviour
 {
     public Ability ability;
+    public Equipment equipment;
     public Button button;
     private bool selected;
     [SerializeField] TMP_Text descriptionText;
@@ -21,6 +22,18 @@ public class AbilityButton : MonoBehaviour
         ability = a;
         Selected = false;
         manaCost.text = a._manaCost.ToString();
+        a.imageGUID = a.imageGUID.Replace("Assets/Resources/", "");
+        a.imageGUID = a.imageGUID.Replace(".png", "");
+        Sprite s = Resources.Load<Sprite>(a.imageGUID);
+        abilityImage.sprite = s;
+    }
+
+    public virtual void Initialize(Equipment a)
+    {
+        button = this.GetComponent<Button>();
+        equipment = a;
+        Selected = false;
+        manaCost.gameObject.SetActive(false);
         a.imageGUID = a.imageGUID.Replace("Assets/Resources/", "");
         a.imageGUID = a.imageGUID.Replace(".png", "");
         Sprite s = Resources.Load<Sprite>(a.imageGUID);

@@ -12,4 +12,8 @@ public class GameScreen : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
     }
+    public virtual void ClosePanel()
+    {
+        UIScreens.PopScreen();
+    }
 }

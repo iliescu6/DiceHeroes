@@ -2,22 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerProfile : SingletonTemplate<PlayerProfile>
 {
     public CharacterObject characterObject;
     public string selectedClassName;
     private List<Ability> spellbookAbilities = new List<Ability>();    
-    public List<EquipmentSlot> equipmentSlots;
+    public List<Equipment> equipmentSlots;
     public Equipment[] inventory;
     public LootTable currentLootTable;
     public override void Awake()
     {
         base.Awake();
-        equipmentSlots = new List<EquipmentSlot>(3);
+        equipmentSlots = new List<Equipment>(4);
         for (int i = 0; i < Enum.GetNames(typeof(EquipmentType)).Length; i++)
         {
-            equipmentSlots.Add(new EquipmentSlot(i));
+            equipmentSlots.Add(new Equipment(i));
         }
         inventory = new Equipment[20];
     }
@@ -60,24 +61,15 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
         
     }
 
-    public void UpdateEquipment(EquipmentSlot slot)
+    public void UpdateEquipment(Equipment slot)
     {
         for (int i = 0; i < equipmentSlots.Count; i++)
         {
-            if (equipmentSlots[i].type == slot.type)
+            if (equipmentSlots[i]._slot == slot._slot)
             {
                 equipmentSlots[i] = slot;
             }
         }
     }
 }
-[Serializable]
-public class EquipmentSlot
-{
-    public EquipmentType type;
-    public Equipment equipedItem;
-    public EquipmentSlot(int i)
-    {
-        type = (EquipmentType)i;
-    }
-}
+

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIInventoryItem : MonoBehaviour
@@ -10,9 +11,9 @@ public class UIInventoryItem : MonoBehaviour
     Image iconImage;
     [SerializeField]
     Button button;
-    List<EquipmentGameObject> equipmentGameObject=new List<EquipmentGameObject>();
+    List<EquipmentSlot> equipmentGameObject=new List<EquipmentSlot>();
 
-    public void Initialize(Equipment equipment, List<EquipmentGameObject> list)
+    public void Initialize(Equipment equipment, List<EquipmentSlot> list,UnityAction action)
     {
         equipmentGameObject = list;
         if (equipment == null || string.IsNullOrEmpty(equipment.imageGUID))
@@ -30,21 +31,24 @@ public class UIInventoryItem : MonoBehaviour
             iconImage.sprite = s;
         }
         button.onClick.AddListener(EquipItem);
+        button.onClick.AddListener(action);
     }
 
     public void EquipItem()
     {
         if (_equipment != null)
         {
-            foreach (EquipmentGameObject go in equipmentGameObject)
+            foreach (EquipmentSlot go in equipmentGameObject)
             {
-                if ((int)go.slot.type == _equipment._slot)
+                if ((int)go.equipedItem._slot == _equipment._slot)
                 {
-                    PlayerProfile.Instance.UpdateEquipment(go.slot);//TODO remove this struct because we'll use the type from equipment
-                    go.slotGameobject.sprite = iconImage.sprite;
+                    PlayerProfile.Instance.UpdateEquipment(_equipment);//TODO remove this struct because we'll use the type from equipment
+                    go.equipedItem = _equipment;
+                    go.itemIcon.sprite = iconImage.sprite;
                     iconImage.sprite = null;
                     iconImage.color = new Color(1, 1, 1, 0);
                     _equipment = null;
+                    break;
                 }
             }
         }

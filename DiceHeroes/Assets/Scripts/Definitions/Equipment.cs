@@ -16,8 +16,16 @@ public class Equipment
     public int bonusArmour;
     public int bonusInitiative;
     public Dictionary<string, int> dices = new Dictionary<string, int>();
-   
+
+    public Equipment()
+    { 
+    
+    }
+    public Equipment(int i)
+    {
+        _slot = i;
+    }
 }
 
 [Serializable]
-public enum EquipmentType { Head,Armour,Weapon}
+public enum EquipmentType { Head,Armour,Weapon,Feet}

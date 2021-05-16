@@ -47,6 +47,11 @@ public class Dice : MonoBehaviour
     public void MoveDiceToScreen()
     {
         transform.position = Vector3.MoveTowards(transform.position, spawningPoint, Time.deltaTime * 10);
+        var vec = transform.eulerAngles;
+        vec.x = Mathf.Round(vec.x / 90) * 90;
+        vec.y = Mathf.Round(vec.y / 90) * 90;
+        vec.z = Mathf.Round(vec.z / 90) * 90;//TODO have 90 as a variable and set it based on dice type
+        transform.eulerAngles = vec;
     }
 
     public void RollDice()
