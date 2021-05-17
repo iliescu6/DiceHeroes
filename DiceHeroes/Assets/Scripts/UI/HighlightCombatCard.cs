@@ -21,7 +21,7 @@ public class HighlightCombatCard : MonoBehaviour
     public void SetUpHighlightImage(Ability ability)
     {
         manaCostText.text = ability._manaCost.ToString();
-        abilityNameText.text = ability._name;
+        abilityNameText.text = ability.name;
         descriptionText.text = GetDescription(ability);
         ability.imageGUID = ability.imageGUID.Replace("Assets/Resources/", "");
         ability.imageGUID = ability.imageGUID.Replace(".png", "");

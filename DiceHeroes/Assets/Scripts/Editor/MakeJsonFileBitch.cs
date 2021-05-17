@@ -18,7 +18,7 @@ public class MakeJsonFileBitch : EditorWindow
     public const string ignoreString = "imageGUID";
 
     Dictionary<string, Equipment> equipmentDict = new Dictionary<string, Equipment>();
-
+    Dictionary<string, Ability> abilitiesDict = new Dictionary<string, Ability>();
 
     public Ability ability = new Ability();
     public Equipment equipment = new Equipment();
@@ -95,7 +95,7 @@ public class MakeJsonFileBitch : EditorWindow
             JSON j = JSON.ParseString(text);
             Ability a = j.Deserialize<Ability>();
             abilities.Add(a);
-            abilitiesNames.Add(a._name);
+            abilitiesNames.Add(a.name);
         }
     }
 
@@ -194,7 +194,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
-    public void DrawGeneric<T>(string path, Dictionary<string, T> dict) where T : GameDefition
+    public void DrawGeneric<T>(string path,ref Dictionary<string, T> dict,ref T temp) where T : GameDefition
     {
         string s = File.ReadAllText(path);
         EditorGUILayout.BeginHorizontal();
@@ -216,17 +216,11 @@ public class MakeJsonFileBitch : EditorWindow
         {
             if (GUILayout.Button(equip.Value.name))
             {
+                pickedNewDefinition = true;
                 selectedIndex = inter;
                 temp = equip.Value;
                 diceType = new Dictionary<string, int>();
-                //if (!string.IsNullOrEmpty(temp.imageGUID))
-                //{
-                //    obj = AssetDatabase.LoadAssetAtPath(temp.imageGUID, typeof(Texture2D));
-                //}
-                //else
-                //{
-                //    obj = null;
-                //}
+                
                 //SetUpDiceTypes(temp.dices);
                 inter++;
             }
@@ -238,43 +232,17 @@ public class MakeJsonFileBitch : EditorWindow
     void DrawEquipmentTab()
     {
         string s = File.ReadAllText(Application.dataPath + "/Resources/Equipments.json"); //Don't use resource.load to modify a json cuz it won't load it proeperly after saving,needs editor to reload...fml
-
-        EditorGUILayout.BeginHorizontal();
-        scrollPos =
-            EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
-
-        if (string.IsNullOrEmpty(s))
+        DrawGeneric<Equipment>(Application.dataPath + "/Resources/Equipments.json",ref equipmentDict,ref equipment);
+        SetUpDiceTypes(equipment.dices);
+        if (!string.IsNullOrEmpty(equipment.imageGUID) && pickedNewDefinition)
         {
-            equipmentDict = new Dictionary<string, Equipment>();
+            obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
         }
-        else
+        else if(pickedNewDefinition)
         {
-            JSON j = JSON.ParseString(s);
-            equipmentDict = new Dictionary<string, Equipment>();
-            equipmentDict = j.Deserialize<Dictionary<string, Equipment>>();
+            obj = null;
+            pickedNewDefinition = false;
         }
-        int inter = 0;
-        foreach (KeyValuePair<string, Equipment> equip in equipmentDict)
-        {
-            if (GUILayout.Button(equip.Value.name))
-            {
-                selectedIndex = inter;
-                equipment = equip.Value;
-                diceType = new Dictionary<string, int>();
-                if (!string.IsNullOrEmpty(equipment.imageGUID))
-                {
-                    obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
-                }
-                else
-                {
-                    obj = null;
-                }
-                SetUpDiceTypes(equipment.dices);
-                inter++;
-            }
-        }
-        EditorGUILayout.EndScrollView();
-        EditorGUILayout.EndHorizontal();
 
         GUILayout.Label("Equipment", EditorStyles.boldLabel);
 
@@ -320,40 +288,60 @@ public class MakeJsonFileBitch : EditorWindow
     //TODO Generalize it, sleepy atm
     void DrawAbilitiesTab()
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
-        if (files.Length != 0)
+       // if (Directory.Exists(Application.dataPath + "/Resources/Abilities.json"))
+        //{
+            string s = File.ReadAllText(Application.dataPath + "/Resources/Abilities.json");
+        //}
+        //else
+        //{
+        //    string jsonData = JSON.Serialize(abilitiesDict).CreateString();
+        //    File.WriteAllText(Application.dataPath + "/Resources/Abilities.json", jsonData);
+        //}
+        DrawGeneric<Ability>(Application.dataPath + "/Resources/Abilities.json",ref abilitiesDict, ref ability);
+        SetUpDiceTypes(ability.dices);
+        if (!string.IsNullOrEmpty(ability.imageGUID) && pickedNewDefinition)
         {
-            EditorGUILayout.BeginHorizontal();
-            scrollPos =
-                EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
-
-
-            for (int i = 0; i < files.Length; i++)
-            {
-                string text = File.ReadAllText(files[i]);
-                GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
-                JSON j = JSON.ParseString(text);
-                Ability a = j.Deserialize<Ability>();
-                if (GUILayout.Button(a._name))
-                {
-                    selectedIndex = i;
-                    ability = a;
-                    diceType = new Dictionary<string, int>();
-                    if (!string.IsNullOrEmpty(ability.imageGUID))
-                    {
-                        obj = AssetDatabase.LoadAssetAtPath(ability.imageGUID, typeof(Texture2D));
-                    }
-                    else
-                    {
-                        obj = null;
-                    }
-                    SetUpDiceTypes(ability.dices);
-                }
-            }
-            EditorGUILayout.EndScrollView();
-            EditorGUILayout.EndHorizontal();
-
+            obj = AssetDatabase.LoadAssetAtPath(ability.imageGUID, typeof(Texture2D));
         }
+        else if (pickedNewDefinition)
+        {
+            obj = null;
+            pickedNewDefinition = false;
+        }
+        //string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
+        //if (files.Length != 0)
+        //{
+        //    EditorGUILayout.BeginHorizontal();
+        //    scrollPos =
+        //        EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
+
+
+        //    for (int i = 0; i < files.Length; i++)
+        //    {
+        //        string text = File.ReadAllText(files[i]);
+        //        GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
+        //        JSON j = JSON.ParseString(text);
+        //        Ability a = j.Deserialize<Ability>();
+        //        if (GUILayout.Button(a.name))
+        //        {
+        //            selectedIndex = i;
+        //            ability = a;
+        //            diceType = new Dictionary<string, int>();
+        //            if (!string.IsNullOrEmpty(ability.imageGUID))
+        //            {
+        //                obj = AssetDatabase.LoadAssetAtPath(ability.imageGUID, typeof(Texture2D));
+        //            }
+        //            else
+        //            {
+        //                obj = null;
+        //            }
+        //            SetUpDiceTypes(ability.dices);
+        //        }
+        //    }
+        //    EditorGUILayout.EndScrollView();
+        //    EditorGUILayout.EndHorizontal();
+
+        //}
         GUILayout.Label("Ability", EditorStyles.boldLabel);
 
         DrawFields<Ability>(ability);
@@ -361,22 +349,44 @@ public class MakeJsonFileBitch : EditorWindow
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
         DrawDiceTypesInputFields();
 
-        DrawNewItemButton<Ability>(ability, Application.dataPath + "/Resources/Abilities/");
+        if (GUILayout.Button("Add Entry"))
+        {
+            ability = new Ability();
+            ability.id = Guid.NewGuid().ToString();
+            ability.name = "New Entry";
+            abilitiesDict[ability.id] = ability;
+            string jsonData = JSON.Serialize(abilitiesDict).CreateString();
+            File.WriteAllText(Application.dataPath + "/Resources/Abilities.json", jsonData);
+        }
+
         if (GUILayout.Button("Save"))
         {
-            string path = ability._name + ".json";
             ability.dices = diceType;
             ability.imageGUID = AssetDatabase.GetAssetPath(obj);
-            string jsonData = JSON.Serialize(ability).CreateString();
-            File.WriteAllText(Application.dataPath + "/Resources/Abilities/" + ability._name + ".json", jsonData);
+            if (string.IsNullOrEmpty(ability.id))
+            {
+                ability.id = Guid.NewGuid().ToString();
+            }
+            abilitiesDict[ability.id] = ability;
+            string jsonData = JSON.Serialize(abilitiesDict).CreateString();
+            File.WriteAllText(Application.dataPath + "/Resources/Abilities.json", jsonData);
         }
+        //DrawNewItemButton<Ability>(ability, Application.dataPath + "/Resources/Abilities/");
+        //if (GUILayout.Button("Save"))
+        //{
+        //    string path = ability.name + ".json";
+        //    ability.dices = diceType;
+        //    ability.imageGUID = AssetDatabase.GetAssetPath(obj);
+        //    string jsonData = JSON.Serialize(ability).CreateString();
+        //    File.WriteAllText(Application.dataPath + "/Resources/Abilities/" + ability.name + ".json", jsonData);
+        //}
         if (GUILayout.Button("Delete File"))
         {
-            if (ability._name == "")
+            if (ability.name == "")
             {
-                ability._name = "new";
+                ability.name = "new";
             }
-            File.Delete(Application.dataPath + "/Resources/Abilities/" + ability._name + ".json");
+            File.Delete(Application.dataPath + "/Resources/Abilities/" + ability.name + ".json");
         }
     }
 
@@ -434,7 +444,7 @@ public class MakeJsonFileBitch : EditorWindow
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (characterStats.startingAbilities[i] != null && characterStats.startingAbilities[i]._name == s)
+                        if (characterStats.startingAbilities[i] != null && characterStats.startingAbilities[i].name == s)
                         {
                             startingAbilityIndex[i] = EditorGUILayout.Popup(abilitiesNames.IndexOf(s), abilitiesNames.ToArray(), EditorStyles.toolbarPopup);
                         }
@@ -595,14 +605,14 @@ public class MakeJsonFileBitch : EditorWindow
 
     public void SetUpDiceTypes(Dictionary<string, int> dict)
     {
-        if (dict.Count > 0)
+        if (dict.Count > 0 && diceType.Count<1)
         {
             diceType.Add("FourSided", dict["FourSided"]);
             diceType.Add("SixSided", dict["SixSided"]);
             diceType.Add("EightSided", dict["EightSided"]);
             diceType.Add("TenSided", dict["TenSided"]);
         }
-        else
+        else if(diceType.Count<1)
         {
             diceType.Add("FourSided", 0);
             diceType.Add("SixSided", 0);

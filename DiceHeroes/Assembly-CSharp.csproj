@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\WorldMovement\PathPiece.cs" />
     <Compile Include="Assets\Scripts\WorldMovement\PlayerWorldMovement.cs" />
     <Compile Include="Assets\StoreAssets\Fantasy UI\Samples\IconPreview.cs" />
+    <Compile Include="Assets\UIMenuItems.cs" />
     <Compile Include="Assets\WorldPanelsController.cs" />
     <None Include="Assets\StoreAssets\SimpleFantasy\ReadMe.txt" />
     <None Include="Assets\StoreAssets\Fantasy UI\Fonts\OFL.txt" />
