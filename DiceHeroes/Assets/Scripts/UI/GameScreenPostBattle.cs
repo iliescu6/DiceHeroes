@@ -19,7 +19,7 @@ public class GameScreenPostBattle : GameScreen
         PlayerProfile.Instance.characterObject.currentGold += gold;
         xpText.text = "XP:"+xp;
         bool leveledUp=PlayerProfile.Instance.GainXP(xp);//TODO maybe add another popup or text
-        itemText.text = item._name;
+        itemText.text = item.name;
         PlayerProfile.Instance.inventory[0]=item;
         okButton.onClick.AddListener(action);
     }

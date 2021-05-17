@@ -12,9 +12,12 @@ public class MakeJsonFileBitch : EditorWindow
 {
     public const string classesPath = "D:/Unity Projects/Resources/Characters/Classes/";
     public const string enemiesPath = "";
+    public const string equipmentPathFinal = "Equipment.json";
     public const string equipmentPath = "";
     public const string abilitiesPath = "";
     public const string ignoreString = "imageGUID";
+
+    Dictionary<string, Equipment> equipmentDict = new Dictionary<string, Equipment>();
 
 
     public Ability ability = new Ability();
@@ -41,7 +44,7 @@ public class MakeJsonFileBitch : EditorWindow
     List<string> stringList = new List<string>();
     UnityEngine.Object obj;
     Dictionary<string, int> diceType = new Dictionary<string, int>();
-
+    GameDefition temp;
 
     [MenuItem("Tools/JSon Editor")]
     public static void SuckIt()
@@ -125,7 +128,7 @@ public class MakeJsonFileBitch : EditorWindow
                     {
                         if (!fi.ToString().Contains("meta"))
                         {
-                            stringList.Add(fi.ToString());                            
+                            stringList.Add(fi.ToString());
                         }
                     }
                     foreach (Equipment e in lootTable.equipment)
@@ -171,7 +174,7 @@ public class MakeJsonFileBitch : EditorWindow
 
             for (int i = 0; i < equipmentList.Count; i++) //TODO name used to be path, will reset all equipments in editor to dagger_of_pop due to name not containing path anymore,fix
             {
-                string text = File.ReadAllText(equipmentList[i]._name);
+                string text = File.ReadAllText(equipmentList[i].name);
                 JSON j = JSON.ParseString(text);
                 Equipment a = j.Deserialize<Equipment>();
                 equipmentList[i] = a;
@@ -191,42 +194,88 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
+    public void DrawGeneric<T>(string path, Dictionary<string, T> dict) where T : GameDefition
+    {
+        string s = File.ReadAllText(path);
+        EditorGUILayout.BeginHorizontal();
+        scrollPos =
+            EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
+
+        if (string.IsNullOrEmpty(s))
+        {
+            dict = new Dictionary<string, T>();
+        }
+        else
+        {
+            JSON j = JSON.ParseString(s);
+            dict = new Dictionary<string, T>();
+            dict = j.Deserialize<Dictionary<string, T>>();
+        }
+        int inter = 0;
+        foreach (KeyValuePair<string, T> equip in dict)
+        {
+            if (GUILayout.Button(equip.Value.name))
+            {
+                selectedIndex = inter;
+                temp = equip.Value;
+                diceType = new Dictionary<string, int>();
+                //if (!string.IsNullOrEmpty(temp.imageGUID))
+                //{
+                //    obj = AssetDatabase.LoadAssetAtPath(temp.imageGUID, typeof(Texture2D));
+                //}
+                //else
+                //{
+                //    obj = null;
+                //}
+                //SetUpDiceTypes(temp.dices);
+                inter++;
+            }
+        }
+        EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndHorizontal();
+    }
+
     void DrawEquipmentTab()
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Equipment/", "*.json");
-        if (files.Length != 0)
+        string s = File.ReadAllText(Application.dataPath + "/Resources/Equipments.json"); //Don't use resource.load to modify a json cuz it won't load it proeperly after saving,needs editor to reload...fml
+
+        EditorGUILayout.BeginHorizontal();
+        scrollPos =
+            EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
+
+        if (string.IsNullOrEmpty(s))
         {
-            EditorGUILayout.BeginHorizontal();
-            scrollPos =
-                EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
-
-
-            for (int i = 0; i < files.Length; i++)
-            {
-                string text = File.ReadAllText(files[i]);
-                GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
-                JSON j = JSON.ParseString(text);
-                Equipment a = j.Deserialize<Equipment>();
-                if (GUILayout.Button(a._name))
-                {
-                    selectedIndex = i;
-                    equipment = a;
-                    diceType = new Dictionary<string, int>();
-                    if (!string.IsNullOrEmpty(equipment.imageGUID))
-                    {
-                        obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
-                    }
-                    else
-                    {
-                        obj = null;
-                    }
-                    SetUpDiceTypes(equipment.dices);
-                }
-            }
-            EditorGUILayout.EndScrollView();
-            EditorGUILayout.EndHorizontal();
-
+            equipmentDict = new Dictionary<string, Equipment>();
         }
+        else
+        {
+            JSON j = JSON.ParseString(s);
+            equipmentDict = new Dictionary<string, Equipment>();
+            equipmentDict = j.Deserialize<Dictionary<string, Equipment>>();
+        }
+        int inter = 0;
+        foreach (KeyValuePair<string, Equipment> equip in equipmentDict)
+        {
+            if (GUILayout.Button(equip.Value.name))
+            {
+                selectedIndex = inter;
+                equipment = equip.Value;
+                diceType = new Dictionary<string, int>();
+                if (!string.IsNullOrEmpty(equipment.imageGUID))
+                {
+                    obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
+                }
+                else
+                {
+                    obj = null;
+                }
+                SetUpDiceTypes(equipment.dices);
+                inter++;
+            }
+        }
+        EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndHorizontal();
+
         GUILayout.Label("Equipment", EditorStyles.boldLabel);
 
         DrawFields<Equipment>(equipment);
@@ -234,22 +283,37 @@ public class MakeJsonFileBitch : EditorWindow
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
         DrawDiceTypesInputFields();
 
+        if (GUILayout.Button("Add Entry"))
+        {
+            equipment = new Equipment();
+            equipment.id = Guid.NewGuid().ToString();
+            equipment.name = "New Entry";
+            equipmentDict[equipment.id] = equipment;
+            string jsonData = JSON.Serialize(equipmentDict).CreateString();
+            File.WriteAllText(Application.dataPath + "/Resources/Equipments.json", jsonData);
+        }
 
         if (GUILayout.Button("Save"))
         {
             equipment.dices = diceType;
             equipment.imageGUID = AssetDatabase.GetAssetPath(obj);
-            string jsonData = JSON.Serialize(equipment).CreateString();
-            File.WriteAllText(Application.dataPath + "/Resources/Equipment/" + equipment._name + ".json", jsonData);
+            Debug.Log(equipment.bonusMana);
+            if (string.IsNullOrEmpty(equipment.id))
+            {
+                equipment.id = Guid.NewGuid().ToString();
+            }
+            equipmentDict[equipment.id] = equipment;
+            string jsonData = JSON.Serialize(equipmentDict).CreateString();
+            File.WriteAllText(Application.dataPath + "/Resources/Equipments.json", jsonData);
         }
 
         if (GUILayout.Button("Delete File"))
         {
-            if (equipment._name == "")
+            if (equipment.name == "")
             {
-                equipment._name = "new";
+                equipment.name = "new";
             }
-            File.Delete(Application.dataPath + "/Resources/Equipment/" + equipment._name + ".json");
+            File.Delete(Application.dataPath + "/Resources/Equipment/" + equipment.name + ".json");
         }
     }
 
@@ -487,14 +551,14 @@ public class MakeJsonFileBitch : EditorWindow
                     }
                 }
             }
-                for (int i = 0; i < objectList.Count; i++)
+            for (int i = 0; i < objectList.Count; i++)
+            {
+                if (objectList != null && listOfNames.Contains(currentNames[i]))
                 {
-                    if (objectList != null && listOfNames.Contains(currentNames[i]))
-                    {
                     genericIndex[i] = EditorGUILayout.Popup(listOfNames.IndexOf(currentNames[i]), listOfNames.ToArray(), EditorStyles.toolbarPopup);
                     objectList[i].GetType().GetField("_name").SetValue(objectList[i], listOfNames[listOfNames.IndexOf(currentNames[i])]);
-                    }
                 }
+            }
             pickedNewDefinition = false;
         }
         for (int j = 0; j < objectList.Count; j++)
@@ -514,6 +578,19 @@ public class MakeJsonFileBitch : EditorWindow
             System.IO.File.WriteAllText(path + "/new.json", jsonData);
         }
     }
+
+    //public void NewItemButton<T>(T item,Dictionary<string,T>dict,string path)
+    //{
+    //    if (GUILayout.Button("Add Entry"))
+    //    {
+    //        item = default;
+    //        item.id = Guid.NewGuid().ToString();
+    //        item.name = "New Entry";
+    //        dict[item.id] = item;
+    //        string jsonData = JSON.Serialize(equipmentDict).CreateString();
+    //        File.WriteAllText(path, jsonData);
+    //    }
+    //}
 
 
     public void SetUpDiceTypes(Dictionary<string, int> dict)
@@ -577,6 +654,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
+    
 }
 
 

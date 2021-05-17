@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 228e9415f39216947b4deeba6f98768a
+  m_SerializeEntries:
+  - m_GUID: 3ebf5a01484b88e40ac360df29f6e97b
+    m_Address: Assets/Resources_moved/Equipment/Staff_of_Metal.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b6bd05609517cda42892e094d3489d1b
+    m_Address: Bonus_w_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d865a55e032711f419ef63aafb5b3401
+    m_Address: TestingAddress
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f35d95d82c836624fa0aedca18c6f5e9
+    m_Address: Bonus_w_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ae81883a3d22bdc40b0eb23463d2679a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ee79dd2fab0b05e4ea54b13863ce70cc, type: 2}
+    - {fileID: 11400000, guid: c1f367e443a6f4243bdb5cf8d0cf82d8, type: 2}
