@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class LootTable 
+public class LootTable : GameDefition
 {
-    public string _name;
-    public List<Equipment> equipment = new List<Equipment>();
+    public List<string> equipmentId = new List<string>();
+    public List<int> equipmentDropChance = new List<int>();
 }
