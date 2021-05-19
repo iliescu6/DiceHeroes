@@ -4,19 +4,18 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class CharacterStats
+public class CharacterStats : GameDefition
 {
-    public string name;
     public string description;
     public int health;
     public int mana;
     public int armour;
     public int attrition;
     public int initiative;
-    public int dices;    
+    public int dices;
     public List<XPPerLevelMap> requiredXP;
-    public Dictionary<string,int> dicePool=new Dictionary<string,int>();
-    public Ability[] startingAbilities = new Ability[3];
+    public Dictionary<string, int> dicePool = new Dictionary<string, int>();
+    public string[] startingAbilities = new string[3];
     public List<LootDrops> lootDrops = new List<LootDrops>();
 }
 

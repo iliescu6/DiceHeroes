@@ -45,12 +45,12 @@ public class CharacterSelectPanel : MonoBehaviour
         ClassText.text = playerClass.baseCharacterStats.name;
         CharacterStats stats = playerClass.baseCharacterStats;
         StatsText.text = "Health: " + stats.health + "\n Mana: " + stats.mana + "\n Armour: " + stats.armour + "\n Attrition:" + stats.attrition;
-        foreach (Ability a in playerClass.baseCharacterStats.startingAbilities)
-        {
-            AbilityButton g = Instantiate(abilityButtonPrefab, new Vector3(0,0,0),Quaternion.identity);
-            g.transform.parent = AbilityPanel.transform;
-            g.Initialize(a);
-        }
+        //foreach (Ability a in playerClass.baseCharacterStats.startingAbilities)
+        //{
+        //    AbilityButton g = Instantiate(abilityButtonPrefab, new Vector3(0,0,0),Quaternion.identity);
+        //    g.transform.parent = AbilityPanel.transform;
+        //    g.Initialize(a);
+        //}
     }
 
     void GetClasses()

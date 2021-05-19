@@ -20,6 +20,8 @@ public class MakeJsonFileBitch : EditorWindow
     Dictionary<string, Equipment> equipmentDict = new Dictionary<string, Equipment>();
     Dictionary<string, Ability> abilitiesDict = new Dictionary<string, Ability>();
     Dictionary<string, LootTable> lootTablesDict = new Dictionary<string, LootTable>();
+    Dictionary<string, CharacterStats> allCharactersDict = new Dictionary<string, CharacterStats>();
+    Dictionary<string, CharacterStats> playableCharactersDict = new Dictionary<string, CharacterStats>();
 
     public Ability ability = new Ability();
     public Equipment equipment = new Equipment();
@@ -34,19 +36,21 @@ public class MakeJsonFileBitch : EditorWindow
     int tab = 0;
     bool pickedNewDefinition = false;
     string oldFileName;
-    string newFileName;
+
     int[] startingAbilityIndex = new int[3];
-    List<int> genericXIndex = new List<int>();
-    List<string> genericString = new List<string>();
+
 
     //For dropdown
     List<string> dropdownAssetAddress = new List<string>();
     List<string> dropdownNames = new List<string>();
     List<string> dropdownCurrentAddres = new List<string>();
+    List<int> genericXIndex = new List<int>();
+    List<string> genericString = new List<string>();
+
 
     List<LootDrops> localDrops = new List<LootDrops>();
     List<FileInfo> fileInfos = new List<FileInfo>();
-   
+
     UnityEngine.Object obj;
     Dictionary<string, int> diceType = new Dictionary<string, int>();
     GameDefition temp;
@@ -89,35 +93,24 @@ public class MakeJsonFileBitch : EditorWindow
         }
     }
 
-    void SetAbilities()
+    /// <summary>
+    /// Used to quickly setup a dictionary that may be used for a diferent definition
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="dict"></param>
+    /// <param name="path"></param>
+    void SetupDictionary<T>(ref Dictionary<string, T> dict, string path) where T : GameDefition
     {
-        abilities = new List<Ability>();
-        abilitiesNames = new List<string>();
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Abilities/", "*.json");
-        foreach (string file in files)
-        {
-            string text = File.ReadAllText(file);
-            JSON j = JSON.ParseString(text);
-            Ability a = j.Deserialize<Ability>();
-            abilities.Add(a);
-            abilitiesNames.Add(a.name);
-        }
+        string pathinfo = File.ReadAllText(path);
+        JSON json = JSON.ParseString(pathinfo);
+        dict = new Dictionary<string, T>();
+        dict = json.Deserialize<Dictionary<string, T>>();
     }
 
     void DrawDropTableTab()
     {
-        //if (!Directory.Exists(Application.dataPath + "/Resources/LootTables.json"))
-        //{
-        //    string jsonData = JSON.Serialize(lootTablesDict).CreateString();
-        //    File.WriteAllText(Application.dataPath + "/Resources/LootTables.json", jsonData);
-        //}
-
         DrawGeneric<LootTable>(Application.dataPath + "/Resources/LootTables.json", ref lootTablesDict, ref lootTable);
-
-        string pathEquip = File.ReadAllText(Application.dataPath + "/Resources/Equipments.json");
-        JSON equipJson = JSON.ParseString(pathEquip);
-        equipmentDict = new Dictionary<string, Equipment>();
-        equipmentDict = equipJson.Deserialize<Dictionary<string, Equipment>>();
+        SetupDictionary<Equipment>(ref equipmentDict, Application.dataPath + "/Resources/Equipments.json");
 
         if (pickedNewDefinition)
         {
@@ -134,7 +127,7 @@ public class MakeJsonFileBitch : EditorWindow
             foreach (KeyValuePair<string, Equipment> pair in equipmentDict)
             {
                 dropdownNames.Add(pair.Value.name);
-                dropdownAssetAddress.Add(pair.Value.imageGUID);               
+                dropdownAssetAddress.Add(pair.Value.imageGUID);
             }
             pickedNewDefinition = false;
         }
@@ -145,7 +138,7 @@ public class MakeJsonFileBitch : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
 
-        DrawGenericAddEntry<LootTable>(ref lootTable, Application.dataPath + "/Resources/LootTables.json",lootTablesDict);
+        DrawGenericAddEntry<LootTable>(ref lootTable, Application.dataPath + "/Resources/LootTables.json", lootTablesDict);
 
         if (GUILayout.Button("Add Loot Table"))
         {
@@ -289,153 +282,99 @@ public class MakeJsonFileBitch : EditorWindow
 
     void DrawEnemiesTab(string characters)
     {
-        List<string> files = new List<string>(Directory.GetFiles(Application.dataPath + "/Resources/Characters/" + characters + "/ ", "*.json"));
-        if (files.Count != 0)
+        if (characters == "Enemies")
         {
-            EditorGUILayout.BeginHorizontal();
-            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(500), GUILayout.Height(100));
-
-            for (int i = 0; i < files.Count; i++)
-            {
-                string text = File.ReadAllText(files[i]);
-                GUI.backgroundColor = (selectedIndex == i) ? Color.gray : Color.clear;
-                CharacterStats a = JsonUtility.FromJson<CharacterStats>(text);
-                if (GUILayout.Button(a.name))
-                {
-                    selectedIndex = i;
-                    characterStats = a;
-                    oldFileName = characterStats.name;
-                    pickedNewDefinition = true;
-                    diceType = new Dictionary<string, int>();
-                    localDrops = new List<LootDrops>(characterStats.lootDrops);
-
-                    DirectoryInfo dir = new DirectoryInfo(Application.dataPath + "/Resources/Equipment/");
-                    dropdownNames = new List<string>();
-                    fileInfos = dir.GetFiles("*.*").ToList();
-                    foreach (FileInfo fi in fileInfos)
-                    {
-                        dropdownNames.Add(fi.ToString());
-                    }
-                    if (characterStats != null)
-                    {
-                        SetUpDiceTypes(characterStats.dicePool);
-                    }
-                }
-            }
-            EditorGUILayout.EndScrollView();
-            EditorGUILayout.EndHorizontal();
-
+            DrawGeneric<CharacterStats>(Application.dataPath + "/Resources/Enemies.json", ref allCharactersDict, ref characterStats);
         }
-        GUILayout.Label("Enemies", EditorStyles.boldLabel);
-
+        else
+        {
+            DrawGeneric<CharacterStats>(Application.dataPath + "/Resources/Classes.json", ref playableCharactersDict, ref characterStats);
+        }
         DrawFields<CharacterStats>(characterStats);
-
+        SetUpDiceTypes(characterStats.dicePool);
+        
         //Make only for classes and save values
         if (characters == "Classes")
         {
-            SetAbilities();
-
+            SetupDictionary<Ability>(ref abilitiesDict, Application.dataPath + "/Resources/Abilities.json");
             if (pickedNewDefinition)
             {
-                foreach (string s in abilitiesNames)
+                dropdownNames = new List<string>();
+                genericXIndex = new List<int>();
+                dropdownAssetAddress = new List<string>();
+                dropdownCurrentAddres = new List<string>();
+                foreach (string equipmentAddress in characterStats.startingAbilities)
                 {
-                    for (int i = 0; i < 3; i++)
+                    if (equipmentAddress == null)
                     {
-                        if (characterStats.startingAbilities[i] != null && characterStats.startingAbilities[i].name == s)
-                        {
-                            startingAbilityIndex[i] = EditorGUILayout.Popup(abilitiesNames.IndexOf(s), abilitiesNames.ToArray(), EditorStyles.toolbarPopup);
-                        }
+                        var first = abilitiesDict.First();
+                        dropdownCurrentAddres.Add(first.Value.id);
                     }
+                    else
+                    {
+                        dropdownCurrentAddres.Add(equipmentAddress);
+                    }
+                    genericXIndex.Add(0);
+                }
+
+                foreach (KeyValuePair<string, Ability> pair in abilitiesDict)
+                {
+                    dropdownNames.Add(pair.Value.name);
+                    dropdownAssetAddress.Add(pair.Key);
                 }
                 pickedNewDefinition = false;
             }
-            for (int j = 0; j < startingAbilityIndex.Length; j++)
+            
+            for (int i = 0; i < characterStats.startingAbilities.Length; i++)
             {
-                startingAbilityIndex[j] = EditorGUILayout.Popup(startingAbilityIndex[j], abilitiesNames.ToArray(), EditorStyles.toolbarPopup);
+                genericXIndex[i] = EditorGUILayout.Popup(dropdownAssetAddress.IndexOf(dropdownCurrentAddres[i]), dropdownNames.ToArray(), EditorStyles.toolbarPopup);
+                dropdownCurrentAddres[i] = dropdownAssetAddress[genericXIndex[i]];
             }
         }
         else
         {
             DrawDiceTypesInputFields();
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Add Drop Loot"))
-            {
-                localDrops.Add(new LootDrops());
-            }
-            if (GUILayout.Button("Remove last Drop Loot"))
-            {
-                localDrops.Remove(localDrops[localDrops.Count - 1]);
-            }
-            EditorGUILayout.EndHorizontal();
-            for (int i = 0; i < localDrops.Count; i++)
-            {
-                EditorGUILayout.BeginHorizontal();
-
-                selectedIndex = EditorGUILayout.Popup(selectedIndex, dropdownNames.ToArray());
-                localDrops[i].equipmentName = dropdownNames[selectedIndex];
-                localDrops[i].chanceToDrop = EditorGUILayout.FloatField(localDrops[i].chanceToDrop);
-                EditorGUILayout.EndHorizontal();
-            }
         }
+
+        if (characters == "Classes")
+        {
+            DrawGenericAddEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Classes.json", playableCharactersDict);
+            DrawGenericRemoveEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Classes.json", playableCharactersDict);
+        }
+        else
+        {
+            DrawGenericAddEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Enemies.json", allCharactersDict);
+            DrawGenericRemoveEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Enemies.json", allCharactersDict);
+        }
+
         if (GUILayout.Button("Save"))
         {
             string jsonData = "";
+            string path = "";
             if (characters == "Classes")
             {
-                CharacterObject playerClass = new CharacterObject();
-                playerClass.baseCharacterStats = characterStats;
                 for (int i = 0; i < 3; i++)
                 {
-                    playerClass.baseCharacterStats.startingAbilities[i] = abilities[startingAbilityIndex[i]];
+                    characterStats.startingAbilities[i] = dropdownAssetAddress[i];
                 }
+                path = Application.dataPath + "/Resources/Classes.json";
+                playableCharactersDict[characterStats.id] = characterStats;
 
-                jsonData = JSON.Serialize(playerClass.baseCharacterStats).CreateString(); ;// JsonUtility.ToJson(playerClass.characterStats, true);
+                jsonData = JSON.Serialize(playableCharactersDict).CreateString();
             }
             else
             {
                 characterStats.dicePool = diceType;
-                jsonData = JSON.Serialize(characterStats).CreateString();
+                path = Application.dataPath + "/Resources/Enemies.json";
+                allCharactersDict[characterStats.id] = characterStats;
+                jsonData = JSON.Serialize(allCharactersDict).CreateString();
             }
-            if (oldFileName != characterStats.name)
-            {
-                if (oldFileName == "")
-                {
-                    oldFileName = "new";
-                }
-                string newPath = Application.dataPath + "/Resources/Characters/" + characters + "/ " + characterStats.name + ".json";
-                string oldPath = Application.dataPath + "/Resources/Characters/" + characters + "/" + oldFileName + ".json";
-                AssetDatabase.RenameAsset(oldPath, newPath);
-                AssetDatabase.SaveAssets();
-                oldFileName = characterStats.name;
-            }
-            else
-            {
-                File.WriteAllText(Application.dataPath + "/Resources/Characters/" + characters + "/" + characterStats.name + ".json", jsonData);
-            }
+                File.WriteAllText(path, jsonData);
         }
-        DrawNewItemButton<CharacterStats>(characterStats, Application.dataPath + "/Resources/Characters/" + characters);
-        if (GUILayout.Button("Delete File"))
-        {
-            if (characterStats.name == "")
-            {
-                characterStats.name = "new";
-            }
-            File.Delete(Application.dataPath + "/Resources/Characters/" + characters + "/" + characterStats.name + ".json");
-        }
+        
     }
 
-    public void DrawNewItemButton<T>(T item, string path) where T : new()
-    {
-        if (GUILayout.Button("New File"))
-        {
-            item = new T();
-            oldFileName = "new";
-            string jsonData = JsonUtility.ToJson(item, true);
-            System.IO.File.WriteAllText(path + "/new.json", jsonData);
-        }
-    }
-
-    public void DrawGenericAddEntry<T>(ref T item,string path, Dictionary<string,T> dict) where T : GameDefition, new()
+    public void DrawGenericAddEntry<T>(ref T item, string path, Dictionary<string, T> dict) where T : GameDefition, new()
     {
         if (GUILayout.Button("Add New Entry"))
         {
@@ -447,6 +386,16 @@ public class MakeJsonFileBitch : EditorWindow
             File.WriteAllText(path, jsonData);
         }
 
+    }
+
+    public void DrawGenericRemoveEntry<T>(ref T item, string path, Dictionary<string, T> dict) where T : GameDefition
+    {
+        if (GUILayout.Button("Remove Entry"))
+        {
+            dict.Remove(item.id);
+            string jsonData = JSON.Serialize(dict).CreateString();
+            File.WriteAllText(path, jsonData);
+        }
     }
 
     public void SetUpDiceTypes(Dictionary<string, int> dict)
@@ -468,6 +417,11 @@ public class MakeJsonFileBitch : EditorWindow
     }
     public void DrawGeneric<T>(string path, ref Dictionary<string, T> dict, ref T temp) where T : GameDefition
     {
+        if (!File.Exists(path))
+        {
+            string jsonData = JSON.Serialize(dict).CreateString();
+            File.WriteAllText(path, jsonData);
+        }
         string s = File.ReadAllText(path);
         EditorGUILayout.BeginHorizontal();
         scrollPos =

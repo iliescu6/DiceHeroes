@@ -67,7 +67,7 @@ public class CombatAbilityPanel : MonoBehaviour
     {
         for (int i = 0; i < PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities.Length; i++)
         {
-            abilities.Add(PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities[i]);
+           // abilities.Add(PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities[i]);
         }
 
         for (int i = 0; i < PlayerProfile.Instance.equipmentSlots.Count;i++)
