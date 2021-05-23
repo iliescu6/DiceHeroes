@@ -18,37 +18,22 @@ public class CharacterObject : MonoBehaviour
     public string owner;
     [SerializeField]
     private TMP_Text button;
-    private Ability[] startingAbilities = new Ability[3];
-    private List<Ability> equipedAbilities = new List<Ability>();   
-
+    private Ability[] startingAbilities = new Ability[4];
+    private List<Ability> equipedAbilities = new List<Ability>();
+    public bool player;
     public CharacterObject()
     {
 
     }
-    public CharacterObject(string chosenClass)
+    public CharacterObject(CharacterStats chosenClass)
     {
         SetClassStats(chosenClass);
     }
 
-    public CharacterObject(CharacterStats newStats)
-    {
-        baseCharacterStats = newStats;
-        currentHP = newStats.health;
-        currentMana = newStats.mana;
-        owner = "Player";
-    }
-
-    public string testEnemy;
     // Start is called before the first frame update
     void Awake()
     {
-        if (!string.IsNullOrEmpty(testEnemy))
-        {
-            //TODO there must be a better way to improve seting character object and stats but am rushing to make a demo/prototype
-            SetEnemyStats(testEnemy);
-            currentHP = baseCharacterStats.health;
-            currentMana = baseCharacterStats.mana;
-        }
+
     }
 
     public List<Ability> EquipedAbilities//TODO maybe make it array, have a limit
@@ -68,28 +53,30 @@ public class CharacterObject : MonoBehaviour
         this.owner = owner;
     }
 
-    virtual public void SetEnemyStats(string character = null)
+    virtual public void SetEnemyStats(CharacterStats character)
     {
         if (character != null)
         {
-            string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Enemies/" + character + ".json");
-            JSON j = JSON.ParseString(file);
-            CharacterStats a = j.Deserialize<CharacterStats>();
-            baseCharacterStats = a;
-            ResetDicePool();
+            CharacterStats a = character;
+            baseCharacterStats = a;           
             this.owner = "Enemy";
+            currentHP = baseCharacterStats.health;
+            currentMana = baseCharacterStats.mana;
         }
     }
 
-    virtual public void SetClassStats(string character = null)
+    virtual public void SetClassStats(CharacterStats stats)
     {
-        if (character != null)
+        if (stats != null)
         {
-            string file = File.ReadAllText(Application.dataPath + "/Resources/Characters/Classes/" + character + ".json");
-            //TODO hunt down every last on Jsonutily and use json plug in for dictionaries
-            JSON j = JSON.ParseString(file);
-            CharacterStats a = j.Deserialize<CharacterStats>();
+            int index = 0;
+            CharacterStats a = stats;
             baseCharacterStats = a;
+            foreach (string ability in baseCharacterStats.startingAbilities)
+            {
+                startingAbilities[index]= GameDefinitionsManager.Instance.abilityDefinitions[ability];
+                index++;
+            }
             ResetDicePool();
             currentHP = baseCharacterStats.health;
             currentMana = baseCharacterStats.mana;
@@ -101,17 +88,10 @@ public class CharacterObject : MonoBehaviour
     {
         foreach (KeyValuePair<string, int> dice in dices)
         {
-            for (int i = 0; i < dice.Value; i++)
-            {
                 if (baseCharacterStats.dicePool.ContainsKey(dice.Key))
                 {
-                    baseCharacterStats.dicePool[dice.Key] += dice.Value;
+                    baseCharacterStats.dicePool[dice.Key] +=dice.Value;
                 }
-                else
-                {
-                    baseCharacterStats.dicePool[dice.Key] = dice.Value;
-                }
-            }
         }
         combatBehaviour.ActivateDices(baseCharacterStats.dicePool);
     }
@@ -134,5 +114,5 @@ public class CharacterObject : MonoBehaviour
         baseCharacterStats.dicePool["SixSided"] = 0;
         baseCharacterStats.dicePool["EightSided"] = 0;
         baseCharacterStats.dicePool["TenSided"] = 0;
-    }   
+    }
 }

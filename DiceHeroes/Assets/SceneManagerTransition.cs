@@ -9,6 +9,7 @@ public class SceneManagerTransition : SingletonTemplate<SceneManagerTransition>
     [SerializeField]
     GameObject levelScene;
     GameObject combatScene;
+    public List<CharacterStats> enemies=new List<CharacterStats>();
 
     public void LoadCombatScene()
     {

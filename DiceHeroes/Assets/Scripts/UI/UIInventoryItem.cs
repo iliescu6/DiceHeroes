@@ -16,7 +16,7 @@ public class UIInventoryItem : MonoBehaviour
     public void Initialize(Equipment equipment, List<EquipmentSlot> list,UnityAction action)
     {
         equipmentGameObject = list;
-        if (equipment == null || string.IsNullOrEmpty(equipment.imageGUID))
+        if (equipment == null || string.IsNullOrEmpty(equipment.imagePath))
         {
             iconImage.sprite = null;
             iconImage.color = new Color(1, 1, 1, 0);
@@ -24,9 +24,9 @@ public class UIInventoryItem : MonoBehaviour
         else
         {
             _equipment = equipment;
-            equipment.imageGUID = equipment.imageGUID.Replace("Assets/Resources/", "");
-            equipment.imageGUID = equipment.imageGUID.Replace(".png", "");
-            Sprite s = Resources.Load<Sprite>(equipment.imageGUID);
+            equipment.imagePath = equipment.imagePath.Replace("Assets/Resources/", "");
+            equipment.imagePath = equipment.imagePath.Replace(".png", "");
+            Sprite s = Resources.Load<Sprite>(equipment.imagePath);
             iconImage.color = new Color(1, 1, 1, 1);
             iconImage.sprite = s;
         }

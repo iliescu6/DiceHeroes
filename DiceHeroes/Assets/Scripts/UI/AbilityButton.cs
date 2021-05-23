@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 public class AbilityButton : MonoBehaviour
@@ -16,28 +18,29 @@ public class AbilityButton : MonoBehaviour
 
     public bool Selected { get { return selected; } set { selected = value; } }
     // Start is called before the first frame update
-    public virtual void  Initialize(Ability a)
-    {        
+    public async virtual Task Initialize(Ability a)
+    {
         button = this.GetComponent<Button>();
         ability = a;
         Selected = false;
         manaCost.text = a._manaCost.ToString();
-        a.imageGUID = a.imageGUID.Replace("Assets/Resources/", "");
-        a.imageGUID = a.imageGUID.Replace(".png", "");
-        Sprite s = Resources.Load<Sprite>(a.imageGUID);
-        abilityImage.sprite = s;
+        AssetReference test = new AssetReference(a.imageAddress);
+        var s = test.LoadAssetAsync<Sprite>();
+         await s.Task;
+        abilityImage.sprite = s.Result;
+        //abilityImage.sprite = s;
     }
 
-    public virtual void Initialize(Equipment a)
+    public async virtual Task Initialize(Equipment a)
     {
         button = this.GetComponent<Button>();
         equipment = a;
         Selected = false;
         manaCost.gameObject.SetActive(false);
-        a.imageGUID = a.imageGUID.Replace("Assets/Resources/", "");
-        a.imageGUID = a.imageGUID.Replace(".png", "");
-        Sprite s = Resources.Load<Sprite>(a.imageGUID);
-        abilityImage.sprite = s;
+        AssetReference test = new AssetReference(a.imageAddress);
+        var s = test.LoadAssetAsync<Sprite>();
+        await s.Task;
+        abilityImage.sprite = s.Result;
     }
 
 }

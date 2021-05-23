@@ -23,9 +23,9 @@ public class HighlightCombatCard : MonoBehaviour
         manaCostText.text = ability._manaCost.ToString();
         abilityNameText.text = ability.name;
         descriptionText.text = GetDescription(ability);
-        ability.imageGUID = ability.imageGUID.Replace("Assets/Resources/", "");
-        ability.imageGUID = ability.imageGUID.Replace(".png", "");
-        Sprite s = Resources.Load<Sprite>(ability.imageGUID);
+        ability.imagePath = ability.imagePath.Replace("Assets/Resources/", "");
+        ability.imagePath = ability.imagePath.Replace(".png", "");
+        Sprite s = Resources.Load<Sprite>(ability.imagePath);
         abilitySprite.sprite = s;
         container.SetActive(true);
     }
@@ -100,7 +100,7 @@ public class HighlightCombatCard : MonoBehaviour
                         SetUpHighlightImage(button.ability);
                     }
                 }
-                else if (tapTimer <= .1f)
+                else if (tapTimer < .5f)
                 {
                     if (button != null)
                     {

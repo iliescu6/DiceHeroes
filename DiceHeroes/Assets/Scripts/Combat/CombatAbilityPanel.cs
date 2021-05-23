@@ -40,19 +40,22 @@ public class CombatAbilityPanel : MonoBehaviour
         {
             CombatAbilityButton g=Instantiate(ButtonPrefab);
             g.Initialize(abilities[i]);
-           // g.transform.GetChild(0).GetComponent<Text>().text = abilities[i]._name;
+            //g.transform.GetChild(0).GetComponent<Text>().text = abilities[i].name;
             g.transform.parent = this.transform;
             abilityButtons.Add(g);
         }
 
-        for (int i = 0; i < equipment.Count; i++)
-        {
-            CombatAbilityButton g = Instantiate(ButtonPrefab);
-            g.Initialize(equipment[i]);
-            // g.transform.GetChild(0).GetComponent<Text>().text = abilities[i]._name;
-            g.transform.parent = this.transform;
-            equipmentButton.Add(g);
-        }
+        //for (int i = 0; i < equipment.Count; i++)
+        //{
+        //    if (!string.IsNullOrEmpty(equipment[i].imageAddress))
+        //    {
+        //        CombatAbilityButton g = Instantiate(ButtonPrefab);
+        //        g.Initialize(equipment[i]);
+        //        // g.transform.GetChild(0).GetComponent<Text>().text = abilities[i]._name;
+        //        g.transform.parent = this.transform;
+        //        equipmentButton.Add(g);
+        //    }
+        //}
     }
 
     public void ResetAbilityButtons()
@@ -65,9 +68,13 @@ public class CombatAbilityPanel : MonoBehaviour
 
     void GetAbilities()
     {
-        for (int i = 0; i < PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities.Length; i++)
+        Ability[] tempAbilities = PlayerProfile.Instance.characterObject.StartingAbilities;
+        for (int i = 0; i < tempAbilities.Length; i++)
         {
-           // abilities.Add(PlayerProfile.Instance.characterObject.baseCharacterStats.startingAbilities[i]);
+            if (tempAbilities[i] != null)
+            {
+                abilities.Add(PlayerProfile.Instance.characterObject.StartingAbilities[i]);
+            }
         }
 
         for (int i = 0; i < PlayerProfile.Instance.equipmentSlots.Count;i++)

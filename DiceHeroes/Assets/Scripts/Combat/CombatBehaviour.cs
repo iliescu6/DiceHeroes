@@ -12,7 +12,7 @@ public class CombatBehaviour : MonoBehaviour
     public CombatUIScreen playerUI;
     public BattleState battleState = BattleState.Standyby;
 
-    List<CharacterObject> characterObject = new List<CharacterObject>();
+    List<CharacterObject> characterObjects = new List<CharacterObject>();
     PlayerProfile player;
     string currentTurn;//TODO Remove,only debug
     [SerializeField]
@@ -44,9 +44,17 @@ public class CombatBehaviour : MonoBehaviour
             playerSpawningPoints.Add(point);
         }
 
-        characterObject = FindObjectsOfType<CharacterObject>().ToList();
-        characterObject.OrderByDescending(e => e.baseCharacterStats.initiative).ToList();
-        player = FindObjectOfType<PlayerProfile>();
+        characterObjects = FindObjectsOfType<CharacterObject>().ToList();
+        player = PlayerProfile.Instance; 
+        foreach (CharacterObject co in characterObjects)
+        {
+            if (!co.player)
+            {
+                co.SetEnemyStats(GameDefinitionsManager.Instance.enemiesStatsDefinitions["b2086c3a-7e25-4e40-8a94-353e891b9ee5"]);
+            }
+        }
+        characterObjects.OrderByDescending(e => e.baseCharacterStats.initiative).ToList();
+        
         currentTurn = "Player";
 
         for (int i = 0; i < 9; i++)
@@ -74,7 +82,7 @@ public class CombatBehaviour : MonoBehaviour
     {
         Debug.Log("Yes,I iz enemy");
         //TODO aici vine logica inamicului
-        ActivateDices(characterObject[turnIndex].baseCharacterStats.dicePool);
+        ActivateDices(characterObjects[turnIndex].baseCharacterStats.dicePool);
         RollDicePool();
         yield return new WaitUntil(() => didDamage == true);
         UpdateTurn();
@@ -95,7 +103,7 @@ public class CombatBehaviour : MonoBehaviour
     void UpdateTurn()
     {
         ResetDices();
-        if (turnIndex >= characterObject.Count - 1)
+        if (turnIndex >= characterObjects.Count - 1)
         {
             turnIndex = 0;
         }
@@ -106,10 +114,10 @@ public class CombatBehaviour : MonoBehaviour
         finishedRoll = false;
         didDamage = false;
         currentTurn = "Enemy";
-        SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);
+        SetPlayerDicePool(characterObjects[turnIndex].baseCharacterStats.dicePool);
         DeactivateAllDices();
         StartCoroutine(Wait());
-        if (characterObject[turnIndex].owner == "Player")
+        if (characterObjects[turnIndex].owner == "Player")
         {
             //player.RemoveDice(player.characterStats.dicePool.Count, player.combatBehaviour);
             player.characterObject.ResetDicePool();
@@ -121,7 +129,6 @@ public class CombatBehaviour : MonoBehaviour
         {
             //RollDicePool();
             //TODO decide whether they use dices (add to editor) or deal flat dmg
-            characterObject[turnIndex].baseCharacterStats.dicePool["SixSided"] = characterObject[turnIndex].baseCharacterStats.dices;
             battleState = BattleState.Standyby;
         }
     }
@@ -136,13 +143,13 @@ public class CombatBehaviour : MonoBehaviour
         rollButton.onClick.RemoveListener(RollDicePool);
         if (battleState == BattleState.Standyby)
         {
-            SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);//TODO make it to take into account types of dices
+            SetPlayerDicePool(characterObjects[turnIndex].baseCharacterStats.dicePool);//TODO make it to take into account types of dices
             for (int i = 0; i < dicePool.Count; i++)
             {
                 dicePool[i].RollDice();
             }
             battleState = BattleState.WaitEndOfRoll;
-            SetPlayerDicePool(characterObject[turnIndex].baseCharacterStats.dicePool);
+            SetPlayerDicePool(characterObjects[turnIndex].baseCharacterStats.dicePool);
         }
         else if (battleState == BattleState.Standyby) //enemy
         {
@@ -179,7 +186,7 @@ public class CombatBehaviour : MonoBehaviour
                 }
                 if (target.currentHP <= 0)
                 {
-                    characterObject.Remove(target);
+                    characterObjects.Remove(target);
                     CheckWinner(winner);
                 }
             }
@@ -191,7 +198,7 @@ public class CombatBehaviour : MonoBehaviour
 
     void CheckWinner(string winner)
     {
-        foreach (CharacterObject owner in characterObject)
+        foreach (CharacterObject owner in characterObjects)
         {
             if (winner == "None")
             {
@@ -212,8 +219,8 @@ public class CombatBehaviour : MonoBehaviour
             Debug.Log("Winner is :" + winner);
             battleState = BattleState.CombatOutcome;
             GameScreenPostBattle screen = UIScreens.PushScreen<GameScreenPostBattle>();
-            Equipment drop = null;
-            string addres=PlayerProfile.Instance.currentLootTable.equipmentId[1]; //PlayerProfile.Instance.currentLootTable.equipment[Random.Range(0,4)];
+            string addres=PlayerProfile.Instance.currentLootTable.equipmentId[0]; //PlayerProfile.Instance.currentLootTable.equipment[Random.Range(0,4)];
+            Equipment drop = GameDefinitionsManager.Instance.equipmentDefinitions[addres];
             screen.Initialize(winner, 5, 10, drop, () =>
                 {
                     SceneManagerTransition.Instance.sceneLoaded = false;
@@ -227,14 +234,14 @@ public class CombatBehaviour : MonoBehaviour
     //TODO make it a coroutine to check when dices stopped
     void CheckIfDicesStopped()
     {
-        if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObject[turnIndex].gameObject.tag == "Enemy")
+        if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObjects[turnIndex].gameObject.tag == "Enemy")
         {
             DealDamage(player.characterObject);
         }
-        else if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObject[turnIndex].gameObject.tag == "Player")
+        else if (finishedRoll && didDamage == false && battleState == BattleState.WaitEndOfRoll && characterObjects[turnIndex].gameObject.tag == "Player")
         {
             rollButton.onClick.RemoveAllListeners();
-            rollButton.onClick.AddListener(delegate { DealDamage(characterObject[1]); });
+            rollButton.onClick.AddListener(delegate { DealDamage(characterObjects[1]); });
             battleState = BattleState.PostRoll;
         }
         else if (finishedRoll == false && battleState == BattleState.WaitEndOfRoll)
@@ -252,11 +259,11 @@ public class CombatBehaviour : MonoBehaviour
                     finishedRoll = false;
                     break;
                 }
-                //if (i == diceValues.Count - 1)//&& currentTurn == "Player")
-                //{
-                //    battleState = BattleState.WaitEndOfRoll; //player
-                //    //rollButton.onClick.AddListener(delegate { UpdateTurn(); });
-                //}
+                if (i == diceValues.Count - 1)//&& currentTurn == "Player")
+                {
+                    battleState = BattleState.WaitEndOfRoll; //player
+                    //rollButton.onClick.AddListener(delegate { UpdateTurn(); });
+                }
             }
         }
         else if (finishedRoll && didDamage)

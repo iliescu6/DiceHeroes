@@ -17,20 +17,2208 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 228e9415f39216947b4deeba6f98768a
   m_SerializeEntries:
+  - m_GUID: 00da33f964952e54088eed6e0af7093e
+    m_Address: Mageskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0111d9365c6152846b9cf0a98de421ea
+    m_Address: Shamanskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 036e5b7f48eebd744bb2490e6ad4350b
+    m_Address: Warriorskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0411eabbb1bc1104babdb0a2195c13a3
+    m_Address: Shamanskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 050306cbaae1fca4392d791082266309
+    m_Address: Priestskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 053a8760dd344774e91b44a629abbddc
+    m_Address: Shamanskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 05a991e95345f174bad6565417cde2ce
+    m_Address: Druideskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 05f25969c8798c046a68e1db82d50e95
+    m_Address: Archerskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 06b8162626e1afa4997710b9341269e3
+    m_Address: Mageskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0763323d7b99b4b4d83601db3b58abf4
+    m_Address: Paladinskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 07724935df8596d4d949ad69eb13de55
+    m_Address: Priestskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 07f0aee7be35fe74eb0057985ea4c9e6
+    m_Address: Warriorskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 083d1c6971b57354a881e9f75855979f
+    m_Address: Priestskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08915ad992240994585dab613cd8dbbe
+    m_Address: Warlock_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08a4b98b441da5e498626ae7b0c1dadd
+    m_Address: Warlock_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 091dd29f8027fef48819afb66bb02ec7
+    m_Address: Priestskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 09c2c8154733a4442a24813805a8001e
+    m_Address: Archerskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0a1afdcc43c88064d996b32448b6be97
+    m_Address: Assassinskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0a1e1edc7656d9b42b1c27875cb1fcdb
+    m_Address: Priestskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0a58a334a97e88b4683f873406d42ff8
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/25_Lightning_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0bade031cda470b40aeff2755df90503
+    m_Address: Druideskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c1a8a2d6084953488d75959da0fcaac
+    m_Address: Druideskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c8eef87aabccf445bae2928488c639e
+    m_Address: Warriorskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0cec62a4bd4591d489c75c76b247dc01
+    m_Address: Druideskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d47e12972dd47b46841f0dad6558eb3
+    m_Address: Assassinskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d5c11b1699f9da4db30b96e7c45791d
+    m_Address: Druideskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0df1567e8f8e2b347aed2bb1ee44c238
+    m_Address: Warlock_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0f2e07027e0be9145a8288f9c43b9db2
+    m_Address: Assassinskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0f63a0bfa93bab242bffe848e141f0d0
+    m_Address: Engineerskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0f92101f794f5914b83603dd4e60dd5b
+    m_Address: Mageskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0f9b7b2a94439b74daac21a9b3d4db11
+    m_Address: Priestskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 10a7423e08ee70046811b2685ce3ec85
+    m_Address: Warlock_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 10dca909c9d765640b46a47ce73e8034
+    m_Address: Paladinskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1189cf36928968e45b02625c860c4171
+    m_Address: Archerskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 11b25b73af102f94ea9955a27f2e8ba2
+    m_Address: Mageskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 11d3022fef63cdf4fbc83cdc14d1d6a6
+    m_Address: Warlock_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1248ae1d38e3e514487cecfc78bb8b6c
+    m_Address: Archerskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 12eea55591b332b48a9df52cfccce070
+    m_Address: Warlock_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 12fb39c8317586b40ae3827a4fcabdb0
+    m_Address: Warlock_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 131c220a0f644754aa3efdf8c43de2f3
+    m_Address: Mageskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 133e350b7520d1943b37f9f27d3feb86
+    m_Address: Archerskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 157204c0d874336418f391812cd828c6
+    m_Address: Mageskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1639591a2e12edf45bae0930f129f7f3
+    m_Address: Shamanskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1698c2ef39288474189f1a0c8891e1d7
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/18_shadow_bolt2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 16a49af5f804a9546940d6fd145d49ee
+    m_Address: Paladinskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1712b568c4a367f46b486322e0524716
+    m_Address: Paladinskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 17aa98eec608fd446ac924bedc8860de
+    m_Address: Shamanskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 181d0dc7ce663fb4b97b0944788e4f69
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_07_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 18bcf1791620ba9408ebfa2e80a6d485
+    m_Address: Mageskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 18cbf2d01f52aa444bd0b9359ea28b39
+    m_Address: Warriorskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 18f9a1d3073489b419eb4d412438a138
+    m_Address: Engineerskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 196a9b842c2d46b4cbcde1f5eb031394
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/06_Death_blow2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a594cce0076c0240aab3dabdec13eca
+    m_Address: Assassinskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a847878ad0c6fe43af9500e397838db
+    m_Address: Mageskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a8743e89529f344fbcc70cd782cb9f1
+    m_Address: Druideskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a8f616299383364c9d4a5e528202718
+    m_Address: Archerskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1abbb34a62e3b3a48965980d193ccb16
+    m_Address: Engineerskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1ac0f3a5e57bc7242aa8924052ea7121
+    m_Address: Priestskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1b0ce65312c81c74b9dd2e3a140bca73
+    m_Address: Engineerskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1b3ab0e8cdde0e749bed50b7601cefaf
+    m_Address: Warriorskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1d3de6019fc88c24c8fcdbf9309d1cbf
+    m_Address: Priestskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1d887fe47d258474090a120f57e95fa8
+    m_Address: Paladinskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e030c08f5ed5b24db5e37884b1c9f76
+    m_Address: Archerskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e4cc8ca904a05e4fbd417e679b4b0ec
+    m_Address: Archerskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e830a243767b384c93c01b2b1e1edab
+    m_Address: Archerskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e95efa1fa5e9a040b5191ffb50d7d19
+    m_Address: Druideskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1ea3be92abb5e6048a5797911ada4305
+    m_Address: Warlock_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f317116dbd19664592716d756918c55
+    m_Address: Engineerskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 200d43e4c2da0ee46948b120b455f9bc
+    m_Address: Mageskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 206721021e4e7264c98addae467a1a8a
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/35_Critical_strike3_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 207ddc066bed5da458a371fc2fa96261
+    m_Address: Druideskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 20969e0c9b52e6c4fa0f7f2078daaccf
+    m_Address: Archerskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 20b1a25f44a40ba4e9f349a197963034
+    m_Address: Archerskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2189208f745b6864c918942b534d0648
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/16_blizzard_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22f283db497658e47b4b122678e5e2df
+    m_Address: Assassinskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22f5ea23fff770a4b9930f54be6b2a19
+    m_Address: Mageskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 24240d5cdcf27ff4c86dbe2931bb7946
+    m_Address: Warriorskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 243444c8b01a8e149a140b32b16af660
+    m_Address: Mageskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2476b41f1d9f7084c9eedfd22c919cfa
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/04_fire_rain_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 251fd3f0f860d8b48bd9a0d80a1c6f07
+    m_Address: Warlock_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 253086cad2cb21049832bacaa98c3395
+    m_Address: Archerskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 25fd2378e7e153f4ba72ca63b2d87a52
+    m_Address: Warriorskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 262edc4da4022e74f8c1862765629566
+    m_Address: Priestskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 26d62d5ac88ab694fbed2cc9ada59b91
+    m_Address: Druideskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2702abca4c24b224ebc102e6c3e423e5
+    m_Address: Paladinskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 273960294d8e4a541bf9b540f5879637
+    m_Address: Archerskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 275fcd74cb995b646ab6398aafb10d3c
+    m_Address: Shamanskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27a3a19b73fcc9a49a770add86b62d7b
+    m_Address: Assassinskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27c18832b2d76ea47a1729ba6067d933
+    m_Address: Paladinskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27ca32c1f6077cc42bbae4a7a36f20fb
+    m_Address: Mageskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27dda334e92fb3b4295096a516ce3fec
+    m_Address: Mageskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2827beac5ab7a04448567a13d372933d
+    m_Address: Priestskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 286ba7a9d63c3b5438b992b05572cee8
+    m_Address: Shamanskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 298efe4e7168a4745bf5e87aa336d660
+    m_Address: Mageskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29a2af9b376e82d4bbdefd71e239f930
+    m_Address: Archerskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29d861aefa35c814181b4fa7dadf5ba8
+    m_Address: Druideskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2a4d6ded50aa3df47a1ddce1284e99a6
+    m_Address: Mageskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2a6976475c82f2547b54b68f053e3893
+    m_Address: Mageskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2ba1b0f20aaf3aa4fb2ff81a8087bbef
+    m_Address: Paladinskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2bbf3afab56ac9943bbb27339b8c3874
+    m_Address: Paladinskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2c8cc471ef7bfd2409974b6128642a22
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/12_Magic_rain_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cd2aacb9ee8f9546bb9a86d1b572b7c
+    m_Address: Priestskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2d7d69e5c5964de468ce2cbfde40be52
+    m_Address: Warriorskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2dc08c4b3439189489c660c738e2918c
+    m_Address: Engineerskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2dfd4126eea34fa4dbc009ac34a73614
+    m_Address: Shamanskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2e0fd5b2919f5214784c1938bf90d197
+    m_Address: Druideskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2e3553da32750e548acf474f49c319d4
+    m_Address: Mageskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2ec8cdfb04da08c4a80269311778608e
+    m_Address: Warlock_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2ef6308bd3a80ad4e971420a3035e232
+    m_Address: Druideskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2f8d09cd10a0d5e42a7506452fc46aa2
+    m_Address: Assassinskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31f2758f88e7fbe47b6b490831ece6f6
+    m_Address: Warriorskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 323e08b32ce2b1b499d2318389586345
+    m_Address: Shamanskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 324231038af66004dbc3eedb5abea27a
+    m_Address: Druideskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 32615431247e7de45b25cce17eb79c36
+    m_Address: Shamanskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3284e3f744d34d04ca360b7a1c532d8e
+    m_Address: Warriorskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 333333f5f1b71644ab2406ecea55bcc3
+    m_Address: Warlock_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 340325a2c2db88a4c83b662eb56be2a0
+    m_Address: Shamanskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35f75dd57d5de6648be6cea995bb1288
+    m_Address: Engineerskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3632d42c0c635b04fbdacacbacfe6e80
+    m_Address: Druideskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36585347162f0ce4ca3dc8bb87239997
+    m_Address: Shamanskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36d8bd8009d51f94f86ef57cebb73b48
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/33_Critical_strike_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3767d852153ff48488d9a0cbbc573cca
+    m_Address: Warriorskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 37759b5c5fd55174eb6950e4cc8e3279
+    m_Address: Paladinskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3831839b0f1a81d4386195fc990fd4e6
+    m_Address: Druideskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 391f8050dd31bb04994160aa0dd9d395
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/21_Light_arrow_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 39ac7601d5a3e894fbb2fe7722402f4c
+    m_Address: Priestskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3ab2028f9d6a65744881131e7d25983d
+    m_Address: Paladinskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3afd050dee16ce24bb20006e6517f085
+    m_Address: Archerskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3b3da846175d3a248ac24422da09daae
+    m_Address: Warlock_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3cb95421329d20f4d848df2edcb5d624
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/09_Magic_bolt_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d7c35d5c380627419b650e8164a3838
+    m_Address: Engineerskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d8923492b322834cbe0852df50253c0
+    m_Address: Druideskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3dc4132ad69f42b458976f624ccd771d
+    m_Address: Mageskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3de491261161e904fb20803674afb166
+    m_Address: Assassinskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3df477cd8e3155047ab94be21a779a5a
+    m_Address: Priestskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3e2db7b427ba03c43b9bba9cb2c70527
+    m_Address: Engineerskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3e8ad5cdc194f054fb2c9a89c5fc00e0
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/14_Big_frost_arrow_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   - m_GUID: 3ebf5a01484b88e40ac360df29f6e97b
     m_Address: Assets/Resources_moved/Equipment/Staff_of_Metal.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f11eefc511721046a4738f9114b9501
+    m_Address: Warriorskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f1963f4f55efd34fbb7966942a2db70
+    m_Address: Shamanskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f6067f2c460e9a4095441230c1726fb
+    m_Address: Paladinskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f65df59d24c8c5419e9a85b7f09cc8f
+    m_Address: Druideskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4041b64b47f51904a90eec9e6f601f3f
+    m_Address: Archerskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40597198f11371949889fd18ed8d7741
+    m_Address: Assassinskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40763ae306143904886c28aff45e9700
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/11_Magic_bolt3_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40c51868d427dc54ca9fb66a8495711a
+    m_Address: Priestskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 41e3eb9cb7518b343acf1f372653dec5
+    m_Address: Archerskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 426f8c70e667b804ea03a72c0a6f342f
+    m_Address: Shamanskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 43128ab57525e8c408d361412685f5ce
+    m_Address: Engineerskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 43901af9453d5ef4c8960dd647c0ccee
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/15_Ice_block_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 44494a3a73255804d96a79e6322ad64f
+    m_Address: Shamanskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 44712543cf95e6c4bbac04028964f533
+    m_Address: Engineerskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4686964d485f1d24198eff4dc690e23c
+    m_Address: Warlock_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 468760a57a9b69f4e8e669f23b0ded09
+    m_Address: Assassinskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4711cfea2ae93f54296bbf8b4b70c346
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/17_shadow_bolt_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 47345cc251f80b94ba529310ed4c11f7
+    m_Address: Archerskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 477fa3c2ff84875478c7883fed567747
+    m_Address: Archerskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4833d468b0a93594bb82d1b632753e8f
+    m_Address: Archerskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 49fb21f6dc8d54749ae3d0e8bd327304
+    m_Address: Paladinskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4b477062a314012419dc1f4842890b0a
+    m_Address: Paladinskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4bac882f2fde9b94d8ade72d42804cf9
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/29_Wave_of_evil_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4c1fbd69942cb2a499b12795f7ffea21
+    m_Address: Archerskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4c73b86f15d420c47a0b4b9f9b0803f6
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/36_Critical_strike4_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4cbdbea6b0853094fbd1c93f5259a935
+    m_Address: Druideskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4d6d57a8d6d2d8f4694795b22b8b1fcf
+    m_Address: Engineerskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4e845d9573d9ee04faa38efd828cf205
+    m_Address: Warriorskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4f129b09f132d2740a1e3c4ff39a3e19
+    m_Address: Assassinskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4f2604b5b10f21644972212dac9ef364
+    m_Address: Warriorskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4f482c1758b3a5940b42ccc522c684cd
+    m_Address: Mageskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 50367d27c473ad2459a814bda1ef3ddb
+    m_Address: Warlock_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 50538709cc8506d499474204e7fd6195
+    m_Address: Archerskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5137bc95e9208e648bf81648fbe4cbbb
+    m_Address: Assassinskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 51415029a6a284e4f93d6821c8b6f46d
+    m_Address: Paladinskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 51a3a4403f78b664caffb1d8b8db36d2
+    m_Address: Engineerskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 51e6c6648ab5f1348b9968bfb95e558f
+    m_Address: Mageskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 520b0e0061f982f49a23e54943ae3df4
+    m_Address: Warlock_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 520b6f512ddf1cc4fa13c4efd22ee753
+    m_Address: Priestskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 527265ffdf8b71f4e81db24f92e80b3f
+    m_Address: Mageskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 52aa2b5162f5fdd4bb66e7ff14bbdb9e
+    m_Address: Assassinskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 52c9eb5e9a0aa6f4295ab62e8b876c52
+    m_Address: Archerskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 53075bc94ee489645ba825c8ec154b2c
+    m_Address: Mageskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 547db0c78bd22af4a8fa00f605545474
+    m_Address: Warriorskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 54f8bccff330eab469c9bb971d789b04
+    m_Address: Paladinskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 55578f559bed4174fa4725b751a3ac44
+    m_Address: Shamanskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5563c535826037a42971835873ad4324
+    m_Address: Warlock_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 55a684c1bcc71334a99bd940cca08435
+    m_Address: Priestskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 567c9d0c3e535094f8461d88eb9676fc
+    m_Address: Shamanskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 56a860d67c9a295418b6b6e6a4d34e57
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_04_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 56d404979aede0547b51ec1aa9a7e4a5
+    m_Address: Druideskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57083fa8789e8dd46a4cb154993a34e4
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/34_Critical_strike2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 575359f163c82d249ae8e0c8908010e3
+    m_Address: Mageskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5761acec9dccff2449af166d11290f34
+    m_Address: Shamanskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57a46d52997e0424fb934a1dee2710cc
+    m_Address: Assassinskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57d4ab2c132d7fe4e98c60cff4399657
+    m_Address: Priestskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57d67e35bccdf824c9ac24a8977fbf0a
+    m_Address: Warriorskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 583017b6c1abc2948939ae4d213f6847
+    m_Address: Warlock_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 58bac37f0d7391f4ca6d341174276884
+    m_Address: Paladinskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5909d9846765e164d9b52f2f4251ef84
+    m_Address: Warlock_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 59689cc2538b8334998648c6b7ed893d
+    m_Address: Shamanskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 59ed09fcd06cbd9439c99e9195b17fd8
+    m_Address: Mageskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5a10d875aa1ea6648a5d1da0d61641b8
+    m_Address: Engineerskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5a6905c6030e4c6498d6a2ba54020fad
+    m_Address: Mageskill_01_Nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5a6f57b0e1bf6d34db3ea8913affa4b9
+    m_Address: Warriorskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5ab40c998426a124e8073df105926c60
+    m_Address: Warlock_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5ad2cf8f4923f5542b7b3a62f5532995
+    m_Address: Priestskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5aed046a2955377448d1f6402feaccbc
+    m_Address: Shamanskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5af5df8f415695d41ae4e690cd224e2f
+    m_Address: Druideskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5b28ac669a36ed74394ebf1cdec83c8c
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/19_shadow_bomb_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5bbaa4344449a474aab452cbcec41cb6
+    m_Address: Shamanskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5bd3edf1524220f4786f15b6d043e63c
+    m_Address: Shamanskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5cc77b198abacf943a5f22094de98ebc
+    m_Address: Druideskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d03721bbcd34644eab7f2e8f166c745
+    m_Address: Paladinskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d97a2d9401d0d549923aeaed85bc108
+    m_Address: Mageskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d98b863ff76ec34088fc6c2d420d043
+    m_Address: Warlock_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e1abdebeda3d424c8ba608a74441ea3
+    m_Address: Priestskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e362a7e9a4412e4aa4fe2548e6d5398
+    m_Address: Warriorskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e36b90ea3523a34999870b18bd6d50c
+    m_Address: Mageskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e7e27f7522558841ae76c363b3f5f3e
+    m_Address: Priestskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5ea12be956787fb4e9b8885689da4cdb
+    m_Address: Archerskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5ebf14ac499533c4780ac57fa06d41f8
+    m_Address: Shamanskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5f793016046c8104988466c2a2f5747f
+    m_Address: Assassinskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 60a2fd2f5d5a1084e8baaf64fe8194a3
+    m_Address: Paladinskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61314771cb5c7e74dadc234b3d1e7455
+    m_Address: Paladinskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61863571cce6eef47989f014511ba10d
+    m_Address: Engineerskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61ab23e40f15c9f40ab97a9d4f107ea6
+    m_Address: Engineerskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61b3b6c016f70424aada932f5ba8cb00
+    m_Address: Warriorskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61be12b1f826af7429b4eef0fb2de5c0
+    m_Address: Druideskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 626d18198f186944ba8808a923c9f9d2
+    m_Address: Archerskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 634bb1c845345504dafd43468b53c2a7
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/02_Big_fire_arrow_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 637d741b6516d2842b5d651577f4583a
+    m_Address: Druideskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 647ce8497ab13e84eb9cafec1e06f1b7
+    m_Address: Warriorskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 64de7ba25cfacd540ad6a20fc8b5aaa2
+    m_Address: Druideskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 64ef2867a8b99a345b23075d6e7a157a
+    m_Address: Druideskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 66237bd13cc126049868a4de2267a67a
+    m_Address: Assassinskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 66dcd1b7191ad8544b4151fbbc5c602c
+    m_Address: Assassinskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6732c908b10ab3143beb4353e399219e
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_06_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 677a57188cf84184da1ebcd88352ef57
+    m_Address: Engineerskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 677a803c95352b242a65fa90710f96cc
+    m_Address: Druideskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 683cadebeaae3124ab87b754c2730529
+    m_Address: Assassinskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 690b78545e137d64cacb60de2b95c323
+    m_Address: Druideskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 69679452bd8de8247ad42ba72772967c
+    m_Address: Archerskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 69c8ac96f4d5e2f43ab8e0ea6b9618e4
+    m_Address: Assassinskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a019887c4620d5459b595c58819541b
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_03_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a3efd622b63c044c9b6e0c7eaabdf72
+    m_Address: Warriorskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a5746982519f1f4cbaf89fa1a2d1484
+    m_Address: Druideskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a85be547f6e5624fa14e0598d2feb10
+    m_Address: Druideskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a951c80719d8b749aca92a6039adcff
+    m_Address: Engineerskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6bcd71613a597424fbc296a29b9b8605
+    m_Address: Paladinskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6c23b03566de2cf41a5f521aa599ff70
+    m_Address: Paladinskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6c5ba2f75186048478027c80edac8856
+    m_Address: Warlock_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6dcdfbe7600d472428a8bfebde8aca8c
+    m_Address: Shamanskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6dd7d6d3d9390d749ab6381744e420cb
+    m_Address: Warlock_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6e14f6646aaaf21488505ae9006e8841
+    m_Address: Shamanskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ef1b8b56f7b69949910e793cc805b41
+    m_Address: Assassinskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6f2a415a415953741a632b78255fc40a
+    m_Address: Priestskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6f7b34c5ba7ecf24abf9f65e5d5f15c9
+    m_Address: Bonus_w_7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6f87ad664954910499fba2791bd9ccd6
+    m_Address: Warriorskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 70e0474f8a0a81f47a744e1dae0b635e
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_05_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7103d5cb73eb0854398a04e08e7c911e
+    m_Address: Paladinskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 716e5368c717bb04691f4b5f1b6261ad
+    m_Address: Priestskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71d4374b564f448439bf57a4bf90051d
+    m_Address: Assassinskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71f39deda84937f48a2805a4634346dd
+    m_Address: Paladinskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 723df0f5d6f5cfa4ca6062838d3db3cd
+    m_Address: Druideskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 72b48765d3d03dd439a6105eea07dab1
+    m_Address: Warriorskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 72fdf2b191fded54f8e43d88b90d4e13
+    m_Address: Shamanskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7384d1286c6c8c74e894cc5e6359de2c
+    m_Address: Warriorskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7404dfe00d858e047ab751905599231e
+    m_Address: Druideskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 749ebeaab4c32d5449d7353e16879fa6
+    m_Address: Assassinskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 74a450033d31b854095dcd30148b9108
+    m_Address: Warriorskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 751d7a79da8df90448652d4ece5b4018
+    m_Address: Shamanskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 75221847503b1ea4980886244e657353
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/28_Storm2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 769e4857b716a8449bdfbc98d92cf028
+    m_Address: Paladinskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 76a0ff55627934040b44902d31bb145d
+    m_Address: Warriorskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 76cb4029c80dd58448884e193da7689f
+    m_Address: Engineerskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 777a5c13f22642e4ca7d492f5cfb8b1c
+    m_Address: Priestskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 77ea4a79db166b54dbebfd9576621839
+    m_Address: Warriorskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 792b9facda6cfe54285bdf4359beb6bd
+    m_Address: Shamanskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7945c694d9f570f4191734294855e361
+    m_Address: Shamanskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 79c390f01c794ef43a75524f9eb12794
+    m_Address: Archerskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 79c60cf786fddb842b2824ce144bd85b
+    m_Address: Engineerskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7a4681eadb468894a8940c96f604b69e
+    m_Address: Druideskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7a851bd0aac6c694897f10cc290c5caf
+    m_Address: Druideskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7a93fed528cda654cb11769f1a120d13
+    m_Address: Shamanskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7ceaee5fed2b1d64997fab80ab079e95
+    m_Address: Priestskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7d3db7183fc7e5747a6f48ba632ce629
+    m_Address: Assassinskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7d5809243dae3b74db5312df3fd3c906
+    m_Address: Paladinskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7da6f9d8760356a4e89c2ec766144eef
+    m_Address: Warriorskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7f3c1b4f31e6953479a0e25597c64af2
+    m_Address: Druideskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7f59018b58da2394cbc8f1f3f86876b0
+    m_Address: Warlock_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7f9fe8d770830894fae8319486507f70
+    m_Address: Engineerskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7fe8ac26b5c64ad46867e570ddc4f8c0
+    m_Address: Warlock_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 80bca3b6189edf34db8704fdcfcccb19
+    m_Address: Mageskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 81b5b4a345d8336499632390f18130d5
+    m_Address: Engineerskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 81ffdf34c4d792c46a3e3a055687be73
+    m_Address: Engineerskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8219a59b70658324eb8eb357c176f57a
+    m_Address: Mageskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 82532a056fc77404f87025fc86b856fa
+    m_Address: Assassinskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 825347842ab72eb498349d7fec582ff0
+    m_Address: Assassinskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 836cb9d1cf932dd4b90e440eb0af47c3
+    m_Address: Archerskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 83daf15eb7158cb43ba04ad293023606
+    m_Address: Assassinskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 83ec9171f4e31704da3a7650e18ee668
+    m_Address: Warriorskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 843d37aa27ebf4e478e61a355c391b5d
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_09_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 866ac04a54725ed4a83ef1ade6e27cf2
+    m_Address: Mageskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 86ebd6a0087e1bf449c837f51edf68b1
+    m_Address: Paladinskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 87bc2d2014155184e955f4d8f05da51e
+    m_Address: Engineerskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 88631676ef631fb4ab8b4fddfdec0a6d
+    m_Address: Assassinskill_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 88a8eeb9289fe9642b4dd660fa244fbd
+    m_Address: Mageskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 88c1bc66913c26746975d26717f791ff
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/03_fireball_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8ab34da333aadb2419d2bcacbbcd1522
+    m_Address: Mageskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b1bfccee632e424b8b9c6f52063875a
+    m_Address: Druideskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b5f5f7bd0189dc4bb2dd2d54ee2f59d
+    m_Address: Paladinskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b84ab2e7360b3a4e84db003341550b8
+    m_Address: Shamanskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8c8a6cec1f3cf8b4182eaa3f96326146
+    m_Address: Mageskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8d9d75885f7410d41b6f2a93f0ea84c6
+    m_Address: Warriorskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8dbd05199e3ff3840ad70786c90bcc3e
+    m_Address: Assassinskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8dc73df7af3a82e4b83ded17688413f5
+    m_Address: Assassinskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8df0333bf725c5940969e58aab323f1c
+    m_Address: Paladinskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8eb5a295f78cd474fae0f504df762913
+    m_Address: Warriorskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8f9735312586513478f4dda66c4a80ca
+    m_Address: Paladinskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8faff471836351c4ea25b271a6c16391
+    m_Address: Assassinskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8fce0f0d28d51ee40a866a4d6df74b9f
+    m_Address: Archerskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9019dfb5a77666c448cfe264f555854a
+    m_Address: Engineerskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 91c9fb62ea077ce4ab30c47ed13cefe2
+    m_Address: Engineerskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 921721f12c02cc54bbb6602f144da04a
+    m_Address: Priestskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92f76237d03c00d44870445ca93cdd05
+    m_Address: Engineerskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 93d50d5a6be61eb4b9812e7d216cb496
+    m_Address: Shamanskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 95112a5b18dd78e4fbf90e76022057e8
+    m_Address: 13_Frost_arrow_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 958f50239f70564419aeb3baacbf3d2d
+    m_Address: Engineerskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9607e5a0e2b76da4cb10bd16ad7c813c
+    m_Address: Warriorskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 963590edab7d7eb4da36bf3c037b0cdd
+    m_Address: Shamanskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9711958fa90a56c41be78af5388599e1
+    m_Address: Engineerskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 973c90e36a32471479a4852297dabec1
+    m_Address: Warriorskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 977a3e073753d554cb9a79f37d72921b
+    m_Address: Warlock_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 97d9a602a068b264dbbbcd996728b060
+    m_Address: Priestskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 97dffc9ed02c4f242afe5724d4d53899
+    m_Address: Paladinskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 97e58e112b8a52b409c519c25c9a8a3f
+    m_Address: Shamanskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 990ce8ea12b75594e940972e5f9bd0fd
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/26_Big_Lightning_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9b1251b1e0f2e4a45a12ace9c20ef4f0
+    m_Address: Druideskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9b9521ac74bd3204e92e0f7b3748ef9c
+    m_Address: Archerskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9c608b19a76eb924799ab1b32beceeed
+    m_Address: Warlock_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9ccb56ba8bfd12449886013f93c51a86
+    m_Address: Assassinskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9cd5c256d1c730945bb95c8b07b91253
+    m_Address: Mageskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9d8dd7997b302ec419133e1595415b12
+    m_Address: Archerskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9db6af0d15b7cf34a89cac25aae2db70
+    m_Address: Paladinskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9eef24e210a12bb479d693a4f4c41bd4
+    m_Address: Warlock_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9fccc796700d8a647bb8d3e3cfa24775
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/24_Holy_rain_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9fd9487bde7247445b6fbbb8065acc45
+    m_Address: Assassinskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a0b5c060b314a8f4b8ccf13efc4ed284
+    m_Address: Shamanskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a0c3ca2006448224bb5b5fa9b1698717
+    m_Address: Paladinskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a0c9b3988004b814ba8fdb24fa30240f
+    m_Address: Warriorskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a132b637f97ce7e40a3e14cf8ea4eba2
+    m_Address: Shamanskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a1ae1a5095368a9428ffcf6e8c66b59f
+    m_Address: Priestskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a2a076ec742e5624b88f8f530a272953
+    m_Address: Warlock_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a2aa52e45ff99ff42bafc1f2b4db9b6a
+    m_Address: Priestskill_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a38a6b1dcca10ae4082a979241c6b45b
+    m_Address: Warlock_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a3c1e7bc6d0713c488e57c6f14959c88
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/05_Death_blow_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a4d4eba923c310445916e12f51eb72ba
+    m_Address: Warlock_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a539921ff02a0bb40ac58d26bb9a37a4
+    m_Address: Druideskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a617acb0e1c9e5a49b1b23baa7a9c979
+    m_Address: Assassinskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a61c9a57f9266044989cff069a48f171
+    m_Address: Archerskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a63b34d18b030cd42b209382699f433b
+    m_Address: Druideskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a6aa030211f6b3b48a6c15fd7012bbd4
+    m_Address: Priestskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a6b58901a3b631c43a913848d241ada3
+    m_Address: Warlock_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a6dbb6a3a38712f4db9d43b0a9ff07c2
+    m_Address: Shamanskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a7c0e1b7cbf9e9f428f7313279cf70f4
+    m_Address: Shamanskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a81131741dc019c4bbda2b0513f944f4
+    m_Address: Warlock_35_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a83e6742d332aec4591cec7b23ce9930
+    m_Address: Engineerskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a9527569446ee664ebee83facc4a81e4
+    m_Address: Paladinskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ab8c7998f38be2c43bb41949b62e2ed9
+    m_Address: Engineerskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ac452dac3b67672429a778d523d66941
+    m_Address: Archerskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: acbd71afd67ffe041babb5881004aa75
+    m_Address: Warriorskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ace7365ca59fb324f8e8ae0cc7283188
+    m_Address: Priestskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ad00d6adebaab9f478bfded18e77ad60
+    m_Address: Priestskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ad068439f6a70f947a56683ebcc2ba49
+    m_Address: Assassinskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ad2235ade856dc742a9119e1346b004f
+    m_Address: Engineerskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ad57fff00ca98f3408007154cddf55a2
+    m_Address: Mageskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ad6fbae49d78f374288e1a01fd1ac8f6
+    m_Address: Assassinskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ade274eff6751a348a9f07a0569133e3
+    m_Address: Assassinskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae27f8c037d3790469a2c9aa5359b58e
+    m_Address: Warriorskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae40f4533c133a54b8fcadbf0625b6b9
+    m_Address: Priestskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: af5bbb50c46fdc54c8e1f92dcfd9ab56
+    m_Address: Engineerskill_17_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: af6a057de6d50b34eae7d880e84c4a5d
+    m_Address: Assassinskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b019e3ec716fe1f4fb1e7d4c423d428d
+    m_Address: Priestskill_08_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b05a991ca30c9c84f8cc27235af3b0d9
+    m_Address: Engineerskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b09a5239ebf7ad94cbb26af7263bf3ee
+    m_Address: Engineerskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b0f83122ccdb3b348873f4a373f576e9
+    m_Address: Druideskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b1253b91d34bf96469848600c49c526a
+    m_Address: Priestskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b1373c79dca17b24fa1b9cd9a8e2259c
+    m_Address: Druideskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b1594b53ccce4c941affd3652bb0d9eb
+    m_Address: Priestskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b26cb18c039c2834884841b03f51aee4
+    m_Address: Warriorskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b59039b56e57aa042977a008860affb2
+    m_Address: Paladinskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b654f0a436269d04392c8358c8fd4000
+    m_Address: Warlock_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b67270a50fce9d046b1a362d90e862b0
+    m_Address: Paladinskill_20_nobg
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: b6bd05609517cda42892e094d3489d1b
     m_Address: Bonus_w_5
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: b70c999c83bc10a4fbb23272ad510e46
+    m_Address: Paladinskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b721c2cff07817d469a90d5a16f9c4ee
+    m_Address: Warlock_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b75875f4c7c1dbc479b5d0794cfaa04b
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/20_shadow_rain_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b76081867d5cf71449a6e6db23ebfdc0
+    m_Address: Engineerskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b7ec45cf61ec6244182dbaa13f46a135
+    m_Address: Druideskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b7edeab8e9ac55d49a266f812d0ea8d4
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/27_Storm_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b867b22933c5b014ea8397149432fab8
+    m_Address: Priestskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b8da10dcc1850be44a301c3e2e91ef63
+    m_Address: Archerskill_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9019a2d74407cc4fa37a579c35a1e79
+    m_Address: Archerskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ba2c2594375446d48ab3713d30dc4396
+    m_Address: Priestskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bb7e09470e879324f9e7483cdad0c9c3
+    m_Address: Engineerskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bbb8c6905bf819042b6337fad2a5c9ee
+    m_Address: Mageskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bc41f5f6fd1788649a35b5e15ea73790
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/30_Wave_of_evil2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bc5001f7cc2b2a04089bdb8c50b09b63
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_10_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bcfc160a5fecb3647a407ecd7d7bc60c
+    m_Address: Mageskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be4434575d252a34ab3617fab43eb9fe
+    m_Address: Warlock_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be5283d0460058a4790280aec4c92bc3
+    m_Address: Shamanskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf4f0e3f99b255844b67a9fa22564990
+    m_Address: Druideskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf87e4862f083fc4da7681daae97b867
+    m_Address: Priestskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bffe2bd035d54a946b6b09649eeed0e1
+    m_Address: Shamanskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c008dd790ee39c646b367185b590f8e8
+    m_Address: Engineerskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c0706cd748ee0f643ac030bedaaa143d
+    m_Address: Engineerskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c09ab0aadde2da743b59f4fca33a73da
+    m_Address: Engineerskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c133153e702cf6243aae07db9e2b2a07
+    m_Address: Assassinskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c18ef82861dc83940a4e7c7cf165d88e
+    m_Address: Assassinskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c22a1e9b96d01e6429a5bd579f84ff9a
+    m_Address: Assassinskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c25bbcacac5716a4e9dbf329e58cb744
+    m_Address: Archerskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c2a8c708f65e20840934698fdae61f15
+    m_Address: Assassinskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c2efaec92e616d34c959152d5e0ef4a3
+    m_Address: Engineerskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c31cf38410bbd174cb1b53d29a241be4
+    m_Address: Shamanskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c4eef961c0588a64dba1bf4ec8b4001e
+    m_Address: Engineerskill_33_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c4f1c58f8ad28fa41a31e96232078fcf
+    m_Address: Warlock_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c60d31a127ca3e147abf325ffb5c53c3
+    m_Address: Mageskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c6b887c98adc66644acd770695b91cdf
+    m_Address: Archerskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c7f9df7e6330ba946a55d8697aa5e11c
+    m_Address: Warlock_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c8e7811db47eceb4592d81e4c747814a
+    m_Address: Archerskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c9305d1bbcc406545a9da839b6e27842
+    m_Address: Mageskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ca1c8e7a07ff99c41bf3d322e231884d
+    m_Address: Warlock_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ca39f7757d41cf745b5a13bbe96e4104
+    m_Address: Archerskill_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: caca2d43a267bd84caccbd973e99cd0f
+    m_Address: Engineerskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb44d89d0eac722409463b255209cf38
+    m_Address: Archerskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb831a381bf7e5544be5839e6b67595d
+    m_Address: Mageskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cc9faef35d36de04bbbf4e0c2a6f1ce8
+    m_Address: Mageskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cd08d79dee724354db6f5028eaf2e0c4
+    m_Address: Paladinskill_48_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce3a85d8ba65d3c40aa37e7b4b3946a2
+    m_Address: Mageskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce43017244698434ca6b38e2dcef0663
+    m_Address: Shamanskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce73eb152026a3e40931ea6a8d0c85cc
+    m_Address: Druideskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d046216c553b9a445a0c75ac77bedcb4
+    m_Address: Archerskill_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d15774753d220a448a3a0c893d0eeabc
+    m_Address: Warlock_09_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d15dd1515b14aff4f982fdc6a95b026e
+    m_Address: Warlock_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d19d0fed4745dc14fa93e86993f9f2d6
+    m_Address: 01_fire_arrow_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d1d97841c1e82d845bd9c9e25566f9e5
+    m_Address: Druideskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d1f45289be2b4324599e471e4cc55136
+    m_Address: Mageskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d27694660bb89c447a2a9a2c37b5a64a
+    m_Address: Warlock_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d2796662e127c0e4c8d4ec8323258b52
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/31_Wave_of_evil3_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d2897d513e06b4f49be0da339a8ca22f
+    m_Address: Warriorskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d3000838bf16fed46ba50dcdebb72e50
+    m_Address: Warlock_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d34ede931c069be428225d60731c4cd5
+    m_Address: Shamanskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d3f88f098d0ba444b92f06063dcb5749
+    m_Address: Warlock_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d4f15dcea74e9be4ba59e651ed253036
+    m_Address: Paladinskill_31_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d5181ca623f8fb044966100c7a405ec3
+    m_Address: Mageskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d537e8bfc0a11524b8da7abdf31fc587
+    m_Address: Paladinskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d54af698fe02b8e428a76bd3f1a34136
+    m_Address: Warlock_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d55f785d88793124cbbab6b344b592e0
+    m_Address: Shamanskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d56fd06c1658cac488a82ab6bc74aae2
+    m_Address: Warriorskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d5fa77d404e877b4bb062a0c14994a50
+    m_Address: Shamanskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d5fba6684ac91ed45a2e51c61935e22e
+    m_Address: Priestskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d6fadeb947e8c754a8b65d08fa913ad3
+    m_Address: Priestskill_38_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d79413b4b843442429cd87a1294e4580
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_01_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d7a1210581f14f14281a9b92ff83d08e
+    m_Address: Archerskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   - m_GUID: d865a55e032711f419ef63aafb5b3401
-    m_Address: TestingAddress
+    m_Address: Armor1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d8e8a7461ac338a48a4fcec441e8f134
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/10_Magic_bolt2_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d90a30b946a0e744ab7148affbd9f2d1
+    m_Address: Mageskill_47_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d937b89e79efb8049ac3f9ff86988ccf
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_02_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: da294062be7191c4b8cc76231a85bd2b
+    m_Address: Engineerskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dad722f0c0a1d7840889d42cdcea786e
+    m_Address: Warriorskill_19_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: db836dd855d04b9458f2147282ccef91
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/32_Evil_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: db94d30a839ad1c46afb910be32117e8
+    m_Address: Engineerskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dbabcdc1307aefb4bae749574b34316a
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/23_Light_blow_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc146abd7ac659d439767faac33ef083
+    m_Address: Archerskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc77d40e1c95f264cb519bbe6ab10231
+    m_Address: Assassinskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc869a09748593d409fabee41eba7224
+    m_Address: Priestskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc8da1583e8856841ba41385d129d67e
+    m_Address: Assassinskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dcdf8a3bc93e7174ea23c4de45af043d
+    m_Address: Engineerskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd0cb538ae0446741bb172b14e9f963f
+    m_Address: Archerskill_13_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dda1cdb6c1a81c74da82fc3ce9659796
+    m_Address: Mageskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ddd050f7fa6002a4b97a5511c7a929b8
+    m_Address: Paladinskill_40_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ddfb9eccedc0bd74390eaf06ff85fb1f
+    m_Address: Druideskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: de1dfc4a2bcd4c24aa171a09ed51f3b2
+    m_Address: Mageskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: de2b5bf1f0f4937488fcb1595672945b
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/07_Death_blow3_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: decf1d62b10a17b4880ac1363456c85d
+    m_Address: Priestskill_41_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dff440dbf1c188b48b10c8d7e47da4f4
+    m_Address: Druideskill_06_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e0015d3f983a4734f82ed662450848b4
+    m_Address: Archerskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e0052723d8b24eb448a90e2bac535472
+    m_Address: Priestskill_36_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e050a93b62f674444b21eb3e644fdd3d
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/Update_08_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e07d0f6bf85c2774baf031a4043139e4
+    m_Address: Druideskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e1b20d1725d2f08478ea6a3406c602ea
+    m_Address: Warriorskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e1d08c9be4272154d8e997be8a0bbd6e
+    m_Address: Priestskill_30_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e34f49fd7f5ae5542a9cec58591e77e0
+    m_Address: Assassinskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e49571d6e4f97e24e94f5d318c588767
+    m_Address: Archerskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e5681ba5458b1d240bf7c255a4cdfc96
+    m_Address: Warlock_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e5b24d5048d786e48ba545d1b7a11a2a
+    m_Address: Mageskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e5beb3a8ba795634998475d09d76a79f
+    m_Address: Warriorskill_12_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e5d4c6ed387c31a49b9f72b2475629ba
+    m_Address: Warriorskill_27_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e65d441ef3a8ccb49ae1322d9505d14d
+    m_Address: Archerskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e6b32fd240a0ed74986935ce7896eb7c
+    m_Address: Warriorskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e78d4497ad4159e4296b31949ca59de9
+    m_Address: Druideskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eb0a874b88cd8694da421789001e87b0
+    m_Address: Warriorskill_15_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eb76e669f6fb7db4f9da737dc578609d
+    m_Address: Druideskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec49c78dc582e0c41ba565399c9453b7
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/08_Death_nobg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec634d79f72235b458c3dda88e9749d3
+    m_Address: Priestskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ed452964ebe956844b65e5b271c3b371
+    m_Address: Paladinskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ed97e1de596fad74fbdfde28c90fa126
+    m_Address: Warriorskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ee35b180d8d749b40a50d6b6f8c79643
+    m_Address: Shamanskill_04_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ef1b08344a0ca624aac531c4cf292c61
+    m_Address: Assassinskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ef84332d8a899bd4cb8023258758e1cd
+    m_Address: Warlock_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f0201919cc795c4438daceff5cecf579
+    m_Address: Assassinskill_24_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f028473f73e926f44ba043425db62dae
+    m_Address: Priestskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f1faff2269919264dac81f4b92737e0c
+    m_Address: Warriorskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f2f8b860dbefc6d4c970842253e06fdf
+    m_Address: Assets/Resources_moved/Icons/Update_icons/skill_b_No_bg/22_Big_Light_arrow_nobg.png
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: f35d95d82c836624fa0aedca18c6f5e9
     m_Address: Bonus_w_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f3c3762589674f2428db0ecf7468bbb7
+    m_Address: Shamanskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f486d49eff82c7a4db82a54c2e144ed5
+    m_Address: Engineerskill_03_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f491567be688f5044b3cd607f4f8f30b
+    m_Address: Engineerskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f521fa62496b84e4ca9bf667ffdd1cdf
+    m_Address: Warriorskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f53ea3d1b8ac0174ca86d6efc943c34e
+    m_Address: Assassinskill_25_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f57be2014068bf246a40f81df30a1bfe
+    m_Address: Warlock_11_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5d5a233b4eaa6f48a8d3020353b11ba
+    m_Address: Priestskill_07_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5d9b6f6a9e903d4aa8e3179ae86e888
+    m_Address: Warriorskill_02_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f600dfbe16fee694ba05e86f3498f089
+    m_Address: Paladinskill_23_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f61c6005e3e361949b4e809938551460
+    m_Address: Engineerskill_49_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f62216d1b7eca3748b690bfa4fe4d74e
+    m_Address: Paladinskill_01_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6e462d92fb1f3249ab848259975ee6a
+    m_Address: Priestskill_05_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f7467b7092102da48bec2ed8c47e37ec
+    m_Address: Warlock_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f786312dd4e11af429ed6cf8faa7b588
+    m_Address: Priestskill_50_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f79d3128496c1e243b8bc5bb1475d3b4
+    m_Address: Paladinskill_42_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8310ac0eff0b3f4a860f25d9cae38bf
+    m_Address: Warriorskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8e2f39ba377ed947ab12f28f9f11e76
+    m_Address: Mageskill_46_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f933294c04c9a3240a6de5b3527b0127
+    m_Address: Assassinskill_21_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f95b8b597b6ced246940b416accd2b0f
+    m_Address: Paladinskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f988f6b0031864b4896ec05074a1344f
+    m_Address: Priestskill_34_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fa0547de6a16e84418d7e92f701a0824
+    m_Address: Archerskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fa3c17d516451cd458bb20d71a4929f2
+    m_Address: Assassinskill_32_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fa63e43951f5e85469df53a44d509547
+    m_Address: Archerskill_10_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fa69ac27dc35c17429fb22e2e1b7b8f5
+    m_Address: Engineerskill_37_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fadd67e312601a54ea69af6f8c484049
+    m_Address: Druideskill_16_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fb231a5980604ff4b993100bd06ff22d
+    m_Address: Paladinskill_28_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fb807d089f32db0459fe2a4d74201068
+    m_Address: Assassinskill_14_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd1a92a2780902d46a302767a98dd42d
+    m_Address: Archerskill_43_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd61c01183394704da4dd8cd99dd7e94
+    m_Address: Shamanskill_20_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fdc75cf9544b2c74bb07eea71494aaa1
+    m_Address: Mageskill_45_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fe388e03a933dd04f87d369d6c2e67ac
+    m_Address: Paladinskill_18_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff4aa4069a32dc247b1285185f5513a9
+    m_Address: Shamanskill_44_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff5fdc39a06aafa45a27e7b1a56cafe1
+    m_Address: Shamanskill_29_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffcff4a3b32a8bb439542dc4d2b19115
+    m_Address: Warlock_39_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffd9cca8725c764419a774318ce56b49
+    m_Address: Warlock_26_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffe00b70bd0759d4cb669fd3e4699d02
+    m_Address: Paladinskill_22_nobg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fff17967ed7a8db4ba80aab0d1ea34a4
+    m_Address: Paladinskill_30_nobg
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

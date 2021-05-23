@@ -5,8 +5,8 @@ using System.IO;
 [Serializable]
 public class Equipment : GameDefition
 {
-    public string imageGUID;
-    
+    public string imagePath;
+    public string imageAddress;
     public int _level;
     public int _slot;
     public string _description;

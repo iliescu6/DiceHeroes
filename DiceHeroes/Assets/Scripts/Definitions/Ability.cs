@@ -10,7 +10,8 @@ public class Ability : GameDefition
     public string _description;
     public int _manaCost;
     public Dictionary<string, int> dices = new Dictionary<string, int>();
-    public string imageGUID;
+    public string imagePath;
+    public string imageAddress;
 }
 
 [System.Flags]

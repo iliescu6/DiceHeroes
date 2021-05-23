@@ -509,8 +509,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf8cf9c4a5b4b7428d4628a17d1a23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile:
-    m_AssetGUID: d865a55e032711f419ef63aafb5b3401
+  lootTablesDefinitions: {fileID: 4900000, guid: 2eec2da1b3403a046b9c1ca64fc0a6a1,
+    type: 3}
+  equipmentJson: {fileID: 4900000, guid: 14481e25100bab7489b2d414fd31bb00, type: 3}
+  abilitiesJson: {fileID: 4900000, guid: 58bdac48359550e49997afb7a74cc02c, type: 3}
+  characterStatsJson: {fileID: 4900000, guid: 0aab81ac159646f40a41bb45ad55783e, type: 3}
+  enemiesStatsJson: {fileID: 4900000, guid: a19c0cf1ac7b4a64f9f20c8f182c420d, type: 3}
   guid: Armor1
   icon: {fileID: 436016884}
   text: {fileID: 4900000, guid: 3ebf5a01484b88e40ac360df29f6e97b, type: 3}
@@ -552,12 +556,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterObject: {fileID: 391450378}
+  baseStats:
+    id: 
+    name: 
+    description: 
+    health: 0
+    mana: 0
+    armour: 0
+    attrition: 0
+    initiative: 0
+    dices: 0
+    startingAbilities:
+    - 
+    - 
+    - 
+    lootDrops: []
   selectedClassName: 
   equipmentSlots: []
   inventory: []
   currentLootTable:
-    _name: 
-    equipment: []
+    id: 
+    name: 
+    equipmentId: []
+    equipmentDropChance: 
   combatBehaviour: {fileID: 0}
 --- !u!4 &391450377
 Transform:
@@ -587,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatStatsUI: {fileID: 0}
   baseCharacterStats:
+    id: 
     name: 
     description: 
     health: 0
@@ -596,21 +618,9 @@ MonoBehaviour:
     initiative: 0
     dices: 0
     startingAbilities:
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      imageGUID: 
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      imageGUID: 
-    - _name: 
-      _level: 0
-      _description: 
-      _manaCost: 0
-      imageGUID: 
+    - 
+    - 
+    - 
     lootDrops: []
   currentHP: 0
   currentMana: 0
@@ -619,7 +629,7 @@ MonoBehaviour:
   currentGold: 0
   owner: 
   button: {fileID: 0}
-  testEnemy: 
+  player: 1
 --- !u!114 &391450379
 MonoBehaviour:
   m_ObjectHideFlags: 0

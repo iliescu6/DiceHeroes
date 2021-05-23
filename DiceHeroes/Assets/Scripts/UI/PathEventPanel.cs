@@ -30,6 +30,7 @@ public class PathEventPanel : MonoBehaviour
         if (path.PathEventType == PathEventType.Combat)
         {
             accept = SceneManagerTransition.Instance.LoadCombatScene;
+            //SceneManagerTransition.Instance.enemies=
             decline = TogglePanel;
         }
         else if (path.PathEventType == PathEventType.FreeChest)

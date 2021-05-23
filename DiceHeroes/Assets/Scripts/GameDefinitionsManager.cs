@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Leguar.TotalJSON;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -7,33 +8,38 @@ using UnityEngine.UI;
 
 public class GameDefinitionsManager : SingletonTemplate<GameDefinitionsManager>
 {
-    public AssetReference lootTablesDefinitions;
-    public AssetReference equipmentJson;
-    public AssetReference abilitiesJson;
-    public AssetReference characterStatsJson;
-    
+    public TextAsset lootTablesJson;
+    public TextAsset equipmentJson;
+    public TextAsset abilitiesJson;
+    public TextAsset characterStatsJson;
+    public TextAsset enemiesStatsJson;
+
+    AssetReference test;
     public string guid;
     public Image icon;
     public TextAsset text;
+    public Dictionary<string,LootTable> lootTablesDefinitions=new Dictionary<string, LootTable>();
     public Dictionary<string, Equipment> equipmentDefinitions = new Dictionary<string, Equipment>();
-    public Dictionary<string, CharacterStats> charactersStatsDefinition = new Dictionary<string, CharacterStats>();
+    public Dictionary<string, CharacterStats> classStatsDefinition = new Dictionary<string, CharacterStats>();
+    public Dictionary<string, CharacterStats> enemiesStatsDefinitions = new Dictionary<string, CharacterStats>();
     public Dictionary<string, Ability> abilityDefinitions = new Dictionary<string, Ability>();
     // Start is called before the first frame update
-    private void Awake()
+    public override void Awake()
     {
-         LoadGameData(equipmentJson);
+        base.Awake();
+        LoadGameData<LootTable>(lootTablesJson,ref lootTablesDefinitions);
+        LoadGameData<Equipment>(equipmentJson, ref equipmentDefinitions);
+        LoadGameData<CharacterStats>(characterStatsJson, ref classStatsDefinition);
+        LoadGameData<CharacterStats>(enemiesStatsJson, ref enemiesStatsDefinitions);
+        LoadGameData<Ability>(abilitiesJson, ref abilityDefinitions);
+       
     }
-    private async Task LoadGameData(AssetReference gameDataArchive)
+    public void LoadGameData<T>(TextAsset gameDataArchive, ref Dictionary<string, T> dict) where T : GameDefition
     {
-        AssetReference test= new AssetReference(guid);
-        var s= test.LoadAssetAsync<Sprite>();
-        await s.Task;
-        icon.sprite = s.Result;
-        var archiveTask = gameDataArchive.LoadAssetAsync<Sprite>();
-        await archiveTask.Task;
-        icon.sprite = archiveTask.Result;
 
-        string json = gameDataArchive.editorAsset.name;
-        //_gameManager.GameDefinitions.LoadDefinitionsFromString(json);
+        string jsonInfo = gameDataArchive.text;
+        JSON json = JSON.ParseString(jsonInfo);
+        dict = new Dictionary<string, T>();
+        dict = json.Deserialize<Dictionary<string, T>>();
     }
 }

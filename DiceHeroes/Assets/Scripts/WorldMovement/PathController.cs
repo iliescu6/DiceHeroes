@@ -20,10 +20,10 @@ public class PathController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        TextAsset file = Resources.Load("LootTables/Area1") as TextAsset;
-        JSON j = JSON.ParseString(file.text);
-        areaLootTable = j.Deserialize<LootTable>();
-        PlayerProfile.Instance.currentLootTable = areaLootTable;
+        //TextAsset file = Resources.Load("LootTables/Area1") as TextAsset;
+        //JSON j = JSON.ParseString(file.text);
+        //areaLootTable = j.Deserialize<LootTable>();
+        //PlayerProfile.Instance.currentLootTable = areaLootTable;
     }
     [SerializeField]
     List<PathPiece> paths = new List<PathPiece>();

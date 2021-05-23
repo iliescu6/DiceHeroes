@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerProfile : SingletonTemplate<PlayerProfile>
 {
     public CharacterObject characterObject;
+    public CharacterStats baseStats;
     public string selectedClassName;
     private List<Ability> spellbookAbilities = new List<Ability>();    
     public List<Equipment> equipmentSlots;
@@ -21,6 +22,7 @@ public class PlayerProfile : SingletonTemplate<PlayerProfile>
             equipmentSlots.Add(new Equipment(i));
         }
         inventory = new Equipment[20];
+        currentLootTable = GameDefinitionsManager.Instance.lootTablesDefinitions["7e451a3a-6c87-4a17-92b2-1cc58ac85211"];
     }
     public List<Ability> SpellbokAbilities
     {

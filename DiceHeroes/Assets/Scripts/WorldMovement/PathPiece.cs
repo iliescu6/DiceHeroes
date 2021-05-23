@@ -13,6 +13,7 @@ public class PathPiece : MonoBehaviour
     [SerializeField]
     PathPieceType pathPieceType;
     Dictionary<Direction, PathPiece> directions = new Dictionary<Direction, PathPiece>();
+    List<CharacterStats> enemies = new List<CharacterStats>();
     [SerializeField]
     Transform waypoint;
     [SerializeField]
@@ -41,11 +42,11 @@ public class PathPiece : MonoBehaviour
         set { directions = value; }
     }
 
-    public void Initialize(List<Direction> directionList)
+    public void Initialize(List<CharacterStats> enemies)
     {
-        foreach (Direction direction in directionList)
-        {
-            availableDirections.Add(direction);
+        if (pathEventType == PathEventType.Combat && enemies!=null)
+        { 
+        
         }
     }
 

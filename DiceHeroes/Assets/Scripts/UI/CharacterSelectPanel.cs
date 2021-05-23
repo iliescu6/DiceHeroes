@@ -45,36 +45,33 @@ public class CharacterSelectPanel : MonoBehaviour
         ClassText.text = playerClass.baseCharacterStats.name;
         CharacterStats stats = playerClass.baseCharacterStats;
         StatsText.text = "Health: " + stats.health + "\n Mana: " + stats.mana + "\n Armour: " + stats.armour + "\n Attrition:" + stats.attrition;
-        //foreach (Ability a in playerClass.baseCharacterStats.startingAbilities)
-        //{
-        //    AbilityButton g = Instantiate(abilityButtonPrefab, new Vector3(0,0,0),Quaternion.identity);
-        //    g.transform.parent = AbilityPanel.transform;
-        //    g.Initialize(a);
-        //}
+        foreach (string a in playerClass.baseCharacterStats.startingAbilities)
+        {
+            AbilityButton g = Instantiate(abilityButtonPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            g.transform.parent = AbilityPanel.transform;
+            g.Initialize(GameDefinitionsManager.Instance.abilityDefinitions[a]);
+        }
     }
 
     void GetClasses()
     {
-        string[] files = Directory.GetFiles(Application.dataPath + "/Resources/Characters/Classes", "*.json");
-        for (int i = 0; i < files.Length; i++)
+        Dictionary<string, CharacterStats> dict = new Dictionary<string, CharacterStats>();
+        dict = GameDefinitionsManager.Instance.classStatsDefinition;
+        foreach (KeyValuePair<string,CharacterStats> pair in dict)
         {
-            string text = File.ReadAllText(files[i]);
-            CharacterStats a = new CharacterStats();
-            JSON j = JSON.ParseString(text);
-            a =j.Deserialize<CharacterStats>();
             CharacterObject playerClass = new CharacterObject();
-            playerClass.baseCharacterStats = a;
+            playerClass.baseCharacterStats = pair.Value;
             playerClasses.Add(playerClass);
             selectedClass = playerClass;
             //TODO add to constructor and unify enemy and classes
             selectedClass.ResetDicePool();
-        }
+        } 
     }
 
     public void LoadGame()
     {
         //TODO something's off here(mana and hp are not set up in get classes properly)
-        PlayerProfile.Instance.characterObject.SetClassStats(selectedClass.baseCharacterStats.name);
+        PlayerProfile.Instance.characterObject.SetClassStats(selectedClass.baseCharacterStats);
         SceneManager.LoadScene("Level");
     }
 }

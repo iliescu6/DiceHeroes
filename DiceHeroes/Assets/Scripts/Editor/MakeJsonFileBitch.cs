@@ -127,7 +127,7 @@ public class MakeJsonFileBitch : EditorWindow
             foreach (KeyValuePair<string, Equipment> pair in equipmentDict)
             {
                 dropdownNames.Add(pair.Value.name);
-                dropdownAssetAddress.Add(pair.Value.imageGUID);
+                dropdownAssetAddress.Add(pair.Value.id);
             }
             pickedNewDefinition = false;
         }
@@ -192,16 +192,19 @@ public class MakeJsonFileBitch : EditorWindow
     {  //Don't use resource.load to modify a json cuz it won't load it proeperly after saving,needs editor to reload...fml
         DrawGeneric<Equipment>(Application.dataPath + "/Resources/Equipments.json", ref equipmentDict, ref equipment);
         SetUpDiceTypes(equipment.dices);
-        if (!string.IsNullOrEmpty(equipment.imageGUID) && pickedNewDefinition)
+        if (!string.IsNullOrEmpty(equipment.imagePath) && pickedNewDefinition)
         {
-            obj = AssetDatabase.LoadAssetAtPath(equipment.imageGUID, typeof(Texture2D));
+            obj = AssetDatabase.LoadAssetAtPath(equipment.imagePath, typeof(Texture2D));
         }
         else if (pickedNewDefinition)
         {
             obj = null;
             pickedNewDefinition = false;
         }
-
+        if (obj != null)
+        {
+            equipment.imageAddress = obj.name;
+        }
         GUILayout.Label("Equipment", EditorStyles.boldLabel);
 
         DrawFields<Equipment>(equipment);
@@ -215,7 +218,7 @@ public class MakeJsonFileBitch : EditorWindow
         if (GUILayout.Button("Save"))
         {
             equipment.dices = diceType;
-            equipment.imageGUID = AssetDatabase.GetAssetPath(obj);
+            equipment.imagePath = AssetDatabase.GetAssetPath(obj);
             if (string.IsNullOrEmpty(equipment.id))
             {
                 equipment.id = Guid.NewGuid().ToString();
@@ -240,9 +243,9 @@ public class MakeJsonFileBitch : EditorWindow
     {
         DrawGeneric<Ability>(Application.dataPath + "/Resources/Abilities.json", ref abilitiesDict, ref ability);
         SetUpDiceTypes(ability.dices);
-        if (!string.IsNullOrEmpty(ability.imageGUID) && pickedNewDefinition)
+        if (!string.IsNullOrEmpty(ability.imagePath) && pickedNewDefinition)
         {
-            obj = AssetDatabase.LoadAssetAtPath(ability.imageGUID, typeof(Texture2D));
+            obj = AssetDatabase.LoadAssetAtPath(ability.imagePath, typeof(Texture2D));
         }
         else if (pickedNewDefinition)
         {
@@ -254,6 +257,10 @@ public class MakeJsonFileBitch : EditorWindow
         DrawFields<Ability>(ability);
 
         obj = EditorGUILayout.ObjectField(obj, typeof(Texture2D), false);
+        if (obj != null)
+        {
+            ability.imageAddress = obj.name;
+        }
         DrawDiceTypesInputFields();
 
         DrawGenericAddEntry<Ability>(ref ability, Application.dataPath + "/Resources/Abilities.json", abilitiesDict);
@@ -261,7 +268,7 @@ public class MakeJsonFileBitch : EditorWindow
         if (GUILayout.Button("Save"))
         {
             ability.dices = diceType;
-            ability.imageGUID = AssetDatabase.GetAssetPath(obj);
+            ability.imagePath = AssetDatabase.GetAssetPath(obj);
             if (string.IsNullOrEmpty(ability.id))
             {
                 ability.id = Guid.NewGuid().ToString();

@@ -40,9 +40,9 @@ public class GameScreenInventory : GameScreen
         {
             equipmentGameObject[i].equipedItem = PlayerProfile.Instance.equipmentSlots[i];
             Equipment e = equipmentGameObject[i].equipedItem;
-            e.imageGUID = e.imageGUID.Replace("Assets/Resources/", "");
-            e.imageGUID = e.imageGUID.Replace(".png", "");
-            Sprite s = Resources.Load<Sprite>(e.imageGUID);
+            e.imagePath = e.imagePath.Replace("Assets/Resources/", "");
+            e.imagePath = e.imagePath.Replace(".png", "");
+            Sprite s = Resources.Load<Sprite>(e.imagePath);
             equipmentGameObject[i].itemIcon.sprite = s;
         }
 
