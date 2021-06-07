@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Editor\MakeJsonFileBitch.cs" />
+    <Compile Include="Assets\Scripts\Editor\UIMenuItems.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Unity Projects/DiceHeroesGit/DiceHeroes/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

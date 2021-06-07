@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.AddressableAssets;
 
 public class GameScreenInventory : GameScreen
 {
@@ -27,7 +28,7 @@ public class GameScreenInventory : GameScreen
     [SerializeField] TMP_Text tenSidedText;
     [SerializeField] TMP_Text twentySidedText;
 
-    public void Initialize()
+    public async void Initialize()
     {
         for (int i = 0; i < 20; i++)
         {
@@ -38,20 +39,23 @@ public class GameScreenInventory : GameScreen
 
         for (int i = 0; i < equipmentGameObject.Count; i++)
         {
-            equipmentGameObject[i].equipedItem = PlayerProfile.Instance.equipmentSlots[i];
-            Equipment e = equipmentGameObject[i].equipedItem;
-            e.imagePath = e.imagePath.Replace("Assets/Resources/", "");
-            e.imagePath = e.imagePath.Replace(".png", "");
-            Sprite s = Resources.Load<Sprite>(e.imagePath);
-            equipmentGameObject[i].itemIcon.sprite = s;
+            if (!string.IsNullOrEmpty(PlayerProfile.Instance.equipmentSlots[i].name))
+            {
+                equipmentGameObject[i].equipedItem = PlayerProfile.Instance.equipmentSlots[i];
+                Equipment e = equipmentGameObject[i].equipedItem;
+                AssetReference test = new AssetReference(e.imageAddress);
+                var s = test.LoadAssetAsync<Sprite>();
+                await s.Task;
+                equipmentGameObject[i].itemIcon.sprite = s.Result;
+            }
         }
 
         CharacterObject player = PlayerProfile.Instance.characterObject;
         healthText.text = "Health:" + player.currentHP + "/" + player.baseCharacterStats.health;
         manaText.text = "Mana:" + player.currentMana + "/" + player.baseCharacterStats.mana;
         goldText.text = string.Format("Gold:{0}",(player.currentGold));
-        expText.text = player.currentXP + "/" + (float)player.baseCharacterStats.requiredXP[player.currentLevel - 1].requiredXP;
-        xpBarImage.fillAmount = (float)player.currentXP / (float)player.baseCharacterStats.requiredXP[player.currentLevel - 1].requiredXP;
+        expText.text = player.currentXP + "/" + (float)(player.baseCharacterStats.requiredXP[player.currentLevel].requiredXP);
+        xpBarImage.fillAmount = (float)player.currentXP / (float)player.baseCharacterStats.requiredXP[player.currentLevel].requiredXP;
     }
 
     public void UpdatePlayerInventory()

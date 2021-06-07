@@ -9,7 +9,8 @@ public class PlayerWorldMovement : MonoBehaviour
     Node currentPathPiece;
     Node targetPathPiece;
     PlayerProfile playerProfile;
-
+    [SerializeField]
+    PathController pathController;
     [SerializeField]
     Transform player;
     [SerializeField]
@@ -20,16 +21,21 @@ public class PlayerWorldMovement : MonoBehaviour
     Button rightButton;
     private void Start()
     {
+        //if (pathController.pathNodes.Count == 0)
+        //{
+        //    pathController.CreatePathSecond();
+        //}
+
         playerProfile = PlayerProfile.Instance;
-        if (playerProfile.CurrentMap != null)
-        {
-            currentPathPiece = playerProfile.CurrentMap;
-        }
-        else
-        {
-            PathController.Instance.Initialize();
-            currentPathPiece = PathController.Instance.pathNodes[0];
-        }
+        //if (playerProfile.CurrentMap != null)
+        //{
+        //    currentPathPiece = playerProfile.CurrentMap;
+        //}
+        //else
+        //{
+        pathController.Initialize();
+        currentPathPiece = pathController.pathNodes[0];
+        // }
         SetDirectionButtons();
     }
 
@@ -38,15 +44,15 @@ public class PlayerWorldMovement : MonoBehaviour
         StartCoroutine(MoveToPathCoroutine(target));
         currentPathPiece = targetPathPiece;
         playerProfile.CurrentMap = currentPathPiece;
-        if(currentPathPiece.piece.PathEventType!=PathEventType.None)
-        WorldPanelsController.Instance.ShowPathEventPanel(currentPathPiece.piece);
+        if (currentPathPiece.piece.PathEventType != PathEventType.None)
+            WorldPanelsController.Instance.ShowPathEventPanel(currentPathPiece.piece);
         SetDirectionButtons();
     }
 
     public IEnumerator MoveToPathCoroutine(Transform target)
     {
         player.transform.DOMove(target.position, 1);
-        yield return new WaitUntil(()=>Vector3.Distance(target.position,player.transform.position)<0.1f);
+        yield return new WaitUntil(() => Vector3.Distance(target.position, player.transform.position) < 0.1f);
     }
 
     void SetDirectionButtons()

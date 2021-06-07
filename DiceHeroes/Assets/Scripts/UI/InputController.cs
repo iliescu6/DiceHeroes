@@ -33,7 +33,7 @@ public class InputController : SingletonTemplate<InputController>
 #if UNITY_EDITOR || UNITY_STANDALONE
         return EventSystem.current.IsPointerOverGameObject();
 #else
-        return EventSystem.current.IsPointerOverGameObject(0) || EventSystem.current.IsPointerOverGameObject(1)
+        return EventSystem.current.IsPointerOverGameObject(0) || EventSystem.current.IsPointerOverGameObject(1);
 #endif
     }
 

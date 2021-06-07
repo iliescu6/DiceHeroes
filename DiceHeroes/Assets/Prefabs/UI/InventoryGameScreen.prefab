@@ -680,8 +680,10 @@ MonoBehaviour:
   equipmentGameObject:
   - type: 0
     equipedItem:
-      imageGUID: 
-      _name: 
+      id: 
+      name: 
+      imagePath: 
+      imageAddress: 
       _level: 0
       _slot: 0
       _description: 
@@ -693,8 +695,10 @@ MonoBehaviour:
     itemIcon: {fileID: 5260961502715579531}
   - type: 1
     equipedItem:
-      imageGUID: 
-      _name: 
+      id: 
+      name: 
+      imagePath: 
+      imageAddress: 
       _level: 0
       _slot: 0
       _description: 
@@ -706,8 +710,10 @@ MonoBehaviour:
     itemIcon: {fileID: 7767802193877314002}
   - type: 2
     equipedItem:
-      imageGUID: 
-      _name: 
+      id: 
+      name: 
+      imagePath: 
+      imageAddress: 
       _level: 0
       _slot: 0
       _description: 
@@ -719,8 +725,10 @@ MonoBehaviour:
     itemIcon: {fileID: 6768108518224157799}
   - type: 3
     equipedItem:
-      imageGUID: 
-      _name: 
+      id: 
+      name: 
+      imagePath: 
+      imageAddress: 
       _level: 0
       _slot: 0
       _description: 
@@ -3034,7 +3042,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 6179b742a99dd43e3967b14e2b9bef7c, type: 3}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0

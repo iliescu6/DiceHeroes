@@ -12,8 +12,9 @@ public class CharacterStats : GameDefition
     public int armour;
     public int attrition;
     public int initiative;
+    public int xpWorth;
     public int dices;
-    public List<XPPerLevelMap> requiredXP;
+    public List<XPPerLevelMap> requiredXP=new List<XPPerLevelMap>();
     public Dictionary<string, int> dicePool = new Dictionary<string, int>();
     public string[] startingAbilities = new string[3];
     public List<LootDrops> lootDrops = new List<LootDrops>();

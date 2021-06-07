@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Direction { North, South, West, East }
 public enum PathEventType { None, Combat, FreeChest, Final }
-public enum PathPieceType { Straight, Bisection, Intersection, Deadend }
+public enum PathPieceType { Straight, Bisection, Intersection, Bent, Deadend }
 
 public class PathPiece : MonoBehaviour
 {
@@ -12,12 +12,13 @@ public class PathPiece : MonoBehaviour
     List<Direction> availableDirections = new List<Direction>();
     [SerializeField]
     PathPieceType pathPieceType;
-    Dictionary<Direction, PathPiece> directions = new Dictionary<Direction, PathPiece>();
     List<CharacterStats> enemies = new List<CharacterStats>();
     [SerializeField]
     Transform waypoint;
     [SerializeField]
     PathEventType pathEventType;
+    public int rotation;
+    public int x, y;
 
     public Transform Waypoint
     {
@@ -34,12 +35,6 @@ public class PathPiece : MonoBehaviour
     {
         get { return pathPieceType; }
         set { pathPieceType = value; }
-    }
-
-    public Dictionary<Direction, PathPiece> Directions
-    {
-        get { return directions; }
-        set { directions = value; }
     }
 
     public void Initialize(List<CharacterStats> enemies)

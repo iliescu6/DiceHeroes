@@ -809,6 +809,10 @@ MonoBehaviour:
     m_Address: Warlock_41_nobg
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 590c2ec4eb5d6ba40b98d65f0e459639
+    m_Address: Bag
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   - m_GUID: 59689cc2538b8334998648c6b7ed893d
     m_Address: Shamanskill_39_nobg
     m_ReadOnly: 0

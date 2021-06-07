@@ -32,28 +32,20 @@ public class MakeJsonFileBitch : EditorWindow
     public CharacterStats characterStats = new CharacterStats();
     List<FieldInfo> listOfFields = new List<FieldInfo>();
     Vector2 scrollPos;
-    int selectedIndex = -1;
+    int selectedIndex = 0;
     int tab = 0;
     bool pickedNewDefinition = false;
-    string oldFileName;
-
-    int[] startingAbilityIndex = new int[3];
-
 
     //For dropdown
     List<string> dropdownAssetAddress = new List<string>();
     List<string> dropdownNames = new List<string>();
     List<string> dropdownCurrentAddres = new List<string>();
     List<int> genericXIndex = new List<int>();
-    List<string> genericString = new List<string>();
-
 
     List<LootDrops> localDrops = new List<LootDrops>();
-    List<FileInfo> fileInfos = new List<FileInfo>();
 
     UnityEngine.Object obj;
     Dictionary<string, int> diceType = new Dictionary<string, int>();
-    GameDefition temp;
 
     [MenuItem("Tools/JSon Editor")]
     public static void SuckIt()
@@ -299,7 +291,7 @@ public class MakeJsonFileBitch : EditorWindow
         }
         DrawFields<CharacterStats>(characterStats);
         SetUpDiceTypes(characterStats.dicePool);
-        
+
         //Make only for classes and save values
         if (characters == "Classes")
         {
@@ -310,16 +302,16 @@ public class MakeJsonFileBitch : EditorWindow
                 genericXIndex = new List<int>();
                 dropdownAssetAddress = new List<string>();
                 dropdownCurrentAddres = new List<string>();
-                foreach (string equipmentAddress in characterStats.startingAbilities)
+                foreach (string address in characterStats.startingAbilities)
                 {
-                    if (equipmentAddress == null)
+                    if (address == null)
                     {
                         var first = abilitiesDict.First();
                         dropdownCurrentAddres.Add(first.Value.id);
                     }
                     else
                     {
-                        dropdownCurrentAddres.Add(equipmentAddress);
+                        dropdownCurrentAddres.Add(address);
                     }
                     genericXIndex.Add(0);
                 }
@@ -331,7 +323,15 @@ public class MakeJsonFileBitch : EditorWindow
                 }
                 pickedNewDefinition = false;
             }
-            
+
+            for (int i = 0; i < characterStats.requiredXP.Count; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                characterStats.requiredXP[i].level = EditorGUILayout.IntField("Level:", characterStats.requiredXP[i].level);
+                characterStats.requiredXP[i].requiredXP = EditorGUILayout.IntField("XP:", characterStats.requiredXP[i].requiredXP);
+                EditorGUILayout.EndHorizontal();
+            }
+
             for (int i = 0; i < characterStats.startingAbilities.Length; i++)
             {
                 genericXIndex[i] = EditorGUILayout.Popup(dropdownAssetAddress.IndexOf(dropdownCurrentAddres[i]), dropdownNames.ToArray(), EditorStyles.toolbarPopup);
@@ -347,6 +347,15 @@ public class MakeJsonFileBitch : EditorWindow
         {
             DrawGenericAddEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Classes.json", playableCharactersDict);
             DrawGenericRemoveEntry<CharacterStats>(ref characterStats, Application.dataPath + "/Resources/Classes.json", playableCharactersDict);
+            if (GUILayout.Button("Add Level-Xp"))
+            {
+                XPPerLevelMap temp = new XPPerLevelMap();
+                characterStats.requiredXP.Add(temp);
+            }
+            if (GUILayout.Button("Remove Level-Xp"))
+            {
+                characterStats.requiredXP.RemoveAt(characterStats.requiredXP.Count-1);            
+            }
         }
         else
         {
@@ -376,9 +385,9 @@ public class MakeJsonFileBitch : EditorWindow
                 allCharactersDict[characterStats.id] = characterStats;
                 jsonData = JSON.Serialize(allCharactersDict).CreateString();
             }
-                File.WriteAllText(path, jsonData);
+            File.WriteAllText(path, jsonData);
         }
-        
+
     }
 
     public void DrawGenericAddEntry<T>(ref T item, string path, Dictionary<string, T> dict) where T : GameDefition, new()

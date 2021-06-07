@@ -36,11 +36,7 @@ public class SceneManagerTransition : SingletonTemplate<SceneManagerTransition>
 
     public void LoadLevelScene(GameObject scene)
     {
-        if (combatScene == null)
-        {
-            combatScene = scene;
-        }
+        Destroy(scene);
         levelScene.SetActive(true);
-        combatScene.SetActive(false);
     }
 }

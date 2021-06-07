@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 447064}
   - component: {fileID: 3387108}
   - component: {fileID: 2335426}
+  - component: {fileID: 8157295730510267794}
   m_Layer: 0
   m_Name: SF_Env_Path_Bend_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8157295730510267794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf9c4b2510da2e4e919d5bdb8edb73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableDirections: 00000000
+  pathPieceType: 3
+  waypoint: {fileID: 0}
+  pathEventType: 0

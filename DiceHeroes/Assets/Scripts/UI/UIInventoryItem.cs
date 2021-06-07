@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -13,22 +14,18 @@ public class UIInventoryItem : MonoBehaviour
     Button button;
     List<EquipmentSlot> equipmentGameObject=new List<EquipmentSlot>();
 
-    public void Initialize(Equipment equipment, List<EquipmentSlot> list,UnityAction action)
+    public async void Initialize(Equipment equipment, List<EquipmentSlot> list,UnityAction action)
     {
         equipmentGameObject = list;
-        if (equipment == null || string.IsNullOrEmpty(equipment.imagePath))
+        if (equipment == null || string.IsNullOrEmpty(equipment.imageAddress))
         {
             iconImage.sprite = null;
             iconImage.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            _equipment = equipment;
-            equipment.imagePath = equipment.imagePath.Replace("Assets/Resources/", "");
-            equipment.imagePath = equipment.imagePath.Replace(".png", "");
-            Sprite s = Resources.Load<Sprite>(equipment.imagePath);
-            iconImage.color = new Color(1, 1, 1, 1);
-            iconImage.sprite = s;
+            _equipment = equipment;            
+            SetSprite(equipment.imageAddress);
         }
         button.onClick.AddListener(EquipItem);
         button.onClick.AddListener(action);
@@ -52,5 +49,14 @@ public class UIInventoryItem : MonoBehaviour
                 }
             }
         }
+    }
+
+    public async void SetSprite(string address)
+    {
+        AssetReference test = new AssetReference(address);
+        var s = test.LoadAssetAsync<Sprite>();
+        await s.Task;
+        iconImage.color = new Color(1, 1, 1, 1);
+        iconImage.sprite = s.Result;
     }
 }
