@@ -52,6 +52,7 @@ public class PlayerWorldMovement : MonoBehaviour
     public IEnumerator MoveToPathCoroutine(Transform target)
     {
         player.transform.DOMove(target.position, 1);
+        Vector3 vec = target.TransformPoint(target.position);
         yield return new WaitUntil(() => Vector3.Distance(target.position, player.transform.position) < 0.1f);
     }
 
@@ -67,7 +68,7 @@ public class PlayerWorldMovement : MonoBehaviour
         else
         {
             leftButton.gameObject.SetActive(true);
-            leftButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.left.piece.transform); });
+            leftButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.left.piece.Waypoint); });
             targetPathPiece = currentPathPiece.left;
         }
 
@@ -78,7 +79,7 @@ public class PlayerWorldMovement : MonoBehaviour
         else
         {
             forwardButton.gameObject.SetActive(true);
-            forwardButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.forward.piece.transform); });
+            forwardButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.forward.piece.Waypoint); });
             targetPathPiece = currentPathPiece.forward;
         }
 
@@ -89,7 +90,7 @@ public class PlayerWorldMovement : MonoBehaviour
         else
         {
             rightButton.gameObject.SetActive(true);
-            rightButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.right.piece.transform); });
+            rightButton.onClick.AddListener(delegate { MoveToPath(currentPathPiece.right.piece.Waypoint); });
             targetPathPiece = currentPathPiece.right;
         }
     }

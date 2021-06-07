@@ -56,7 +56,6 @@ public class PathEventPanel : MonoBehaviour
     public void GetChestReward()
     {
         Debug.Log("U've got gold");
-        TogglePanel();
     }      
 
     public void TogglePanel()

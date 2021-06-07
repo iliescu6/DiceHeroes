@@ -24,43 +24,34 @@ public class PathController : MonoBehaviour
     [SerializeField]
     PathPiece bentPrefab;
 
+    [SerializeField]
+    int minDistanceBetweenEvents=2;
 
-    Node[,] grid = new Node[4, 4];
+    [SerializeField]
+    int maxDistanceBetweenEvents=3;
+
+    int distanceBetweenEvents;
+
     int length = 15;
     int straigthPieces = 0;
     int x, y;
     int currentRotation = 0;
-    int xDirection;
-    int yDirection;
     private void Start()
     {
-        //CreatePathSecond();
-        //CreateGrid();
-        //if (Instance == null)
-        //{
-        //    Instance = this;
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
-        //TextAsset file = Resources.Load("LootTables/Area1") as TextAsset;
-        //JSON j = JSON.ParseString(file.text);
-        //areaLootTable = j.Deserialize<LootTable>();
-        //PlayerProfile.Instance.currentLootTable = areaLootTable;
     }
 
     public void Initialize()
     {
         CreatePathSecond();
-        //CreatePathTree();
     }
 
     //THIS one seems to be the easiest for now
     public void CreatePathSecond()
     {
         pathNodes.Add(new Node(straightPrefab, 0, 0, 0));
-        straigthPieces = 2;// Random.Range(3, 6);
+        distanceBetweenEvents = Random.Range(minDistanceBetweenEvents, maxDistanceBetweenEvents + 1);
+        PathEventType pathEventType = PathEventType.None;
+        straigthPieces = 2;
         while (length != 0)
         {
             if (currentRotation == 270)
@@ -81,7 +72,8 @@ public class PathController : MonoBehaviour
             }
             if (straigthPieces > 0)
             {
-                pathNodes.Add(new Node(straightPrefab, x, y, currentRotation));
+                SetEventType(ref pathEventType);
+                pathNodes.Add(new Node(straightPrefab, x, y, currentRotation, pathEventType));
                 pathNodes[pathNodes.Count - 2].forward = pathNodes[pathNodes.Count - 1];
                 straigthPieces--;
                 length--;
@@ -92,12 +84,13 @@ public class PathController : MonoBehaviour
                 int temp = Random.Range(0, grades.Length);
                 if (temp == 0)
                 {
-
-                    pathNodes.Add(new Node(bentPrefab, x, y, currentRotation));
+                    SetEventType(ref pathEventType);
+                    pathNodes.Add(new Node(bentPrefab, x, y, currentRotation, pathEventType));
                 }
                 else
                 {
-                    pathNodes.Add(new Node(bentPrefab, x, y, currentRotation + 90));
+                    SetEventType(ref pathEventType);
+                    pathNodes.Add(new Node(bentPrefab, x, y, currentRotation + 90, pathEventType));
                 }
                 pathNodes[pathNodes.Count - 2].forward = pathNodes[pathNodes.Count - 1];
                 length--;
@@ -111,44 +104,67 @@ public class PathController : MonoBehaviour
         }
         for (int i = 0; i < pathNodes.Count; i++)
         {
+            PathPiece g=null;
             if (pathNodes[i].piece.PathPieceType == PathPieceType.Straight)
             {
-                Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 5, 0, pathNodes[i].y * 10 + 5), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+                g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 5, 0, pathNodes[i].y * 10 + 5), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
 
             }
             else if (pathNodes[i].piece.PathPieceType == PathPieceType.Bent)
             {
                 if (pathNodes[i].rotation == 0 || pathNodes[i].rotation == 360)
                 {
-                    PathPiece g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 6.25f, 0, pathNodes[i].y * 10 + 6.2f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
-                    g.transform.rotation = Quaternion.Euler(0, pathNodes[i].rotation, 0);
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 6.25f, 0, pathNodes[i].y * 10 + 6.2f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
                 }
                 else if (pathNodes[i].rotation == 90)
                 {
-                    PathPiece g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 6.25f, 0, pathNodes[i].y * 10 + 3.7f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
-                    g.transform.rotation = Quaternion.Euler(0, pathNodes[i].rotation, 0);
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 6.25f, 0, pathNodes[i].y * 10 + 3.7f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
                 }
                 else if (pathNodes[i].rotation == 180)
                 {
-                    PathPiece g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 3.75f, 0, pathNodes[i].y * 10 + 3.75f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
-                    g.transform.rotation = Quaternion.Euler(0, pathNodes[i].rotation, 0);
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 3.75f, 0, pathNodes[i].y * 10 + 3.75f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
                 }
                 else if (pathNodes[i].rotation == 270)
                 {
-                    PathPiece g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 3.75f, 0, pathNodes[i].y * 10 + 6.25f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
-                    g.transform.rotation = Quaternion.Euler(0, pathNodes[i].rotation, 0);
-                }
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 3.75f, 0, pathNodes[i].y * 10 + 6.25f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
+                }                
             }
+            g.PathEventType = pathNodes[i].eventType;
+            pathNodes[i].piece = g;//I know something is fucked up somewhere but am tired and running on low caffeine...or already ran out of it
         }
     }
 
-    void CreatePathTree()
+    void SetEventType(ref PathEventType type)
     {
-        pathNodes.Add(new Node(paths[0]));
-        for (int i = 1; i < paths.Count; i++)
+        if (distanceBetweenEvents <= 0)
         {
-            pathNodes[0].Insert(pathNodes[0], paths[i]);
+            type = BasicChanceRoll();
+            distanceBetweenEvents = Random.Range(minDistanceBetweenEvents, maxDistanceBetweenEvents + 1);
         }
+        else
+        {
+            type = PathEventType.None;
+            distanceBetweenEvents--;
+        }
+    }
+
+    PathEventType BasicChanceRoll()
+    {
+        PathEventType type;
+        int chance = Random.Range(0, 6);
+        if (chance > 2)
+        {
+            type = PathEventType.Combat;
+        }
+        else
+        {
+            type = PathEventType.FreeChest;
+        }
+        return type;
     }
 }
 public class Node
@@ -157,13 +173,16 @@ public class Node
     public Node left, right, forward;
     public Dictionary<string, Node> directions = new Dictionary<string, Node>();
     public bool completed;
-    public int x,y;
+    public int x, y;
     public int rotation;
-    public Node(PathPiece p,int _x=0,int _y=0,int _rotation=0)
+    public PathEventType eventType;
+    public Node(PathPiece p, int _x = 0, int _y = 0, int _rotation = 0, PathEventType _eventType = PathEventType.None)
     {
+        eventType = _eventType;
         piece = p;
-        piece.x=x = _x;
-        piece.y=y = _y;
+        piece.PathEventType = _eventType;
+        piece.x = x = _x;
+        piece.y = y = _y;
         rotation = _rotation;
     }
 
