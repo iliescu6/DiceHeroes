@@ -15,17 +15,14 @@ public class PathEventPanel : MonoBehaviour
     Button acceptButton;
     [SerializeField]
     Button declineButton;
-    //public delegate void OnAccept();
-    //public OnAccept onAccept;
-    //public delegate void OnDecline();
-    //public OnDecline onDecline;
     UnityAction accept;
     UnityAction decline;
+    PathPiece currentPiece;
 
-    [SerializeField] PathPiece path;//TODO delete this   
 
     public void Show(PathPiece path)
     {
+        currentPiece = path;
         gameObject.SetActive(true);
         if (path.PathEventType == PathEventType.Combat)
         {
@@ -36,6 +33,10 @@ public class PathEventPanel : MonoBehaviour
         else if (path.PathEventType == PathEventType.FreeChest)
         {
             accept = GetChestReward;
+        }
+        else if (path.PathEventType == PathEventType.Final)
+        { 
+        //Show shop to buy spells
         }
 
         acceptButton.onClick.AddListener(accept);
@@ -55,8 +56,9 @@ public class PathEventPanel : MonoBehaviour
 
     public void GetChestReward()
     {
-        Debug.Log("U've got gold");
-    }      
+        PlayerProfile.Instance.characterObject.currentGold += Random.Range(5,11);
+        currentPiece.chest.SetActive(false);
+    }
 
     public void TogglePanel()
     {

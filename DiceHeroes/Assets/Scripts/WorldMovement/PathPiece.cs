@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Direction { North, South, West, East }
 public enum PathEventType { None, Combat, FreeChest, Final }
-public enum PathPieceType { Straight, Bisection, Intersection, Bent, Deadend }
+public enum PathPieceType { Straight, Bisection, Intersection, Bent, Final }
 
 public class PathPiece : MonoBehaviour
 {
@@ -17,6 +17,8 @@ public class PathPiece : MonoBehaviour
     Transform waypoint;
     [SerializeField]
     PathEventType pathEventType;
+    [SerializeField]
+    public GameObject chest;
     public int rotation;
     public int x, y;
 

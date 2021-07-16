@@ -275,6 +275,7 @@ MonoBehaviour:
   pathPieceType: 3
   waypoint: {fileID: 0}
   pathEventType: 0
+  chest: {fileID: 0}
   rotation: 0
   x: 0
   y: 0
@@ -524,18 +525,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437531913}
   m_CullTransparentMesh: 0
---- !u!114 &470271917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 606996841, guid: 972095eb10769f74ba94834ead9a32d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 628001214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf9c4b2510da2e4e919d5bdb8edb73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &480853765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125074, guid: 4556a332c06c14741a01e2c8afd51825,
@@ -558,6 +547,7 @@ MonoBehaviour:
   pathPieceType: 3
   waypoint: {fileID: 0}
   pathEventType: 0
+  chest: {fileID: 0}
   rotation: 0
   x: 0
   y: 0
@@ -1867,19 +1857,6 @@ MonoBehaviour:
   panel: {fileID: 1095690545}
   acceptButton: {fileID: 867400083}
   declineButton: {fileID: 1965991311}
-  path: {fileID: 606996841}
---- !u!114 &1235877042 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 606996841, guid: 972095eb10769f74ba94834ead9a32d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1960470512}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf9c4b2510da2e4e919d5bdb8edb73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1346805026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,18 +2197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathEventPanel: {fileID: 1095690549}
   scene: {fileID: 1346805026}
---- !u!114 &1560862768 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 606996841, guid: 972095eb10769f74ba94834ead9a32d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 38205087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf9c4b2510da2e4e919d5bdb8edb73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1587881751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,17 +3156,15 @@ MonoBehaviour:
     name: 
     equipmentId: []
     equipmentDropChance: 
-  paths:
-  - {fileID: 606996841}
-  - {fileID: 1235877042}
-  - {fileID: 2088249717}
-  - {fileID: 1560862768}
-  - {fileID: 470271917}
   currentPath: {fileID: 606996841}
   prefabPieces: []
   straightPrefab: {fileID: 606996841, guid: 972095eb10769f74ba94834ead9a32d0, type: 3}
+  pathEndingPrefab: {fileID: 480853766, guid: 4556a332c06c14741a01e2c8afd51825, type: 3}
   bentPrefab: {fileID: 8157295730510267794, guid: 4403a4fe4d2ea8c4f9c1414a64116802,
     type: 3}
+  minDistanceBetweenEvents: 2
+  maxDistanceBetweenEvents: 3
+  levelContainer: {fileID: 1346805027}
 --- !u!4 &2002961588
 Transform:
   m_ObjectHideFlags: 0
@@ -3216,18 +3179,6 @@ Transform:
   m_Father: {fileID: 1346805027}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2088249717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2088249717, guid: fc3d9030863f32d43975386fdc3d9f2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 589504426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf9c4b2510da2e4e919d5bdb8edb73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2088249719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 405288, guid: fc3d9030863f32d43975386fdc3d9f2f,

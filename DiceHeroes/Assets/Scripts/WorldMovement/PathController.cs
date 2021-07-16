@@ -6,12 +6,9 @@ using UnityEngine;
 using Leguar.TotalJSON;
 public class PathController : MonoBehaviour
 {
-    public static PathController Instance;
     public LootTable areaLootTable;
     public List<Node> pathNodes = new List<Node>();
 
-    [SerializeField]
-    List<PathPiece> paths = new List<PathPiece>();
     [SerializeField]
     PathPiece currentPath;
 
@@ -22,6 +19,9 @@ public class PathController : MonoBehaviour
     PathPiece straightPrefab;
 
     [SerializeField]
+    PathPiece pathEndingPrefab;
+
+    [SerializeField]
     PathPiece bentPrefab;
 
     [SerializeField]
@@ -29,6 +29,9 @@ public class PathController : MonoBehaviour
 
     [SerializeField]
     int maxDistanceBetweenEvents=3;
+
+    [SerializeField]
+    Transform levelContainer;
 
     int distanceBetweenEvents;
 
@@ -94,7 +97,7 @@ public class PathController : MonoBehaviour
                 }
                 pathNodes[pathNodes.Count - 2].forward = pathNodes[pathNodes.Count - 1];
                 length--;
-                straigthPieces = 2;// Random.Range(3, 6);
+                straigthPieces = Random.Range(3, 6);
                 currentRotation += grades[temp];
                 if (currentRotation >= 360)
                 {
@@ -102,13 +105,38 @@ public class PathController : MonoBehaviour
                 }
             }
         }
+
+        if (length == 0)
+        {
+            if (currentRotation == 270)
+            {
+                y--;
+            }
+            else if (currentRotation == 0)
+            {
+                x--;
+            }
+            else if (currentRotation == 180)
+            {
+                x++;
+            }
+            else if (currentRotation == 90)
+            {
+                y++;
+            }
+
+            pathEventType = PathEventType.Final;
+            pathNodes.Add(new Node(pathEndingPrefab, x, y, currentRotation, pathEventType));
+            pathNodes[pathNodes.Count - 2].forward = pathNodes[pathNodes.Count - 1];
+        }
+
         for (int i = 0; i < pathNodes.Count; i++)
         {
             PathPiece g=null;
+            //Shitty modular prefabs....
             if (pathNodes[i].piece.PathPieceType == PathPieceType.Straight)
             {
                 g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 5, 0, pathNodes[i].y * 10 + 5), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
-
             }
             else if (pathNodes[i].piece.PathPieceType == PathPieceType.Bent)
             {
@@ -131,10 +159,38 @@ public class PathController : MonoBehaviour
                 {
                     g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 3.75f, 0, pathNodes[i].y * 10 + 6.25f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
 
-                }                
+                }
+            }
+            else if (pathNodes[i].piece.PathPieceType == PathPieceType.Final)
+            {
+                if (pathNodes[i].rotation == 0 || pathNodes[i].rotation == 360)
+                {
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 10f, 0, pathNodes[i].y * 10 + 5), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
+                }
+                else if (pathNodes[i].rotation == 90)
+                {
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 5, 0, pathNodes[i].y * 10 ), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
+                }
+                else if (pathNodes[i].rotation == 180)
+                {
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10, 0, pathNodes[i].y * 10 +5f), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
+                }
+                else if (pathNodes[i].rotation == 270)
+                {
+                    g = Instantiate(pathNodes[i].piece, new Vector3(pathNodes[i].x * 10 + 5f, 0, pathNodes[i].y * 10 +10), Quaternion.Euler(new Vector3(0, pathNodes[i].rotation, 0)));
+
+                }
             }
             g.PathEventType = pathNodes[i].eventType;
+            g.transform.parent = levelContainer;
             pathNodes[i].piece = g;//I know something is fucked up somewhere but am tired and running on low caffeine...or already ran out of it
+            if (g.PathEventType == PathEventType.FreeChest)
+            {
+                g.chest.gameObject.SetActive(true);
+            }
         }
     }
 
